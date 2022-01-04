@@ -8,7 +8,7 @@ import Profile from './components/Profile/Profile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/Homepage/HomePage';
 import Footer from './components/Footer/Footer';
-
+import Map from './components/JourneyPlanning/Map';
 import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
 
@@ -26,6 +26,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/favorite" element={<Favorite />} />
+          <Route path="/journeyplanning" element={<Map />} />
         </Routes>
 
 
