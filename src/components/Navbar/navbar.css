@@ -1,0 +1,153 @@
+.Navbar{
+    background-color: #021E39;
+    width: 100%;
+    height: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+}
+.Navbar .middleSide{
+    font-size:2rem;
+    max-height: 80px;
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    
+}
+
+.Navbar .leftSide{
+    flex: 40%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+   
+}
+
+.Navbar .leftSide .links{
+    max-height: 80px;
+}
+
+.Navbar .leftSide .links a{
+   text-decoration: none;
+   color: white;
+   font-size: 25px;
+   margin-left: 15px;
+}
+
+.Navbar .leftSide button{
+    display: none;
+    margin-left: 20px;
+}
+
+.Navbar .leftSide #hidden{
+   display: flex;
+}
+
+
+
+.Navbar .rightSide{
+    flex: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
+        
+}
+.Navbar .memberImg{
+    
+    position:static;
+    margin-left: 30px;
+    width: 50px; 
+    height: 50px; 
+    background-color: rgba(51, 50, 50, 0.733);
+   
+    
+  
+}
+.Navbar .memberImg:hover{
+    cursor: pointer;
+}
+
+.rightSide input {
+    width: 220px;
+    height: 30px;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    padding-left: 15px;
+    color: black;
+}
+
+.rightSide button{
+    height: 32px;
+    width: 70px;
+    font-size: 16px;
+    border-radius: 15px;
+    
+
+    
+    
+
+
+}
+
+.rightSide button:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 1045px)
+{    
+    .Navbar .leftSide .links a{
+        font-size: 20px;
+    }
+    .Navbar .middleSide{
+        display: none;
+    }
+
+}
+
+@media (max-width: 800px)
+{    
+    .Navbar .leftSide .links a{
+        font-size: 15px;
+    }
+
+}
+
+@media (max-width: 750px)
+{    
+    .Navbar .leftSide button{
+        display: flex;
+    }
+
+    .Navbar .leftSide .links {
+        display: none;
+    }
+    .Navbar .leftSide #hidden{
+        position: absolute;
+        left: 0;
+        top: 80px;
+        height: 230px;
+        max-height: 230px;
+        width: 100%;
+        background-color: #021E39;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .Navbar .leftSide #hidden a {
+        margin: 10px;
+        font-size: 25px;
+    }
+    .Navbar .leftSide #hidden a:hover {
+      color:rgb(5, 86, 192);
+    }
+
+    .rightSide input{
+        width:190px;
+       margin-left: 10px;
+        
+    }
+
+}
