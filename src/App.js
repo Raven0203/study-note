@@ -11,6 +11,8 @@ import Footer from './components/Footer/Footer';
 import Map from './components/JourneyPlanning/Map';
 import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
+import Test from './components/Practice/Bootstrap';
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/journeyplanning" element={<Map />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
 
 

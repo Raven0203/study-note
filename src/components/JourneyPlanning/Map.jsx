@@ -2,8 +2,12 @@ import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { margin, padding } from '@mui/system';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import './map.css'
 
 const containerStyle = {
+
   width: '100%',
   height: '100%'
 };
@@ -22,7 +26,7 @@ let center = {
   });
 } */
 
-/*
+
 const Footer = () => {
   return (
     <Container>
@@ -36,7 +40,7 @@ const Footer = () => {
       <Col sm>sm=true</Col>
     </Row>
   </Container>
-       <div>
+      /* <div>
               <div className="container">
                   <div className="row">
                       <div className="col">
@@ -47,15 +51,20 @@ const Footer = () => {
                       </div>
                   </div>
               </div>
-      </div> 
+      </div>  */
   );
 }
-*/
+
 
 
 function MyComponent() {
   return (    
-    <LoadScript
+    <>
+    
+   <div className='maps'>
+      <div></div>
+      <div>
+  {  <LoadScript
       googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
     >
       <GoogleMap
@@ -63,10 +72,15 @@ function MyComponent() {
         center={center}
         zoom={18}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+        {/* Child components, such as markers, info windows, etc. */}
         <></>
       </GoogleMap>
-    </LoadScript>
+    </LoadScript>  }
+    </div>
+    </div>
+  
+    
+    </>
   )
 }
 
