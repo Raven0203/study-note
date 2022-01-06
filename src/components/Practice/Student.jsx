@@ -19,10 +19,10 @@ export default function Student() {
 
     const handleClick = (e) => {
         e.preventDefault()
-        const student = { name, address }
+        const student = { memberid, membername }
         console.log(student.name);
-        fetch("http://localhost:8080/student/add", {
-            method: "POST",
+        fetch("http://localhost:8080/member/2", {
+            method: "GET",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(student)
         }).then(() => {
@@ -31,7 +31,7 @@ export default function Student() {
     }
 
     useEffect(() => {
-        fetch("http://localhost:8080/student/getAll")
+        fetch("http://localhost:8080/journey/1")
             .then(res => res.json())
             .then((result) => {
                 setStudents(result);
@@ -70,9 +70,9 @@ export default function Student() {
 
                 {students.map(student => (
                     <Paper elevation={6} style={{ margin: "10px", padding: "15px", textAlign: "left" }} key={student.id}>
-                        Id:{student.id}<br />
-                        Name:{student.name}<br />
-                        Address:{student.address}
+                        Id:{student.memberid}<br />
+                        Name:{student.membername}<br />
+                        Address:{student.memberemail}
 
                     </Paper>
                 ))

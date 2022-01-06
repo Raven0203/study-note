@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Appbar from './components/Practice/Appbar';
 import Prac from './components/Practice/Prac';
-import Student from './components/Practice/Student';
+import Student from './components/Practice/Backend';
 import Profile from './components/Profile/Profile';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/Homepage/HomePage';
@@ -12,6 +12,7 @@ import Map from './components/JourneyPlanning/Map';
 import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
 import Test from './components/Practice/Bootstrap';
+import Search from './components/JourneyPlanning/Mapsearch'
 
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/journeyplanning" element={<Map />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/api" element={<Student />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
 
 

@@ -3,3 +3,14 @@
     grid-template-columns: 20% 80%;
     height: 50rem;
 }
+
+.api{
+    word-break:break-all;
+    width: 100px;
+    height: 100px;
+}
+
+.data-display{
+    width: 250px;
+    
+}
