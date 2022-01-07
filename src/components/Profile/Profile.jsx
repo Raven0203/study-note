@@ -27,7 +27,6 @@ const Profile = () => {
                 <input type="text" name="" id="" />
             </form>
             <div className="icons">
-
                 <a href="#" className="fab fa-facebook-f"></a>
                 <a href="#" className="fab fa-youtube"></a>
                 <a href="#" className="fab fa-instagram"></a>
