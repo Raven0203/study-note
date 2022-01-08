@@ -5,8 +5,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import './map.css'
-import App from '../Practice/Backend'
+import Api from '../Practice/Backend'
 import Map from '../JourneyPlanning/Mapsearch'
+import BasicModal from '../JourneyPlanning/PlanTable'
 
 const containerStyle = {
 
@@ -47,9 +48,9 @@ function MyComponent() {
     
    <div className='maps'>
      
-      <App />
+      <BasicModal />
     
-      <div>
+      <div id='googlemaps'>
       {  <LoadScript
       googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
     >

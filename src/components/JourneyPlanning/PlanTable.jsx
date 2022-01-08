@@ -1,71 +1,47 @@
-import React, { Component } from 'react';
-import isEmpty from 'lodash.isempty';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
-// components:
-import Marker from '../components/Marker';
+const style = {
+  position: 'relative',
+  top: '22%',
+  left: '34%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+  opacity: 0.5
+  
+};
 
-// examples:
-import GoogleMap from '../components/GoogleMap';
-import SearchBox from '../components/SearchBox';
+export default function BasicModal() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-// consts
-import LOS_ANGELES_CENTER from '../const/la_center';
-
-class Searchbox extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      mapApiLoaded: false,
-      mapInstance: null,
-      mapApi: null,
-      places: [],
-    };
-  }
-
-  apiHasLoaded = (map, maps) => {
-    this.setState({
-      mapApiLoaded: true,
-      mapInstance: map,
-      mapApi: maps,
-    });
-  };
-
-  addPlace = (place) => {
-    this.setState({ places: place });
-  };
-
-  render() {
-    const {
-      places, mapApiLoaded, mapInstance, mapApi,
-    } = this.state;
-    return (
-      <>
-        {mapApiLoaded && <SearchBox map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />}
-        <GoogleMap
-          defaultZoom={10}
-          defaultCenter={LOS_ANGELES_CENTER}
-          bootstrapURLKeys={{
-            key: AIzaSyBVJbbjVtDomd70PiL4cfObMSQqrL4kNhQ, 
-            /* process.env.REACT_APP_MAP_KEY, */
-            libraries: ['places', 'geometry'],
-          }}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
-        >
-          {!isEmpty(places)
-            && places.map((place) => (
-              <Marker
-                key={place.id}
-                text={place.name}
-                lat={place.geometry.location.lat()}
-                lng={place.geometry.location.lng()}
-              />
-            ))}
-        </GoogleMap>
-      </>
-    );
-  }
+  return (
+    <div>
+      <Button onClick={handleOpen}>Open modal</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        hideBackdrop="true"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          </Typography>
+        </Box>
+      </Modal>
+    </div>
+  );
 }
-
-export default Searchbox;
