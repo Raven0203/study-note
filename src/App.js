@@ -12,7 +12,7 @@ import Map from './components/JourneyPlanning/Map';
 import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
 import Test from './components/Practice/Bootstrap';
-import Search from './components/JourneyPlanning/Mapsearch'
+
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
           <Route path="/journeyplanning" element={<Map />} />
           <Route path="/test" element={<Test />} />
           <Route path="/api" element={<Student />} />
-          <Route path="/search" element={<Search />} />
+          
         </Routes>
 
 

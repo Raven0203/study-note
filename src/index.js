@@ -2,13 +2,15 @@ import Search from '@mui/icons-material/Search';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import Map from './components/JourneyPlanning/Map';
+
 
 /* import 'bootstrap/dist/css/bootstrap.min.css'; */
 
 ReactDOM.render(
   <React.StrictMode>
-   
-    <App />
+    
+    <App></App>
   </React.StrictMode>,
   document.getElementById('root')
 );

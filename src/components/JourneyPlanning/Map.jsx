@@ -28,10 +28,10 @@ const position = {
 const onLoad = marker => {
   console.log('marker: ', marker)
 }
+/* 
+const onLoad = ref => this.searchBox = ref;
 
-const onLoad2 = ref => this.searchBox = ref;
-
-const onPlacesChanged = () => console.log(this.searchBox.getPlaces());
+const onPlacesChanged = () => console.log(this.searchBox.getPlaces()); */
 
 /* function init() {
   navigator.geolocation.watchPosition((position) => {
@@ -40,37 +40,6 @@ const onPlacesChanged = () => console.log(this.searchBox.getPlaces());
       center.lng = position.coords.longitude;
   });
 } */
-
-
-const Footer = () => {
-  return (
-    <Container>
-    <Row>
-      <Col sm={8}>sm=8</Col>
-      <Col sm={4}>sm=4</Col>
-    </Row>
-    <Row>
-      <Col sm>sm=true</Col>
-      <Col sm>sm=true</Col>
-      <Col sm>sm=true</Col>
-    </Row>
-  </Container>
-      /* <div>
-              <div className="container">
-                  <div className="row">
-                      <div className="col">
-                        test
-                      </div>
-                      <div className="col">
-                        test2
-                      </div>
-                  </div>
-              </div>
-      </div>  */
-  );
-}
-
-
 
 function MyComponent() {
   return (    
@@ -85,42 +54,12 @@ function MyComponent() {
       googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
     >
       <GoogleMap
+        id="searchbox-example"
         mapContainerStyle={containerStyle}
         center={center}
         zoom={18}
       >
-        {/* Child components, such as markers, info windows, etc. */}
-        <Marker
-      onLoad={onLoad}
-      position={position}
-      />
-
-<StandaloneSearchBox
-      onLoad={onLoad2}
-      onPlacesChanged={
-        onPlacesChanged
-      }
-    >
-      <input
-        type="text"
-        placeholder="Customized your placeholder"
-        style={{
-          boxSizing: `border-box`,
-          border: `1px solid transparent`,
-          width: `240px`,
-          height: `32px`,
-          padding: `0 12px`,
-          borderRadius: `3px`,
-          boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
-          fontSize: `14px`,
-          outline: `none`,
-          textOverflow: `ellipses`,
-          position: "absolute",
-          left: "50%",
-          marginLeft: "-120px"
-        }}
-      />
-    </StandaloneSearchBox>
+     
 
 
         <></>
