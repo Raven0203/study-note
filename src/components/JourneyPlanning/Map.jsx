@@ -9,7 +9,6 @@ import './map.css'
 
 
 const containerStyle = {
-
   width: '100%',
   height: '100%'
 };
@@ -88,7 +87,7 @@ function MyComponent() {
             <DirectionsRenderer
               // required
               options={{
-                directions: (resault != null) ? resault : null
+                directions: resault 
               }}
 
             />
