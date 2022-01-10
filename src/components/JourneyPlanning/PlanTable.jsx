@@ -6,7 +6,8 @@ var title;
 
 
 function PlanTable(setR) {
-
+    const detail = setR.detail;
+    console.log(setR.place_id);
     const [data, setData] = useState([])
     var respone;
     function setRespone(result){
@@ -31,7 +32,12 @@ function PlanTable(setR) {
 
         setR.setResault(respone)
     }
-     return (<div>{
+     return (<div>
+         <h4>h4</h4>
+         <h5>{detail.name}</h5>
+         {
+
+        
         <DirectionsService options={{           
             destination: {  lat: 24.1369434, lng: 120.6369918  },
             origin: { lat: 24.1384704, lng: 120.6410738 },
