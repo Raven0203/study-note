@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Marker, useJsApiLoader, useLoadScript, GoogleMap, LoadScript, DirectionsRenderer, Autocomplete } from '@react-google-maps/api';
 import { margin, padding } from '@mui/system';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PlanTable from './PlanTable';
+import PlanTableTest from './PlanTableTest';
 import './map.css'
 
 
@@ -13,7 +14,7 @@ const containerStyle = {
   height: '100%'
 };
 let autocomplete = null;//自動完成的結果
-
+let placeid;
 function MyComponent() {
 
   const [center, setCenter] = useState({
@@ -24,7 +25,8 @@ function MyComponent() {
 
   })
   const [zoomin, setZoomin] = useState(18)//自動完成後zoomin用
-  const [resault, setResault] = useState({})//direction 
+  const [resault, setResault] = useState({})//direction
+ 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: "AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig",
     libraries: ["places"]
@@ -37,7 +39,7 @@ function MyComponent() {
     <>
 
       <div className='maps'>
-        <div className='plan'><PlanTable setResault={setResault}/*把方法丟給table給他取用*/ /></div>
+        <div className='plan'><PlanTableTest setResault={setResault} placeid={placeid}/*把方法丟給table給他取用*/ /></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
@@ -59,6 +61,7 @@ function MyComponent() {
                 setCenter(autocomplete.getPlace().geometry.location);//重新定位
                 setMark(autocomplete.getPlace().geometry.location);//標記
                 setZoomin(20);//拉近
+                placeid = autocomplete.getPlace().place_id;
               }}
             >
               <input
@@ -91,6 +94,7 @@ function MyComponent() {
               }}
 
             />
+            
           </GoogleMap>
 
           {/* </LoadScript>  } */}

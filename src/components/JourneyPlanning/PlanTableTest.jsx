@@ -5,24 +5,15 @@ var title;
 var respone;
 
 
-function PlanTable({setResault,placeid}) {
+function PlanTableTest({setResault,placeid}) {
     const [data, setData] = useState([])
      console.log("LOAD")
-     
+     alert(placeid)
     useEffect(() => {
-        FetchData();       
+            
         console.log("COMPLETE RENDER")
     }, [])
-    function FetchData() {
-        fetch("http://localhost:8080/journey/1")
-            .then((res) => {
-                return res.json();
 
-            }).then((jsondata) => {
-                dataparse(jsondata)
-
-            })
-    }
 
     function dataparse(jsondata) {
         temp = JSON.parse(jsondata.journeydetail).eachDays[0].eachPlaces;
@@ -90,11 +81,61 @@ function PlanTable({setResault,placeid}) {
     }
         <table >
             <tr>
-                <th><input type="date" value={title}></input></th>
+                <th><input type="date" value={title} ></input></th>
             </tr>{data.map((item) => {
                 return <><tr><td><b>{item.placeName}</b></td></tr><tr>{item.distance}</tr></>
             })}</table><button onClick={setMap}>MAP</button>
     </div>)
 }
 
-export default PlanTable;
+export default PlanTableTest;
+
+
+// {
+//     "beginDate": "2021/02/15",
+//         "daysNum": 2,
+//             "eachDays": [
+//                 {
+//                     "beginTime": "0900",
+//                     "placesNum": "2",
+//                     "eachPlaces": [
+//                         {
+//                             "placeName": "臺中國家歌劇院 ",                              "AttractionsId":"ChIJcaKjTOw9aTQR4mAeJzejtdg",
+//                             "note": "老闆會拿棍子扁人，要小心"
+//                         },
+//                         {
+//                             "placeName": "國立自然科學博物館",
+//                             "AttractionsId": "ChIJyzSRBng9aTQRNk-Xj7pbpvc",
+//                             "note": "記得買土產"
+//                         },
+//                         {
+//                             "placeName": "綠光計畫范特喜文創聚落",
+//                             "AttractionsId": "ChIJO-oeCZ89aTQR5Y9uRU4uSEI",
+//                             "note": "老闆會拿棍子扁人，要小心"
+//                         },
+//                         {
+//                             "placeName": "國立臺灣美術館",
+//                             "AttractionsId": "ChIJyVHkNqY9aTQRDilsyqDVfbg",
+//                             "note": "老闆會拿棍子扁人，要小心"
+//                         },
+//                         {
+//                             "placeName": "國美館綠園道",
+//                             "AttractionsId": "ChIJW_5f_KY9aTQRlphcLmWj88I",
+//                             "note": "老闆會拿棍子扁人，要小心"
+//                         }
+
+
+//                     ]
+//                 },
+//                 {
+//                     "beginTime": "1400",
+//                     "placesNum": "1",
+//                     "eachPlaces": [{
+//                         "placeName": "休息站",
+//                         "stayTime": "30",
+//                         "note": "上車睡覺，下車尿尿"
+//                     }
+//                     ]
+//                 }
+//             ]
+// }
