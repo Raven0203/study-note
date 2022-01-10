@@ -12,7 +12,8 @@ import Map from './components/JourneyPlanning/Map';
 import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
 import Test from './components/Practice/Bootstrap';
-
+import About from './components/About/About';
+import QA from './components/QA/QA';
 
 function App() {
   return (
@@ -30,6 +31,8 @@ function App() {
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/journeyplanning" element={<Map />} />
           <Route path="/test" element={<Test />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/qa" element={<QA/>} /> 
         </Routes>
 
 

@@ -15,8 +15,8 @@ const Footer = () => {
                                 <li><Link to=""><a>首頁</a></Link></li>
                                 <li><a href="#">部落格</a></li>
                                 <li><a href="#">行程規劃</a></li>
-                                <li><a href="#">常見問題</a></li>
-                                <li><a href="#">關於我們</a></li>
+                                <li><Link to="/qa">常見問題</Link></li>
+                                <li><Link to="/about"><a>關於我們</a></Link></li>
                             </ul>
                         </div>
                         {/*
