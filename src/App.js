@@ -11,27 +11,56 @@ import Footer from './components/Footer/Footer';
 
 import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
+import Journeyplan from './components/JourneyPlan/JourneyPlan';
+import PageNF from './PageNF';
+import Login from './components/Login/Login';
+
+
+import NavbarGuest from './components/Navbar/NavbarGuest';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './Firebase/firebase-config';
+import { useEffect, useState } from 'react';
+import Register from './components/Login/Register';
+
 
 function App() {
+  const [user, setUser] = useState({});
+
+
+  //登出狀態 監聽
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser)
+  })
+
+
+
   return (
     <div className="App">
 
       <BrowserRouter>
         <ScrollTop />
-        <Navbar />
+
+
+        {user ? <Navbar user={user} /> : (<NavbarGuest user={user} />)}
+
 
         <Routes>
-
-
-          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<PageNF />} />
+          <Route path="/" element={<HomePage user={user}/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/favorite" element={<Favorite />} />
+          <Route path="/journeyplan" element={<Journeyplan />} />
+
         </Routes>
-
-
         <Footer />
 
+
+
+
+
       </BrowserRouter>
+
     </div >
   );
 }

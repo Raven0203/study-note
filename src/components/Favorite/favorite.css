@@ -1,3 +1,71 @@
-h1 {
+.Box-title {
+
+    background-color: #ffff56;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    color: black;
+    border: 2px solid;
+    border-radius: 500px;
+    width: 10%;
+
+
+}
+
+.favorite-box {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 100%;
+    box-shadow: 1em 0 0.4em rgb(117, 117, 116), -1em 0 0.4em rgb(172, 172, 164);
+    border-radius: 10px;
+    background-color: rgb(235, 235, 235);
+
+}
+
+.table-1 {
+    color: white;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: cadetblue;
+    width: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 15px;
+    min-height: calc(100% - 50px);
+    display: flex;
+
+
+}
+
+.table-2 {
+    color: white;
+    background-color: sandybrown;
+    width: 50%;
+
+    margin-top: 15px;
+
+
+
+
+
+}
+
+.author-title {
+    text-decoration: none;
+    color: black;
+    width: 100px;
+    line-height: 25px;
+    margin-left: 4.5px;
+
+}
+
+.favorite-context {
+    padding-left: 10px;
+    line-height: 2.em
 }

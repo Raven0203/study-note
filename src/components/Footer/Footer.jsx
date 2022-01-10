@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import './footer.css'
 
 const Footer = () => {
+
+
     return (
         <div>
-            <header>
+            {/* <header>
                 <p></p>
 
-            </header>
+            </header> */}
             <footer className="footer">
                 <div className="container">
                     <div className="row">
@@ -39,7 +41,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="footer-col">
-                            <h4>追蹤最新消息</h4>
+                            <h4>追蹤最新消息&emsp;&emsp;&emsp;&emsp;&emsp;</h4>
                             <div className="social-links">
                                 <a target="_blank" href="https://www.facebook.com/"><i className="fab fa-facebook-f"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i className="fab fa-twitter"></i></a>

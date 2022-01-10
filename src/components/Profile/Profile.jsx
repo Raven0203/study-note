@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './profile.css'
 
 const Profile = () => {
+    const [name, setName] = useState("");
+
+    const { inputref, textref } = useRef(null);
+
+    const handleClick = () => {
+        inputref.current.value = "";
+        textref.current.value = "";
+    }
+
     return (
         <div className="card">
             <div className="card-image">
@@ -11,16 +20,18 @@ const Profile = () => {
                 <img src="./img/bear.jpg" alt="" />
             </div>
             <div className="card-content">
-                <h3>USER_NAME</h3>
+                <h3>用戶名稱：{localStorage.getItem("email")}</h3>
                 <h4>個性簽名：</h4><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
             </div>
             <form action="" style={{ display: 'static', justifyItems: 'center' }}>
                 <label>暱稱:</label>
-                <input type="text" name="" id="" />
+                <input type="text" name="" id="" ref={inputref} onChange={(e) => { setName(e.target.value) }} />
+                <button onClick={handleClick}>更改暱稱</button>
+                <h2>{name}</h2>
                 <br />
                 <br />
                 <label>Email:</label>
-                <input type="email" name="" id="" />
+                <input type="email" name="" id="" ref={textref} />
                 <br />
                 <br />
                 <label >星座:</label>

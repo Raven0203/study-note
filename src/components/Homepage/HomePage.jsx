@@ -3,6 +3,9 @@ import Footer from '../Footer/Footer'
 import './homepage.css'
 import ScrollTop from './ScrollTop'
 export default function HomePage() {
+    
+    
+    
     return (
 
         <main className='main'>
@@ -11,14 +14,14 @@ export default function HomePage() {
                 <img className='mainImg' src="./img/3.jpg" alt="" />
             </div>
 
-            <section class="sec-01">
-                <div class="container">
-                    <h2 class="main-title">最新消息</h2>
-                    <div class="content">
-                        <div class="image">
+            <section className="sec-01">
+                <div className="container">
+                    <h2 className="main-title">最新消息</h2>
+                    <div className="content">
+                        <div className="image">
                             <a href=""><img src="./img/img1.jpg" alt="" /></a>
                         </div>
-                        <div class="text-box">
+                        <div className="text-box">
                             <h3>Lorem Ipsum</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                                 labore et dolore magna
@@ -28,23 +31,23 @@ export default function HomePage() {
                                 pariatur.</p>
                         </div>
                     </div>
-                    <div class="media-icons">
-                        <a href="#" class="icon"><i ></i></a>
-                        <a href="#" class="icon"><i ></i></a>
-                        <a href="#" class="icon"><i ></i></a>
-                        <a href="#" class="icon"><i ></i></a>
+                    <div className="media-icons">
+                        <a href="#" className="icon"><i ></i></a>
+                        <a href="#" className="icon"><i ></i></a>
+                        <a href="#" className="icon"><i ></i></a>
+                        <a href="#" className="icon"><i ></i></a>
                     </div>
                 </div>
             </section>
-            <section class="sec-02">
-                <div class="container">
-                    <h3 class="section-title">熱門景點</h3>
-                    <div class="content">
-                        <div class="image">
+            <section className="sec-02">
+                <div className="container">
+                    <h3 className="section-title">熱門景點</h3>
+                    <div className="content">
+                        <div className="image">
                             <img src="./img/img2.jpg" alt="" />
                         </div>
-                        <div class="info">
-                            <h4 class="info-title">101風景美不勝收</h4>
+                        <div className="info">
+                            <h4 className="info-title">101風景美不勝收</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                                 labore et dolore magna
                                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -55,13 +58,13 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
-            <section class="sec-03">
-                <div class="container">
-                    <h3 class="section-title">晚上也閒不下來嗎?</h3>
-                    <div class="content">
-                        <div class="media-info">
+            <section className="sec-03">
+                <div className="container">
+                    <h3 className="section-title">晚上也閒不下來嗎?</h3>
+                    <div className="content">
+                        <div className="media-info">
 
-                            <div class="text-box">
+                            <div className="text-box">
                                 <h3>西門町</h3>
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis inventore iure expedita nulla, cupiditate error.</p>
                                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis inventore iure expedita nulla, cupiditate error.</p>
@@ -75,7 +78,7 @@ export default function HomePage() {
                             <li><a href="#"><i ></i> Youtube</a></li>
                             <li><a href="#"><i ></i> Linkedin</a></li> */}
                         </div>
-                        <div class="image">
+                        <div className="image">
                             <img src="./img/img3.jpg" alt="" />
                         </div>
                     </div>

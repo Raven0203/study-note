@@ -14,7 +14,8 @@ import ScrollTop from '../Homepage/ScrollTop';
 
 
 
-export default function Navbar() {
+export default function Navbar({ user }) {
+
     // RWDMenu
     const [showLinks, setShowLinks] = useState(false);
 
@@ -35,18 +36,18 @@ export default function Navbar() {
     const handleMenuClose = () => {
         setAnchorEl(null);
     };
-
+    //profileURL
+    const profileURL = localStorage.getItem("profileURL")
 
 
     return (
         <div className='Navbar' id="hidden">
             <div className="leftSide">
                 <div className="links" id={showLinks ? "hidden" : ""}>
-                    <Link to=" "><a >首頁</a></Link>
+                    <Link to=" " className='a'>首頁</Link>
 
-                    <a href="">行程規劃</a>
-                    <a href="">部落格</a>
-                    <a href="">登入 | 註冊</a>
+                    <Link to="/journeyplan " className='a'>行程規劃</Link>
+                    <Link to="/" className='a'>部落格</Link>
                 </div>
                 <button onClick={() => setShowLinks(!showLinks)}><ReorderIcon /></button>
             </div>
@@ -56,6 +57,9 @@ export default function Navbar() {
             <div className="rightSide">
                 <input type="search" name="" id="" placeholder='Search...' ref={searchRef} />
                 <button onClick={handleClickSearch}><SearchIcon /></button>
+
+
+
                 <Tooltip title='個人資訊'>
                     <IconButton onClick={handleMenuOpen}
                         size="small"
@@ -64,7 +68,7 @@ export default function Navbar() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : false}>
                         {/* memberImage */}
-                        <Avatar className='memberImg' />
+                        <Avatar src={profileURL} className='memberImg' />
                     </IconButton>
 
                 </Tooltip>

@@ -37,6 +37,10 @@ ul {
 	background-color: #021E39;
 	padding: 70px 0;
 
+	clear: both;
+	position: relative;
+
+
 }
 
 .footer-col {
