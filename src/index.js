@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 import Profile from './components/Profile/Profile';
+import Search from './Test/Search';
+
 
 
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Search />
   </React.StrictMode>,
   document.getElementById('root')
 );
