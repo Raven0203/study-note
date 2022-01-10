@@ -11,7 +11,7 @@ import Search from './Test/Search';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Search />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

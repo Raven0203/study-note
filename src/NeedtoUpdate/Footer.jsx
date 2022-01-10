@@ -5,7 +5,7 @@ import './footer.css'
 const Footer = () => {
     return (
         <div>
-           
+
             <footer className="footer">
                 <div className="container">
                     <div className="row">
@@ -28,9 +28,9 @@ const Footer = () => {
                                 <li><a href="#"><i className="fas fa-angle-down"></i></a></li>  
                             </ul>
                         </div>  */}
-                        
+
                         <div className="footer-col">
-                            <h4>聯絡我們</h4> 
+                            <h4>聯絡我們</h4>
                             <ul>
                                 <li><a href="#"><i className="fas fa-envelope">&nbsp;&nbsp;eeit36@travel.com</i></a></li>
                                 <li><a href="#"><i className="fas fa-phone">&nbsp;&nbsp;04-1239487</i></a></li>
@@ -38,8 +38,8 @@ const Footer = () => {
                                 {/*<li><a href="#"><i className="fas fa-angle-down"></i></a></li>*/}
                             </ul>
                         </div>
-                        
-    
+
+
                         <div className="footer-col">
                             <h4>追蹤最新消息</h4>
                             <div className="social-links">

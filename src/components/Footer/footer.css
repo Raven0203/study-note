@@ -37,18 +37,12 @@ ul {
 	background-color: #021E39;
 	padding: 70px 0;
 
-	clear: both;
-	position: relative;
-
-
 }
 
 .footer-col {
 	/* width: 25%; */
-	padding: 0 30px;
-
-
-
+	/* padding: 0 150px; */
+	padding: 0 3rem;
 }
 
 .footer-col h4 {
