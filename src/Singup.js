@@ -33,10 +33,12 @@ var uiConfig = {
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         firebase.auth.TwitterAuthProvider.PROVIDER_ID
     ],
+    privacyPolicyUrl: 'www.google.com.tw',
     callbacks: {
         // Avoid redirects after sign-in.
         signInSuccessWithAuthResult: async (authResult) => {
             const userInfo = authResult.additionalUserInfo;
+            console.log(userInfo);
             if (userInfo.isNewUser && userInfo.providerId === "password") {
                 try {
                     await authResult.user.sendEmailVerification();
