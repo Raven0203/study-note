@@ -25,7 +25,7 @@ const uiConfig = {
     signInFlow: 'popup',
 
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: '/signedIn',
+    signInSuccessUrl: 'https://www.youtube.com/',
     // We will display Google and Facebook as auth providers.
     signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
@@ -60,18 +60,19 @@ export default function Singup() {
 
     if (!isSignedIn) {
         return (
-            <div>
-                <h1>My App</h1>
-                <p>Please sign-in:</p>
+            <div className='header'>
+                <h1>Login / SignUp</h1>
+                <h4>選擇下列一個:</h4>
                 <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
             </div>
         );
     }
     return (
-        <div>
+        <div className='header'>
             <h1>My App</h1>
             <p>Welcome {auth.currentUser.displayName}! You are now signed-in!</p>
             <img src={photourl} alt='' />
+            <br />
             <button onClick={() => auth.signOut()}>Sign-out</button>
         </div>
     );
