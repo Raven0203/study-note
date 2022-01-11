@@ -98,6 +98,12 @@ function PlanTable({setResault,placeid}) {
         setResault(respone)
         console.log("draw map")
     }
+
+    function handleyo() {
+        setResault(null);
+
+        
+    }
     return (<div>{
         <DirectionsService options={{
             destination: { placeId: (data.length > 1) ? data[data.length - 1].AttractionsId : null },
@@ -110,6 +116,7 @@ function PlanTable({setResault,placeid}) {
                 console.log("callback")              
              }}>
 
+
         </DirectionsService>
     }
         <table >
@@ -118,6 +125,7 @@ function PlanTable({setResault,placeid}) {
             </tr>{data.map((item) => {
                 return <><tr><td><b>{item.placeName}</b></td></tr><tr>{item.distance}</tr></>
             })}</table><button onClick={setMap}>MAP</button>
+            <button onClick={handleyo}>yocancel</button>
     </div>)
 }
 
