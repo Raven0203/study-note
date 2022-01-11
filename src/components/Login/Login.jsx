@@ -38,7 +38,7 @@ const Login = () => {
       console.log(userdata);
       localStorage.setItem("email", userdata.user.email);
       localStorage.setItem("name", userdata.user.displayName);
-      localStorage.setItem("profileURL", userdata.user.photoURL);
+      localStorage.setItem("profileURL", user.user.photoURL);
 
       setRegisterEmail("")
       setRegisterPassword("")
@@ -66,7 +66,14 @@ const Login = () => {
       setLoginPassword("")
       localStorage.setItem("email", user.user.email);
       localStorage.setItem("name", user.user.displayName);
-      localStorage.setItem("profileURL", user.user.photoURL);
+
+      if (user.user.photoURL == null) {
+        localStorage.setItem("profileURL", "./img/3.jpg")
+      } else {
+        localStorage.setItem("profileURL", user.user.photoURL);
+      }
+
+
 
 
       window.location.href = "/"

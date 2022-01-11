@@ -3,8 +3,9 @@ import { useRef, useState } from "react";
 import "./profile3.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { Divider } from "@mui/material";
-import ConfirmDialog from "./ConfirmDialog";
+import { Avatar, Divider } from "@mui/material";
+
+import ProfileData from "./ProfileData";
 
 export default function Profile3() {
   //用戶資訊
@@ -24,10 +25,18 @@ export default function Profile3() {
     await setProfileSend(!profilesend);
   };
 
+  if (profileURL == null) {
+    console.log("true");
+  } else {
+    console.log(profileURL);
+  }
+
+
+
   return (
     <div className="profile-container" style={{ fontSize: "1.5rem" }}>
       {profilesend ? (
-        <ConfirmDialog
+        <ProfileData
           profilesend={profilesend}
           setProfileSend={setProfileSend}
           emailref={emailref}
@@ -46,7 +55,8 @@ export default function Profile3() {
       <form action="">
         <div className="row">
           <div className="img">
-            <img className="avatarimg" src="./img/3.jpg" alt="" />
+
+            <img className="avatarimg" src={profileURL === null ? "" : profileURL} alt="" />
           </div>
         </div>
         <div className="row">
@@ -73,6 +83,7 @@ export default function Profile3() {
           <div className="col-75">
             <input
               type="text"
+              required
               ref={nicknameref}
               className="text"
               id="nickname"

@@ -7,7 +7,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 
-export default function ConfirmDialog({
+export default function ProfileData({
   profilesend,
   setProfileSend,
   emailref,
@@ -27,7 +27,7 @@ export default function ConfirmDialog({
   let sign = signref.current.value;
   let realname = realnameref.current.value;
 
-  let a = [realname, email, profileURL, nickname, birthday, area, sign];
+  let profiledata = [realname, email, profileURL, nickname, birthday, area, sign];
 
   // const handleClickOpen = () => {
   //   setOpen(true);
@@ -43,8 +43,9 @@ export default function ConfirmDialog({
   const handleAgree = (e) => {
     e.preventDefault();
 
-    setProfileSend(true);
-    console.log(a);
+    setProfileSend(false);
+    window.location.reload();
+    console.log(profiledata);
   };
 
   return (
