@@ -14,6 +14,7 @@ function PlanTable({setResault,placeid}) {
         FetchData();       
         console.log("COMPLETE RENDER")
     }, [])
+    
     function FetchData() {
         fetch("http://localhost:8080/journey/1")
             .then((res) => {

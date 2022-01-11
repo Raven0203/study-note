@@ -4,48 +4,67 @@ var temp = [];
 var title;
 var respone;
 var jsondata;
-var placename ="testplacename";
-function PlanTableTest({setResault,placeid}) {
+function PlanTableTest({setResault,place}) {
     const [data, setData] = useState([])
      console.log("LOAD")
-     console.log(placeid)
      if(window.localStorage.jsondata){
         jsondata = JSON.parse(window.localStorage.jsondata)
         console.log("------------------------")
-        console.log(typeof jsondata.eachDays)
-        jsondata.journeydetail.eachDays[0].eachPlaces.push({"placeName":placename,"AttractionsId":placeid})
-        dataparse(jsondata);
+        
+        let insert=true;
+        for(let i =0;i<jsondata.journeydetail.eachDays[0].eachPlaces.length;i++){
+            
+             if(jsondata.journeydetail.eachDays[0].eachPlaces[i].AttractionsId==place.place_id){
+                insert=false;
+                break;
+                
+
+             }
+        }
+        if(insert &&  place.place_id){
+            jsondata.journeydetail.eachDays[0].eachPlaces.push({"placeName":place.place_name,"AttractionsId":place.place_id})
+            dataparse(jsondata)
+ 
+
+        }
+        window.localStorage.jsondata= JSON.stringify(jsondata);
     }else{
        let josonmodel ={};
      //  console.log(josonmodel)
         josonmodel.journeydetail={}
         josonmodel.journeydetail.beginDate="2021/02/15"
         josonmodel.journeydetail.daysNum=2
-        josonmodel.journeydetail.eachDays=[{}]
-        josonmodel.journeydetail.eachDays[0].beginTime = "0900"
-        josonmodel.journeydetail.eachDays[0].placesNum = "2"
-        josonmodel.journeydetail.eachDays[0].eachPlaces=[{"placeName":placename,"AttractionsId":"ChIJsdW1Y789aTQRV4PXfiiqtnI"},];
-        if(placeid!=""){
-            jsondata.eachDays[0].eachPlaces.push({"placeName":placename,"AttractionsId":placeid})
-        }
-        
+        josonmodel.journeydetail.eachDays=[];
+       
+        let placeobject ={};
+        placeobject.beginTime = "0900"
+        placeobject.placesNum = "2"
+        placeobject.eachPlaces=[];
+        //placeobject.eachPlaces.push({"placeName":place.name,"AttractionsId":"123"})
+        josonmodel.journeydetail.eachDays.push(placeobject)
+   
+        // if(placeobject!=={}){
+        //     alert(123)
+        //     josonmodel.journeydetail.eachDays.push(placeobject)
+        // }
+       
         console.log(josonmodel)
-        jsondata = josonmodel;
-        dataparse(jsondata);
+        //jsondata = josonmodel;
+        //dataparse(jsondata);
         window.localStorage.jsondata= JSON.stringify(josonmodel);
     }
-    useEffect(() => {
-        //dataparse(jsondata)
-        console.log("COMPLETE RENDER")
-    }, [])
+    useEffect(()=>{
+        dataparse(jsondata)
+    },[])
+    
 
 
     function dataparse(jsondata) {
-        //alert(typeof jsondata.journeydetail)
+        //alert(typeof jsondata.journeydetail.eachDays[0])
         temp = jsondata.journeydetail.eachDays[0].eachPlaces;
-        // console.log("-----dataparse------")
-        // console.log(temp)
-        // console.log("-------------------")
+        console.log("-----dataparse------")
+        console.log(temp)
+        console.log("-------------------")
         title = jsondata.journeydetail.beginDate;
         let count = 0;
         for (var i = 0; i < temp.length - 1; i++) {
@@ -58,7 +77,7 @@ function PlanTableTest({setResault,placeid}) {
                 }
             });
         }
-        temp[temp.length - 1].distance = "";
+        
     }
     async function FetchDistance(startID, endId, temp) {
         return await fetch(`/maps/api/distancematrix/json?origins=place_id:${startID}&destinations=place_id:${endId}&key=AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig`)

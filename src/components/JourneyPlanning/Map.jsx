@@ -47,7 +47,7 @@ function MyComponent() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleSent = () => setPlaceid(placedetail.place_id);
+  const handleSent = () => setPlace({"place_id":placedetail.place_id,"place_name":placedetail.name});
 //
 
   const [center, setCenter] = useState({
@@ -60,7 +60,7 @@ function MyComponent() {
 
   const [placedetail, setPlacedetail] = useState([]);
   const [placeopen, setPlaceopen] = useState([]);
-  const [placeid, setPlaceid] = useState("");
+  const [place, setPlace] = useState("");
 
   let lists = null;
 
@@ -90,7 +90,7 @@ function MyComponent() {
     <>
 
       <div className='maps'>
-        <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} placeid={placeid}/*把方法丟給table給他取用*//></div>
+        <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} place={place}/*把方法丟給table給他取用*//></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
