@@ -76,7 +76,7 @@ export default function Singup() {
     if (!isSignedIn) {
         return (
             <div className='header'>
-                <h1>Login / SignUp</h1>
+                <h1>登入 | 註冊</h1>
                 <h4>選擇下列一個:</h4>
                 <StyledFirebaseAuth uiCallback={ui => ui.disableAutoSignIn()} uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
             </div>
