@@ -7,8 +7,9 @@ var respone;
 
 function PlanTable({setResault,placeid}) {
     const [data, setData] = useState([])
+
      console.log("LOAD")
-     
+     console.log(placeid)
     useEffect(() => {
         FetchData();       
         console.log("COMPLETE RENDER")
@@ -19,8 +20,30 @@ function PlanTable({setResault,placeid}) {
                 return res.json();
 
             }).then((jsondata) => {
-                dataparse(jsondata)
+                // dataparse({"journeydetail":{
+                //     "beginDate": "2021/02/15",
+                //     "daysNum": 2,
+                //     "eachDays": [
+                //         {
+                //             "beginTime": "0900",
+                //             "placesNum": "2",
+                //             "eachPlaces": [
+                //                 {
+                //                     "placeName": "testplacename",
+                //                     "AttractionsId": "ChIJsdW1Y789aTQRV4PXfiiqtnI"
+                //                 },
+                //                 {
+                //                     "placeName": "testplacename",
+                //                     "AttractionsId": "ChIJZ7DDK8k9aTQRfvlfb8wlUl4"
 
+                //                 }
+                //             ]
+                //         }
+                //     ]
+                // }})
+
+                dataparse(jsondata)
+                console.log(jsondata)
             })
     }
 
@@ -31,6 +54,7 @@ function PlanTable({setResault,placeid}) {
         for (var i = 0; i < temp.length - 1; i++) {
             let continute = FetchDistance(temp[i].AttractionsId, temp[i + 1].AttractionsId, temp[i]);
             continute.then(() => {
+                
                 count++;
                 if (count == temp.length - 1) {
                     setData(temp);
@@ -76,9 +100,9 @@ function PlanTable({setResault,placeid}) {
     }
     return (<div>{
         <DirectionsService options={{
-            destination: { placeId: (data.length > 0) ? data[data.length - 1].AttractionsId : null },
-            origin: { placeId: (data.length > 0) ? data[0].AttractionsId : null },
-            waypoints: (data.length > 0) ? makeWayPoint(data) : [{ location: null }],
+            destination: { placeId: (data.length > 1) ? data[data.length - 1].AttractionsId : null },
+            origin: { placeId: (data.length > 1) ? data[0].AttractionsId : null },
+            waypoints: (data.length > 1) ? makeWayPoint(data) : [{ location: null }],
             travelMode: "DRIVING"
         }}
             callback={(res) => {

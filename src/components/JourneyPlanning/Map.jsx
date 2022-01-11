@@ -1,21 +1,54 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState , useEffect} from 'react'
 import { Marker, useJsApiLoader, useLoadScript, GoogleMap, LoadScript, DirectionsRenderer, Autocomplete } from '@react-google-maps/api';
 import { margin, padding } from '@mui/system';
+
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PlanTable from './PlanTable';
-import PlanTableTest from './PlanTableTest';
+import PlanTableTest from './plantabletest';
 import './map.css'
+import { ButtonBase } from '@mui/material';
+
+// Modal
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '30%',
+  transform: 'translate(-50%, -50%)',
+  width: 300,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 
+
+
+// Modal 
 const containerStyle = {
+
   width: '100%',
   height: '100%'
 };
 let autocomplete = null;//自動完成的結果
-let placeid;
+let openhour = null;
+
 function MyComponent() {
+//
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleSent = () => setPlaceid(placedetail.place_id);
+//
 
   const [center, setCenter] = useState({
     lat: 24.1369434,
@@ -24,13 +57,31 @@ function MyComponent() {
   const [mark, setMark] = useState({
 
   })
+
+  const [placedetail, setPlacedetail] = useState([]);
+  const [placeopen, setPlaceopen] = useState([]);
+  const [placeid, setPlaceid] = useState("");
+
+  let lists = null;
+
   const [zoomin, setZoomin] = useState(18)//自動完成後zoomin用
-  const [resault, setResault] = useState({})//direction
- 
+  const [resault, setResault] = useState({})//direction 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig",
+  //  AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig
+   
+    googleMapsApiKey: "AIzaSyC-PEqQflUzaDeh1SUbTI1wSS1onLCvTKY",
     libraries: ["places"]
   })
+
+/*   useEffect(() => {
+   
+   if (placedetail.opening_hours != undefined){
+    openhour = JSON.stringify(placedetail.opening_hours.weekday_text)
+   } else {
+     openhour = null;
+   }
+   
+   }, [placedetail]) */
 
   if (loadError) {
     return <div>Map cannot be loaded right now, sorry.</div>
@@ -39,7 +90,7 @@ function MyComponent() {
     <>
 
       <div className='maps'>
-        <div className='plan'><PlanTableTest setResault={setResault} placeid={placeid}/*把方法丟給table給他取用*/ /></div>
+        <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} placeid={placeid}/*把方法丟給table給他取用*//></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
@@ -55,13 +106,30 @@ function MyComponent() {
             <Autocomplete
               onLoad={(auto) => { autocomplete = auto }/**/}
               onPlaceChanged={() => {
+                {handleOpen()};
                 console.log("------------");
                 console.log(autocomplete.getPlace());
+                setPlacedetail(autocomplete.getPlace());
+
+
+
+                console.log(placedetail.opening_hours);
+               /*  if(placedetail.opening_hours != undefined){
+                  openhour = placedetail.opening_hours
+                }else{
+                  openhour = 'yo'
+                } */
+                
+                
+                console.log('openhour'+openhour);
                 console.log("------------");
+                
+                
                 setCenter(autocomplete.getPlace().geometry.location);//重新定位
                 setMark(autocomplete.getPlace().geometry.location);//標記
                 setZoomin(20);//拉近
-                placeid = autocomplete.getPlace().place_id;
+            
+                console.log(openhour);
               }}
             >
               <input
@@ -84,18 +152,84 @@ function MyComponent() {
                 }}
               />
             </Autocomplete>
+            
             <Marker
               position={mark}
             />
             <DirectionsRenderer
               // required
               options={{
-                directions: resault 
+                directions: (resault != null) ? resault : null
               }}
 
             />
-            
           </GoogleMap>
+
+
+          <div>
+            
+          <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        hideBackdrop="true"
+      >
+        <Box sx={style}>
+        <Button  /* variant="outlined" */ onClick={handleClose} style={{float: 'right'}} /* startIcon={<DeleteIcon />} */>X</Button>
+       
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            <a href={placedetail.url}>{placedetail.name}</a>
+          </Typography>
+          <Typography inline id="modal-modal-description" sx={{ mt: 2 }}>
+           <b>電話</b>：{placedetail.formatted_phone_number} <br></br>
+           地址：{placedetail.formatted_address} <br></br>
+           {console.log(placedetail.opening_hours)}
+         
+           {placedetail.opening_hours==undefined?null:"開放時間： "+JSON.stringify(placedetail.opening_hours.weekday_text)} 
+           
+           <Button  onClick={handleSent} variant="contained" style={{marginLeft:'28%',marginTop:'10%'}}>加入行程</Button>
+           {/* 三元運算 */}
+
+          {/* test: {placeopen} */}
+         {/*  test2: {placedetail.opening_hours.weekday_text[0]} */}
+
+           
+           {/* 開放時間： <br></br>
+           {
+           placedetail.opening_hours.weekday_text[0] 
+           }<br></br>
+            {
+           placedetail.opening_hours.weekday_text[1] 
+           }<br></br>
+            {
+           placedetail.opening_hours.weekday_text[2] 
+           }<br></br>
+            {
+           placedetail.opening_hours.weekday_text[3] 
+           }<br></br>
+            {
+           placedetail.opening_hours.weekday_text[4] 
+           }<br></br>
+            {
+           placedetail.opening_hours.weekday_text[5] 
+           }<br></br>
+            {
+           placedetail.opening_hours.weekday_text[6] 
+           }<br></br> */}
+           
+          
+          
+          
+          </Typography>
+        </Box>
+      </Modal>
+      
+      
+      
+      </div>
+
+
 
           {/* </LoadScript>  } */}
         </div>

@@ -3,21 +3,50 @@ import { DirectionsService, LoadScript } from '@react-google-maps/api';
 var temp = [];
 var title;
 var respone;
-
-
+var jsondata;
+var placename ="testplacename";
 function PlanTableTest({setResault,placeid}) {
     const [data, setData] = useState([])
      console.log("LOAD")
-     alert(placeid)
+     console.log(placeid)
+     if(window.localStorage.jsondata){
+        jsondata = JSON.parse(window.localStorage.jsondata)
+        console.log("------------------------")
+        console.log(typeof jsondata.eachDays)
+        jsondata.journeydetail.eachDays[0].eachPlaces.push({"placeName":placename,"AttractionsId":placeid})
+        dataparse(jsondata);
+    }else{
+       let josonmodel ={};
+     //  console.log(josonmodel)
+        josonmodel.journeydetail={}
+        josonmodel.journeydetail.beginDate="2021/02/15"
+        josonmodel.journeydetail.daysNum=2
+        josonmodel.journeydetail.eachDays=[{}]
+        josonmodel.journeydetail.eachDays[0].beginTime = "0900"
+        josonmodel.journeydetail.eachDays[0].placesNum = "2"
+        josonmodel.journeydetail.eachDays[0].eachPlaces=[{"placeName":placename,"AttractionsId":"ChIJsdW1Y789aTQRV4PXfiiqtnI"},];
+        if(placeid!=""){
+            jsondata.eachDays[0].eachPlaces.push({"placeName":placename,"AttractionsId":placeid})
+        }
+        
+        console.log(josonmodel)
+        jsondata = josonmodel;
+        dataparse(jsondata);
+        window.localStorage.jsondata= JSON.stringify(josonmodel);
+    }
     useEffect(() => {
-            
+        //dataparse(jsondata)
         console.log("COMPLETE RENDER")
     }, [])
 
 
     function dataparse(jsondata) {
-        temp = JSON.parse(jsondata.journeydetail).eachDays[0].eachPlaces;
-        title = JSON.parse(jsondata.journeydetail).beginDate;
+        //alert(typeof jsondata.journeydetail)
+        temp = jsondata.journeydetail.eachDays[0].eachPlaces;
+        // console.log("-----dataparse------")
+        // console.log(temp)
+        // console.log("-------------------")
+        title = jsondata.journeydetail.beginDate;
         let count = 0;
         for (var i = 0; i < temp.length - 1; i++) {
             let continute = FetchDistance(temp[i].AttractionsId, temp[i + 1].AttractionsId, temp[i]);
