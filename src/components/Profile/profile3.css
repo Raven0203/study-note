@@ -1,4 +1,4 @@
-input[type=text], select, textarea {
+.text, select, textarea {
     font-size: large;
     width: 100%;
     padding: 12px;

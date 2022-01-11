@@ -25,28 +25,29 @@ export default function Search() {
         marginTop: '50px'
     }
 
-    const handleClick = async () => {
+    const handleClick = async (e) => {
+        e.preventDefault();
         const res = await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=${searchref.current.value}`)
         setPlace(res.data.results)
         console.log("plcae write complete");
         // .then(() => console.log("data write complete"))
         // .catch((error) => console.log(error))
         console.log(place);
-        console.log(place.map((item) => item.name));
+       // console.log(place.map((item) => item.name));
 
 
 
         searchref.current.focus();
-        if (searchref.current.value !== null && (searchref.current.value).length !== 0) {
-            // await setPlace(departmentstoredata.map((item) => item.formatted_address))
-            // console.log([...place]);
-            // console.log(searchref);
-            // setExist(true)
-        }
+        // if (searchref.current.value !== null && (searchref.current.value).length !== 0) {
+        //     // await setPlace(departmentstoredata.map((item) => item.formatted_address))
+        //     // console.log([...place]);
+        //     // console.log(searchref);
+        //     // setExist(true)
+        // }
     }
 
     useEffect(() => {
-
+        axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=台中景點`)
     }, [])
 
     return (
