@@ -21,6 +21,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './Firebase/firebase-config';
 import { useEffect, useState } from 'react';
 import Register from './components/Login/Register';
+import Profile3 from './components/Profile/Profile3';
 
 
 function App() {
@@ -46,9 +47,9 @@ function App() {
 
         <Routes>
           <Route path="*" element={<PageNF />} />
-          <Route path="/" element={<HomePage user={user}/>} />
+          <Route path="/" element={<HomePage user={user} />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile3 />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/journeyplan" element={<Journeyplan />} />
 

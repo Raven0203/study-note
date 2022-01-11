@@ -31,7 +31,7 @@ export default function Navbar({ user }) {
     const open = Boolean(anchorEl);
     const handleMenuOpen = (e) => {
         setAnchorEl(e.currentTarget);
-        console.log(e.currentTarget.style)
+        //console.log(e.currentTarget.style)
     };
     const handleMenuClose = () => {
         setAnchorEl(null);
