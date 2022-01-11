@@ -7,14 +7,16 @@ import { Divider } from "@mui/material";
 import ConfirmDialog from "./ConfirmDialog";
 
 export default function Profile3() {
+  //用戶資訊
   const emailref = useRef("");
   const nicknameref = useRef("");
   const realnameref = useRef("");
   const birthdayref = useRef("");
   const arearef = useRef("");
   const signref = useRef("");
+  //用戶照片URL
   let profileURL = localStorage.getItem("profileURL");
-  
+
   const [profilesend, setProfileSend] = useState(false);
 
   const submitClick = async (e) => {
@@ -30,12 +32,12 @@ export default function Profile3() {
           setProfileSend={setProfileSend}
           emailref={emailref}
           nicknameref={nicknameref}
-          realnameref={realnameref}  
-          birthdayref={birthdayref}       
+          realnameref={realnameref}
+          birthdayref={birthdayref}
           arearef={arearef}
           signref={signref}
           profileURL={profileURL}
-          
+
         />
       ) : (
         ""
