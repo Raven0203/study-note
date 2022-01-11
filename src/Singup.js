@@ -7,7 +7,7 @@ import { getAuth, onAuthStateChanged, GoogleAuthProvider } from 'firebase/auth'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import 'firebase/compat/auth';
 
-const config = {
+var config = {
     apiKey: "AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc",
     authDomain: "my-project-01-334308.firebaseapp.com",
     databaseURL: "https://my-project-01-334308-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -20,7 +20,7 @@ const config = {
 
 firebase.initializeApp(config);
 
-const uiConfig = {
+var uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
 
@@ -35,9 +35,21 @@ const uiConfig = {
     ],
     callbacks: {
         // Avoid redirects after sign-in.
-        signInSuccessWithAuthResult: () => false,
+        signInSuccessWithAuthResult: async (authResult) => {
+            const userInfo = authResult.additionalUserInfo;
+            if (userInfo.isNewUser && userInfo.providerId === "password") {
+                try {
+                    await authResult.user.sendEmailVerification();
+                    console.log("Check your email.");
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+            return false;
+        },
     },
 };
+
 
 
 export default function Singup() {
@@ -49,6 +61,7 @@ export default function Singup() {
     useEffect(() => {
         const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
             setIsSignedIn(!!user);
+            console.log(!!user);
             console.log(auth.currentUser.email);
             localStorage.setItem("email", auth.currentUser.email)
             localStorage.setItem("email", auth.currentUser.displayName)
