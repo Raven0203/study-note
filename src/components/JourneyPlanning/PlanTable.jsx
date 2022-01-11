@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { DirectionsService, LoadScript } from '@react-google-maps/api';
+import Item from './Item'
+import List from './List'
+import { v4 } from "uuid";
+
 var temp = [];
 var title;
 
-
-
 function PlanTable(setR) {
     const detail = setR.detail;
-    console.log(setR.place_id);
+   /*  const place_id = setR.set_Placeid
+    console.log(setR.place_id); */
+ /*    console.log(place_id); */
     const [data, setData] = useState([])
+
     var respone;
     function setRespone(result){
         respone = result;
@@ -29,17 +34,58 @@ function PlanTable(setR) {
     }
     
     function setDate() {
-
         setR.setResault(respone)
     }
-     return (<div>
-         <h4>h4</h4>
-         <h5>{detail.name}</h5>
-         {
 
+
+  /*   function addItem() {
+       
+        add(function (prevData) {
+          return [       
+            {
+              id: v4()
+            
+            },
+            ...prevData,
+          ];
+        });
+      } */
+/* 
+    const [test,setTest] = useState([]);
+    
+    function btck() {
+        setTest([1,2,3]);
+    } */
+
+    var testarray = ['Arraytest'];
+    useEffect(() => {
         
+        testarray.push(setR.place_id);
+        console.log(testarray);
+        /* return () => {
+            cleanup
+        } */
+    }, [setR.place_id])
+    /* function joadd() {
+        setR.set_Placeid(function(prevData) {
+            return
+            [   ...prevData,
+                place_id
+            ]
+        })
+    } */
+     return (<div>
+         
+         {/* <button onClick={joadd}>測試資料</button>
+         <List Listtest={test} detail={setR.placedetail} place_id={setR.placeid}></List> */}
+         <h5>{testarray}</h5>
+        {/*  <h5>{detail.name}</h5>
+         <h5>1.{setR.place_id}</h5> */}
+        
+         {/* <h5>{detail.geometry}</h5> */}
+         {
         <DirectionsService options={{           
-            destination: {  lat: 24.1369434, lng: 120.6369918  },
+            destination:  {  lat: 24.1369434, lng: 120.6369918  },
             origin: { lat: 24.1384704, lng: 120.6410738 },
             waypoints: [{ location:{ lat: 24.1349434, lng: 120.6369918 }, stopover: true }, { location: {   lat: 24.1329434, lng: 120.636991}, stopover: true }],
             travelMode: "DRIVING"

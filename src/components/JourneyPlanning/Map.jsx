@@ -88,7 +88,7 @@ function MyComponent() {
     <>
 
       <div className='maps'>
-        <div className='plan'><PlanTable setResault={setResault} detail={placedetail} place_id={placeid}/*把方法丟給table給他取用*//></div>
+        <div className='plan'><PlanTable setResault={setResault} detail={placedetail} place_id={placeid} set_Placeid={setPlaceid}/*把方法丟給table給他取用*//></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
