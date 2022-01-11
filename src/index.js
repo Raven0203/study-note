@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
+import ConfirmDialog from './components/Profile/ConfirmDialog';
 import Profile from './components/Profile/Profile';
 import Search from './Test/Search';
+import Test from './Test/Test';
 
 
 

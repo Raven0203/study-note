@@ -1,11 +1,46 @@
 import * as React from "react";
+import { useRef, useState } from "react";
 import "./profile3.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import { Divider } from "@mui/material";
+import ConfirmDialog from "./ConfirmDialog";
 
 export default function Profile3() {
+  const emailref = useRef("");
+  const nicknameref = useRef("");
+  const realnameref = useRef("");
+  const birthdayref = useRef("");
+  const arearef = useRef("");
+  const signref = useRef("");
+  let profileURL = localStorage.getItem("profileURL");
+  
+  const [profilesend, setProfileSend] = useState(false);
+
+  const submitClick = async (e) => {
+    e.preventDefault();
+    await setProfileSend(!profilesend);
+  };
+
   return (
     <div className="profile-container" style={{ fontSize: "1.5rem" }}>
+      {profilesend ? (
+        <ConfirmDialog
+          profilesend={profilesend}
+          setProfileSend={setProfileSend}
+          emailref={emailref}
+          nicknameref={nicknameref}
+          realnameref={realnameref}  
+          birthdayref={birthdayref}       
+          arearef={arearef}
+          signref={signref}
+          profileURL={profileURL}
+          
+        />
+      ) : (
+        ""
+      )}
+
       <form action="">
         <div className="row">
           <div className="img">
@@ -14,26 +49,29 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label for="email">電子信箱：</label>
+            <label htmlFor="email">電子信箱：</label>
           </div>
           <div className="col-75">
             <input
               type="email"
               id="email"
+              className="email"
               name="firstname"
               disabled="disabled"
               placeholder="Your email.."
               value={localStorage.getItem("email")}
+              ref={emailref}
             />
           </div>
         </div>
         <div className="row">
           <div className="col-25">
-            <label for="nickname">暱稱：</label>
+            <label htmlFor="nickname">暱稱：</label>
           </div>
           <div className="col-75">
             <input
               type="text"
+              ref={nicknameref}
               className="text"
               id="nickname"
               name="nickname"
@@ -43,11 +81,12 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label for="fname">姓名：</label>
+            <label htmlFor="fname">姓名：</label>
           </div>
           <div className="col-75">
             <input
               type="text"
+              ref={realnameref}
               className="text"
               id="fname"
               name="firstname"
@@ -58,11 +97,12 @@ export default function Profile3() {
 
         <div className="row">
           <div className="col-25">
-            <label for="birthday">生日</label>
+            <label htmlFor="birthday">生日</label>
           </div>
           <div className="col-75">
             <input
               type="date"
+              ref={birthdayref}
               id="birthday"
               name="lastname"
               placeholder="Your last name.."
@@ -71,7 +111,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label for="constellations ">星座</label>
+            <label htmlFor="constellations ">星座</label>
           </div>
           <div className="col-75">
             <input
@@ -85,10 +125,10 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label for="area">地區：</label>
+            <label htmlFor="area">地區：</label>
           </div>
           <div className="col-75">
-            <select id="area" name="country">
+            <select id="area" name="country" ref={arearef}>
               <optgroup label="北">
                 <option value="1">基隆</option>
                 <option value="2">臺北</option>
@@ -129,11 +169,12 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label for="sign">個性簽名：</label>
+            <label htmlFor="sign">個性簽名：</label>
           </div>
           <div className="col-75">
             <textarea
               id="sign"
+              ref={signref}
               name="sign"
               placeholder="寫些特別的吧 ..."
               style={{ height: "200px" }}
@@ -152,9 +193,10 @@ export default function Profile3() {
             justifyContent: "center",
           }}
         >
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={submitClick} />
         </div>
       </form>
+      <Divider sx={{ color: "black" }} />
     </div>
   );
 }
