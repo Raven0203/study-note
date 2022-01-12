@@ -32,6 +32,7 @@ var uiConfig = {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
         firebase.auth.PhoneAuthProvider.PROVIDER_ID
     ],
     privacyPolicyUrl: 'www.google.com.tw',
@@ -39,7 +40,7 @@ var uiConfig = {
         // Avoid redirects after sign-in.
         signInSuccessWithAuthResult: async (authResult) => {
             const userInfo = authResult.additionalUserInfo;
-            console.log(userInfo);
+            console.log('userInfo使用者資訊：', userInfo);
             if (userInfo.isNewUser && userInfo.providerId === "password") {
                 try {
                     await authResult.user.sendEmailVerification();
@@ -60,18 +61,22 @@ export default function Singup() {
     const [photourl, setPhotoURL] = useState("");
     const auth = firebase.auth();
 
+
+
     // Listen to the Firebase Auth state and set the local state.
     useEffect(() => {
         const unregisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
+            console.log('onAuthStateChanged登入狀態:', user);
             setIsSignedIn(!!user);
-            console.log(!!user);
-            console.log(auth.currentUser.email);
+
+            //console.log(!!user);
+            //console.log(auth.currentUser.email);
             localStorage.setItem("email", auth.currentUser.email)
             localStorage.setItem("email", auth.currentUser.displayName)
             setPhotoURL(auth.currentUser.photoURL)
 
         });
-        return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
+        return () => unregisterAuthObserver(); // 不讓狀態重新渲染 Make sure we un-register Firebase observers when the component unmounts.
     }, []);
 
     if (!isSignedIn) {
