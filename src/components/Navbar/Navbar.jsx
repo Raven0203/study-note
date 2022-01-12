@@ -46,7 +46,7 @@ export default function Navbar({ user }) {
                 <div className="links" id={showLinks ? "hidden" : ""}>
                     <Link to=" " className='a'>首頁</Link>
 
-                    <Link to="/journeyplan " className='a'>行程規劃</Link>
+                    <Link to="/journeyplanhome " className='a'>行程規劃</Link>
                     <Link to="/" className='a'>部落格</Link>
                 </div>
                 <button onClick={() => setShowLinks(!showLinks)}><ReorderIcon /></button>

@@ -118,6 +118,7 @@ export default function Profile3() {
           </div>
           <div className="col-75">
             <input
+              className="profile-date"
               type="date"
               ref={birthdayref}
               id="birthday"

@@ -1,0 +1,32 @@
+.journey-box{
+    width: 100vw;
+    height: 100vh;
+    background-color: tomato;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+}
+.journey-home-title-box{
+    margin-left:260px ;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 1000px;
+    height: 300px;
+}
+.journey-home-title{
+  
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-top: 100px;
+    margin-left: 100px;
+}
+.journey-card{
+    align-content: center;
+    text-align: center;
+   width: 500px;
+   height: 500px;
+    background-color: black;
+}

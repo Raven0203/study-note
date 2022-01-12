@@ -52,7 +52,7 @@ export default function ProfileData({
 
   const handleAgree = (e) => {
     e.preventDefault();
-
+    
     setProfileSend(false);
 
     // axios.post("url...",profiledata)
@@ -67,6 +67,7 @@ export default function ProfileData({
       {/* <Button variant="outlined" onClick={handleClickOpen}>
         開啟對話窗
       </Button> */}
+      
       <Dialog
         open={profilesend}
         onClose={handleClose}
