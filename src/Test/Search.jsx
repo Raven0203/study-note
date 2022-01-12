@@ -27,13 +27,19 @@ export default function Search() {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        const res = await axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=${searchref.current.value}`)
+        const res = await axios.get('/maps/api/place/textsearch/json', '?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=台中百貨公司', {
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            baseURL: "https://maps.googleapis.com"
+        })
+        console.log(res.data.results);
         setPlace(res.data.results)
-        console.log("plcae write complete");
+        //console.log("plcae write complete");
         // .then(() => console.log("data write complete"))
         // .catch((error) => console.log(error))
-        console.log(place);
-       // console.log(place.map((item) => item.name));
+        //console.log(place);
+        // console.log(place.map((item) => item.name));
 
 
 
@@ -47,7 +53,7 @@ export default function Search() {
     }
 
     useEffect(() => {
-        axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=台中景點`)
+        //axios.get(`https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=台中景點`)
     }, [])
 
     return (
