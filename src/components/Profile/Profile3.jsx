@@ -114,7 +114,7 @@ export default function Profile3() {
 
         <div className="row">
           <div className="col-25">
-            <label className="profile-label" htmlFor="birthday">生日</label>
+            <label className="profile-label" htmlFor="birthday">生日：</label>
           </div>
           <div className="col-75">
             <input
@@ -128,7 +128,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label className="profile-label" htmlFor="constellations ">星座</label>
+            <label className="profile-label" htmlFor="constellations ">星座：</label>
           </div>
           <div className="col-75">
             <input
