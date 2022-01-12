@@ -91,7 +91,7 @@ function MyComponent() {
 
       <div className='maps'>
         <div className='plan'>
-          <PlanTable setResault={setResault} detail={placedetail} placeid={placeid}/*把方法丟給table給他取用*//></div>
+          <PlanTable setResault={setResault} detail={placedetail} placeid={placeid} setC={setCenter}/*把方法丟給table給他取用*//></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
@@ -159,14 +159,17 @@ function MyComponent() {
             />
             <DirectionsRenderer
               // required
-              options={{
-                directions: (resault != null) ? resault : null
-              }}
+              options={
+               /*  (resault!=null) ? null: {"directions":resault} */
+              
+               { directions: (resault != null) ? resault : null }
+              
+              }
 
             />
+          
           </GoogleMap>
-
-
+          
           <div>
             
           <Modal
@@ -178,11 +181,12 @@ function MyComponent() {
       >
         <Box sx={style}>
         <Button  /* variant="outlined" */ onClick={handleClose} style={{float: 'right'}} /* startIcon={<DeleteIcon />} */>X</Button>
-       
+              
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <a href={placedetail.url}>{placedetail.name}</a>
           </Typography>
           <Typography inline id="modal-modal-description" sx={{ mt: 2 }}>
+           
            <b>電話</b>：{placedetail.formatted_phone_number} <br></br>
            地址：{placedetail.formatted_address} <br></br>
            {console.log(placedetail.opening_hours)}
@@ -242,7 +246,7 @@ function MyComponent() {
 
 }
 
-export default React.memo(MyComponent)
+export default MyComponent /* React.memo(MyComponent) */
 
 
 // {

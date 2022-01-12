@@ -3,9 +3,11 @@ import { DirectionsService, LoadScript } from '@react-google-maps/api';
 var temp = [];
 var title;
 var respone;
+var boo = true;
 
 
-function PlanTable({setResault,placeid}) {
+
+function PlanTable({setResault,placeid,setC}) {
     const [data, setData] = useState([])
 
      console.log("LOAD")
@@ -15,7 +17,7 @@ function PlanTable({setResault,placeid}) {
         console.log("COMPLETE RENDER")
     }, [])
     function FetchData() {
-        fetch("http://localhost:8080/journey/1")
+        fetch("http://localhost:8080/journey/2")
             .then((res) => {
                 return res.json();
 
@@ -99,13 +101,22 @@ function PlanTable({setResault,placeid}) {
         console.log("draw map")
     }
 
+    const [rerender, setRerender] = useState('');
+
     function handleyo() {
         setResault(null);
-
-        
+        boo = false;
+        console.log(boo);
+        setRerender('yoyoyo');
+        setC({lat: 24.1369434,
+            lng: 120.6369918});
+        console.log('handelyo');
     }
+
+  
+
     return (<div>{
-        <DirectionsService options={{
+        <DirectionsService options={boo===false?null:{
             destination: { placeId: (data.length > 1) ? data[data.length - 1].AttractionsId : null },
             origin: { placeId: (data.length > 1) ? data[0].AttractionsId : null },
             waypoints: (data.length > 1) ? makeWayPoint(data) : [{ location: null }],
@@ -113,6 +124,7 @@ function PlanTable({setResault,placeid}) {
         }}
             callback={(res) => {
                 respone = res;
+                console.log(res);
                 console.log("callback")              
              }}>
 
