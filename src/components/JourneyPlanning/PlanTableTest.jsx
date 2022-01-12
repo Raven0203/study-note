@@ -10,24 +10,24 @@ function PlanTableTest({setResault,place}) {
      if(window.localStorage.jsondata){
         jsondata = JSON.parse(window.localStorage.jsondata)
         console.log("------------------------")
-        
+        jsondata.journeydetail = JSON.parse(jsondata.journeydetail)
         let insert=true;
         for(let i =0;i<jsondata.journeydetail.eachDays[0].eachPlaces.length;i++){
             
              if(jsondata.journeydetail.eachDays[0].eachPlaces[i].AttractionsId==place.place_id){
                 insert=false;
                 break;
-                
-
-             }
+                            }
         }
         if(insert &&  place.place_id){
             jsondata.journeydetail.eachDays[0].eachPlaces.push({"placeName":place.place_name,"AttractionsId":place.place_id})
+            jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)
+            window.localStorage.jsondata= JSON.stringify(jsondata);
             dataparse(jsondata)
  
 
-        }
-        window.localStorage.jsondata= JSON.stringify(jsondata);
+        }       
+       
     }else{
        let josonmodel ={};
      //  console.log(josonmodel)
@@ -42,30 +42,31 @@ function PlanTableTest({setResault,place}) {
         placeobject.eachPlaces=[];
         //placeobject.eachPlaces.push({"placeName":place.name,"AttractionsId":"123"})
         josonmodel.journeydetail.eachDays.push(placeobject)
-   
+        josonmodel.journeydetail= JSON.stringify(josonmodel.journeydetail)
         // if(placeobject!=={}){
         //     alert(123)
         //     josonmodel.journeydetail.eachDays.push(placeobject)
         // }
-       
-        console.log(josonmodel)
+
         //jsondata = josonmodel;
         //dataparse(jsondata);
         window.localStorage.jsondata= JSON.stringify(josonmodel);
     }
     useEffect(()=>{
-        dataparse(jsondata)
+        //dataparse(jsondata)
     },[])
     
 
 
     function dataparse(jsondata) {
         //alert(typeof jsondata.journeydetail.eachDays[0])
-        temp = jsondata.journeydetail.eachDays[0].eachPlaces;
+        //temp = jsondata.journeydetail.eachDays[0].eachPlaces;
         console.log("-----dataparse------")
         console.log(temp)
         console.log("-------------------")
-        title = jsondata.journeydetail.beginDate;
+        //title = jsondata.journeydetail.beginDate;
+        temp = JSON.parse(jsondata.journeydetail).eachDays[0].eachPlaces;
+        title = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
         for (var i = 0; i < temp.length - 1; i++) {
             let continute = FetchDistance(temp[i].AttractionsId, temp[i + 1].AttractionsId, temp[i]);
@@ -106,7 +107,17 @@ function PlanTableTest({setResault,place}) {
         console.log(waypoit);
         return waypoit;
     }
-
+    function saveData() {
+        fetch("http://localhost:8080/journey/2", {
+            method: 'POST', 
+            body: window.localStorage.jsondata, 
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            })
+          }).then((res )=>{console.log(res)})
+          .catch(error => alert(error) )
+          .then(response => alert('Success:', response));
+    }
 
 
     function setMap() {
@@ -132,7 +143,7 @@ function PlanTableTest({setResault,place}) {
                 <th><input type="date" value={title} ></input></th>
             </tr>{data.map((item) => {
                 return <><tr><td><b>{item.placeName}</b></td></tr><tr>{item.distance}</tr></>
-            })}</table><button onClick={setMap}>MAP</button>
+            })}</table><button onClick={setMap}>MAP</button><br/><button onClick={saveData}>儲存</button>
     </div>)
 }
 

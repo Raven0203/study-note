@@ -16,7 +16,7 @@ function PlanTable({setResault,placeid}) {
     }, [])
     
     function FetchData() {
-        fetch("http://localhost:8080/journey/1")
+        fetch("http://localhost:8080/journey/9")
             .then((res) => {
                 return res.json();
 
