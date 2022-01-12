@@ -19,13 +19,13 @@ var config = {
 };
 
 firebase.initializeApp(config);
-
+// signInSuccessUrl: 'https://www.youtube.com/',
 var uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
 
     // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: 'https://www.youtube.com/',
+
     // We will display Google and Facebook as auth providers.
     signInOptions: [
         firebase.auth.EmailAuthProvider.PROVIDER_ID,
