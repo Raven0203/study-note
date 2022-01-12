@@ -13,6 +13,7 @@ textarea {
   border-radius: 4px;
   resize: vertical;
 }
+
 .email {
   font-size: large;
   width: 100%;
@@ -28,6 +29,7 @@ textarea {
   border-radius: 4px;
   font-size: large;
 }
+
 .img {
   display: flex;
   justify-content: center;
@@ -35,9 +37,10 @@ textarea {
   align-items: center;
 }
 
-.backgroundimg{
-  width: 900px;
-  height: 300px;
+.backgroundimg {
+  width: 100%;
+
+  display: flex;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
@@ -45,14 +48,15 @@ textarea {
 
 .avatarimg {
   /* z-index: 1; */
+  display: flex;
   background-color: white;
-  width: 250px;
-  height: 250px;
+  width: 50%;
+  height: 200px;
   position: relative;
   bottom: 30px;
   margin-top: -75px;
   display: block;
-  margin-left: 350px;
+  margin-left: 150px;
   margin-bottom: auto;
   margin-right: auto;
   border-radius: 50%;
@@ -71,6 +75,7 @@ textarea {
     height: 250px;
     border-radius: 50%; */
 }
+
 .profile-label {
   padding: 12px 12px 12px 0;
   display: inline-block;
@@ -79,13 +84,13 @@ textarea {
 input[type="submit"] {
   background-color: #04aa6d;
 
-  width: 50%;
+  width: 40%;
   color: white;
   padding: 12px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
-  float: right;
+
 }
 
 input[type="submit"]:hover {
@@ -123,6 +128,7 @@ input[type="submit"]:hover {
 
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
+
   .col-25,
   .col-75,
   input[type="submit"] {

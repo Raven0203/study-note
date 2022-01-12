@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import axios from 'axios';
+import { async } from '@firebase/util';
 
 const Test = () => {
   const emailref = useRef("");
@@ -13,14 +14,33 @@ const Test = () => {
       .then((res) => console.log(res))
       .catch((error) => console.log(error))
   }
+  var params = new URLSearchParams();
+  params.append('id', '5');
+  params.append('title', "你好很高興認識你");
+  const handledbjson = async () => {
+    await axios.get("http://localhost:3000/items")
+      .then((res) => console.log(res.data))
+      .catch((error) => console.log(error))
+
+
+
+    // await axios.post(" http://localhost:3000/items", {
+    //   "id": 2,
+    //   "title": "發呆一整天",
+    //   "isCompleted": false
+    // }).then((res) => console.log(res))
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
+  }
 
   return (
     <div>
-      
+
       <input type="text" name="" id="" ref={emailref} />
       <br />
       <input type="text" name="" id="" ref={passwordref} />
-      <button onClick={handleClick}>Click</button>
+      <button onClick={handledbjson}>Click</button>
     </div>
   );
 }

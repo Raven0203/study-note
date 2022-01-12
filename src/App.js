@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 
 import ScrollTop from "./components/Homepage/ScrollTop";
 import Favorite from "./components/Favorite/Favorite";
-import Journeyplan from "./components/JourneyPlan/JourneyPlan";
+
 import PageNF from "./PageNF";
 import Login from "./components/Login/Login";
 
@@ -22,6 +22,7 @@ import Register from "./components/Login/Register";
 import Profile3 from "./components/Profile/Profile3";
 import JourneyHome from "./components/JourneyPlanning/JourneyHome";
 import Test from "./Test/Test";
+import Journeyplan from "./components/JourneyPlanning/JourneyPlan";
 
 function App() {
   const [user, setUser] = useState({});
@@ -35,26 +36,27 @@ function App() {
   return (
     <>
       <div className="App">
-      
-        
-          <BrowserRouter>
-            <ScrollTop />
 
-            {user ? <Navbar user={user} /> : <NavbarGuest user={user} />}
 
-            <Routes>
-              {/* need write route */}
-              <Route path="*" element={<PageNF />} />
-              <Route path="/" element={<HomePage user={user} />} />
-              <Route path="/login" element={<Login />} />
-              {/* <Route path="/test" element={<Test/>}/> */}
-              <Route path="/profile" element={<Profile3 />} />
-              <Route path="/favorite" element={<Favorite />} />
-              <Route path="/journeyplanhome" element={<JourneyHome />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-        
+        <BrowserRouter>
+          <ScrollTop />
+
+          {user ? <Navbar user={user} /> : <NavbarGuest user={user} />}
+
+          <Routes>
+            {/* need write route */}
+            <Route path="*" element={<PageNF />} />
+            <Route path="/" element={<HomePage user={user} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/test" element={<Test />} />
+            <Route path="/profile" element={<Profile3 />} />
+            <Route path="/favorite" element={<Favorite />} />
+            <Route path="/journeyplanhome" element={<JourneyHome />} />
+            <Route path="/journeyplan" element={<Journeyplan />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+
       </div>
     </>
   );
