@@ -14,6 +14,7 @@ import Favorite from './components/Favorite/Favorite';
 import Test from './components/Practice/Bootstrap';
 import About from './components/About/About';
 import QA from './components/QA/QA';
+import Blog from './components/Blog/Blog';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/about" element={<About />} />
           <Route path="/qa" element={<QA/>} /> 
+          <Route path="/blog" element={<Blog/>} />
         </Routes>
 
 

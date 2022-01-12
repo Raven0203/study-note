@@ -101,8 +101,26 @@
 	 letter-spacing: 1px;
 }
 
-#bloglist::-webkit-scrollbar-thumb { background: rgb(252, 181, 198 ); }
+#bloglist::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-image: -webkit-gradient(linear,
+					   left bottom,
+					   left top,
+					   color-stop(0.44, rgb(122,153,217)),
+					   color-stop(0.72, rgb(73,125,189)),
+					   color-stop(0.86, rgb(28,58,148)));
+	}
 
+.page__content ul{
+	list-style-image:url('/public/img/441-1.gif');
+	padding-top:40px;
+	display:inline-block;
+	
+}
+.page__content ul li{
+	margin: 20px;
+	padding-left: 30px;
+}
 
 .book__page .page__content1 {
 	padding: var(--baseline);

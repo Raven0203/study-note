@@ -5,10 +5,7 @@ class QA extends Component {
  render() {
   return (
         <div style={{backgroundImage: 'url("/img/275F99A6-8432-4DDB-B936-0D619CC4E238.jpeg")',backgroundSize:'100% 100%'}}>
-            <div class="heading">
-                    <h1 class="heading__title">常見問題<i class="fa fa-commenting" aria-hidden="true" style={{marginLeft:'10px'}}></i></h1>
-                    <p class="heading__credits">快來看看這邊能否解決你的疑問吧~</p>
-            </div>
+            
             <div class="qa-container" >
                 
                 <div class="qacard" style={{float:'left',marginRight:'20px'}}>
@@ -116,78 +113,7 @@ class QA extends Component {
                
             </div>
 
-            {/* <div class="qa-container">
-                <div class="heading">
-                    <h1 class="heading__title">常見問題</h1>
-                    <p class="heading__credits"><a class="heading__link" target="_blank" href="https://dribbble.com/sl">Design by Simon Lurwer on Dribbble</a></p>
-                </div>
-                <div class="qacards">
-                    <div class="qacard card-1">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-2">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-3">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Ut enim ad minim veniam.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-4">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Quis nostrud exercitation ullamco laboris nisi.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-5">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Ut aliquip ex ea commodo consequat. Duis aute irure dolor.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-3">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Ut enim ad minim veniam.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-4">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Quis nostrud exercitation ullamco laboris nisi.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                    <div class="qacard card-4">
-                        <div class="qa-icon"><i class="fas fa-bolt"></i></div>
-                        <p class="qa-exit"><i class="fas fa-times"></i></p>
-                        <h2 class="qa-title">Quis nostrud exercitation ullamco laboris nisi.</h2>
-                        <p class="qa-apply">
-                            <a class="qa-link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
-                        </p>
-                    </div>
-                </div>
-            </div> */}
+           
         </div>
     
   );

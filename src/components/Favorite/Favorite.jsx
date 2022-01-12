@@ -20,8 +20,19 @@ const Favorite = () => {
             <label for="page-2"  class="book__page book__page--4">
                 <div class="page__content" id='bloglist'>
                 {/* <h1 class="page__content-title">I</h1> */}
-                <ul class='favorite' style={{listStyleType:'square',paddingTop:'40px',display:'inline-block'}}>
-                    <li><a href='https://codepen.io/pascaloliv/pen/LVZaeE'>星期一二三四五六</a></li>
+                <ul class='favorite' >
+                    <li><a href='https://github.com/EEIT36-Travel'>星期一二三</a></li>
+                    <li>星期二三四五六</li>
+                    <li>星期一四五</li>
+                    <li>星期二</li>
+                    <li>星期一</li>
+                    <li>星期二</li>
+                    <li>星期一</li>
+                    <li>星期二</li>
+                    <li>星期一</li>
+                    <li>星期二</li>
+                    <li>星期一</li>
+                    <li>星期二</li>
                     <li>星期二</li>
                     <li>星期一</li>
                     <li>星期二</li>
@@ -33,7 +44,6 @@ const Favorite = () => {
                     <li>星期二</li>
                     <li>星期一</li>
                     <li>星期二</li>
-                    <li>星期一</li>
                     <li>星期二</li>
                     <li>星期一</li>
                     <li>星期二</li>
@@ -45,14 +55,7 @@ const Favorite = () => {
                     <li>星期二</li>
                     <li>星期一</li>
                     <li>星期二</li>
-                    <li>星期一</li>
-                    <li>星期二</li>
-                    <li>星期一</li>
-                    <li>星期二</li>
-                    <li>星期一</li>
-                    <li>星期二</li>
-                    <li>星期一</li>
-                    <li>星期二</li>
+                    
                 </ul>
                 {/* <div class="page__content-blockquote">
                     <p class="page__content-blockquote-text"><a href='https://codepen.io/pascaloliv/pen/LVZaeE'>HARI SELDON — . . . born in the 11,988th year of  </a></p>
