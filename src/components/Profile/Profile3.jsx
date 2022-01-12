@@ -54,6 +54,10 @@ export default function Profile3() {
 
       <form action="">
         <div className="row">
+          <div className="background">
+            <img className="backgroundimg" src="./img/1.jpg" alt="" />
+          </div>
+          
           <div className="img">
 
             <img className="avatarimg" src={profileURL === null ? "" : profileURL} alt="" />
@@ -61,7 +65,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label htmlFor="email">電子信箱：</label>
+            <label className="profile-label" htmlFor="email">電子信箱：</label>
           </div>
           <div className="col-75">
             <input
@@ -78,7 +82,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label htmlFor="nickname">暱稱：</label>
+            <label className="profile-label" htmlFor="nickname">暱稱：</label>
           </div>
           <div className="col-75">
             <input
@@ -94,7 +98,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label htmlFor="fname">姓名：</label>
+            <label className="profile-label" htmlFor="fname">姓名：</label>
           </div>
           <div className="col-75">
             <input
@@ -110,7 +114,7 @@ export default function Profile3() {
 
         <div className="row">
           <div className="col-25">
-            <label htmlFor="birthday">生日</label>
+            <label className="profile-label" htmlFor="birthday">生日</label>
           </div>
           <div className="col-75">
             <input
@@ -124,7 +128,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label htmlFor="constellations ">星座</label>
+            <label className="profile-label" htmlFor="constellations ">星座</label>
           </div>
           <div className="col-75">
             <input
@@ -138,7 +142,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label htmlFor="area">地區：</label>
+            <label className="profile-label" htmlFor="area">地區：</label>
           </div>
           <div className="col-75">
             <select id="area" name="country" ref={arearef}>
@@ -182,7 +186,7 @@ export default function Profile3() {
         </div>
         <div className="row">
           <div className="col-25">
-            <label htmlFor="sign">個性簽名：</label>
+            <label className="profile-label" htmlFor="sign">個性簽名：</label>
           </div>
           <div className="col-75">
             <textarea

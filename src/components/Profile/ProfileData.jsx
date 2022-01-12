@@ -6,6 +6,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
+import axios from "axios";
 
 export default function ProfileData({
   profilesend,
@@ -26,8 +27,17 @@ export default function ProfileData({
   let area = arearef.current.value;
   let sign = signref.current.value;
   let realname = realnameref.current.value;
-
-  let profiledata = [realname, email, profileURL, nickname, birthday, area, sign];
+  // realname, email, profileURL, nickname, birthday, area, sign
+  let profiledata = {
+    membername:realname,
+    memberemail:email,
+    membericon:profileURL,
+    membernickname:nickname,
+    memberbirth:birthday,
+    memebergender:"1",
+    memebercityid:area,
+    memberintro:sign
+  };
 
   // const handleClickOpen = () => {
   //   setOpen(true);
@@ -44,7 +54,11 @@ export default function ProfileData({
     e.preventDefault();
 
     setProfileSend(false);
-    window.location.reload();
+
+    // axios.post("url...",profiledata)
+    // .then((res)=>console.log(res))
+    // .catch((error)=>console.log(error));
+    
     console.log(profiledata);
   };
 

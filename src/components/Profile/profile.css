@@ -1,13 +1,18 @@
-body{
+/* body{
  
-  height: 100vh;
+   height: 100vh;
+   
   justify-content: center;
   align-items: center;
   display: flex;
   
-  background: #fafafa;
+  background: black; 
+} */
+.card-box{
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
-
 .card{
   font-family: "Candara", sans-serif;
   width: 45vw;
