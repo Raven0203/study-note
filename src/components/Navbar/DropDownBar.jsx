@@ -45,7 +45,7 @@ const Dropdownbar = () => {
       </Link>
       <Divider />
       <Link
-        to="/journeyplan"
+        to="/journeyplanhome"
         style={{ textDecoration: "none", color: "black" }}
       >
         <MenuItem>
