@@ -6,11 +6,11 @@ class Blog extends Component {
  render() {
   return (
         <div >
-            <div style={{ paddingTop:'60px',marginBottom:'-35px',marginLeft:'250px',width:'200px',zIndex:'3'}}>
+            <div style={{ paddingTop:'60px',marginBottom:'-35px',marginLeft:'250px',width:'200px'}}>
                 {/* <h1 style={{backgroundColor:'white',opacity:'100%'}}>熱門文章</h1> */}
                 <img src='\img\未命名-1.jpg' style={{width:'180px',height:'45px',marginBottom:'15px'}}></img>
             </div>
-           <div class="container-xl"style={{ zIndex:'-1',border:'solid',borderWidth:'3px',borderRadius:'15px',borderColor:'gray'}}>
+           <div class="container-xl"style={{border:'solid',borderWidth:'3px',borderRadius:'15px',borderColor:'#9D9D9D'}}>
                 <div class="row">
                     <div class="col-md-10 mx-auto">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
@@ -157,134 +157,169 @@ class Blog extends Component {
             <div style={{marginTop:'50px',marginBottom:'10px',marginLeft:'250px'}}>
                 <h1>最新文章</h1>
             </div>
-            <div style={{marginRight:'400px'}}>
-                <div class="blog-card">
-                    <div class="meta">
-                    <div class="photo" style={{backgroundImage: "url(/images/7.jpg)"}}></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                        <ul>
-                            <li><a href="#">Learn</a></li>
-                            <li><a href="#">Code</a></li>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
+            <div style={{display: 'grid',gridTemplateColumns:'70% 30%'}}>
+                <div style={{paddingBottom:'10px'}}>
+                    <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style={{backgroundImage: "url(/images/7.jpg)"}}></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">John Doe</a></li>
+                            <li class="date">Aug. 24, 2015</li>
+                            <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                            </ul>
+                            </li>
                         </ul>
-                        </li>
-                    </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <h2>Opening a door to the future</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                        <p class="read-more">
+                            <a href="#">Read More</a>
+                        </p>
+                        </div>
                     </div>
-                    <div class="description">
-                    <h1>Learning to Code</h1>
-                    <h2>Opening a door to the future</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                    <p class="read-more">
-                        <a href="#">Read More</a>
-                    </p>
+                    <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style={{backgroundImage: "url(/images/11.jpg)"}}></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">John Doe</a></li>
+                            <li class="date">Aug. 24, 2015</li>
+                            <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <h2>Opening a door to the future</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                        <p class="read-more">
+                            <a href="#">Read More</a>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style={{backgroundImage: "url(/images/12.jpg)"}}></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">John Doe</a></li>
+                            <li class="date">Aug. 24, 2015</li>
+                            <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <h2>Opening a door to the future</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                        <p class="read-more">
+                            <a href="#">Read More</a>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style={{backgroundImage: "url(/images/13.jpg)"}}></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">John Doe</a></li>
+                            <li class="date">Aug. 24, 2015</li>
+                            <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <h2>Opening a door to the future</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                        <p class="read-more">
+                            <a href="#">Read More</a>
+                        </p>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="meta">
+                        <div class="photo" style={{backgroundImage: "url(/images/15.jpg)"}}></div>
+                        <ul class="details">
+                            <li class="author"><a href="#">John Doe</a></li>
+                            <li class="date">Aug. 24, 2015</li>
+                            <li class="tags">
+                            <ul>
+                                <li><a href="#">Learn</a></li>
+                                <li><a href="#">Code</a></li>
+                                <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="description">
+                        <h1>Learning to Code</h1>
+                        <h2>Opening a door to the future</h2>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
+                        <p class="read-more">
+                            <a href="#">Read More</a>
+                        </p>
+                        </div>
                     </div>
                 </div>
-                <div class="blog-card">
-                    <div class="meta">
-                    <div class="photo" style={{backgroundImage: "url(/images/11.jpg)"}}></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                        <ul>
-                            <li><a href="#">Learn</a></li>
-                            <li><a href="#">Code</a></li>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    </div>
-                    <div class="description">
-                    <h1>Learning to Code</h1>
-                    <h2>Opening a door to the future</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                    <p class="read-more">
-                        <a href="#">Read More</a>
-                    </p>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="meta">
-                    <div class="photo" style={{backgroundImage: "url(/images/12.jpg)"}}></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                        <ul>
-                            <li><a href="#">Learn</a></li>
-                            <li><a href="#">Code</a></li>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    </div>
-                    <div class="description">
-                    <h1>Learning to Code</h1>
-                    <h2>Opening a door to the future</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                    <p class="read-more">
-                        <a href="#">Read More</a>
-                    </p>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="meta">
-                    <div class="photo" style={{backgroundImage: "url(/images/13.jpg)"}}></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                        <ul>
-                            <li><a href="#">Learn</a></li>
-                            <li><a href="#">Code</a></li>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    </div>
-                    <div class="description">
-                    <h1>Learning to Code</h1>
-                    <h2>Opening a door to the future</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                    <p class="read-more">
-                        <a href="#">Read More</a>
-                    </p>
-                    </div>
-                </div>
-                <div class="blog-card">
-                    <div class="meta">
-                    <div class="photo" style={{backgroundImage: "url(/images/15.jpg)"}}></div>
-                    <ul class="details">
-                        <li class="author"><a href="#">John Doe</a></li>
-                        <li class="date">Aug. 24, 2015</li>
-                        <li class="tags">
-                        <ul>
-                            <li><a href="#">Learn</a></li>
-                            <li><a href="#">Code</a></li>
-                            <li><a href="#">HTML</a></li>
-                            <li><a href="#">CSS</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    </div>
-                    <div class="description">
-                    <h1>Learning to Code</h1>
-                    <h2>Opening a door to the future</h2>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad eum dolorum architecto obcaecati enim dicta praesentium, quam nobis! Neque ad aliquam facilis numquam. Veritatis, sit.</p>
-                    <p class="read-more">
-                        <a href="#">Read More</a>
-                    </p>
+                <div>
+                    <div style={{width:'380px',height:'400px',border:'solid',borderWidth:'4px',borderRadius:'15px',borderColor:'#9D9D9D',display: 'grid',gridTemplateColumns:'40% 60%',gridTemplateRows:'30% 30% 40%'}}>
+                        <div style={{margin:'0px auto',paddingTop:"45px"}}>
+                            <h4><i class="fa fa-map-marker" aria-hidden="true"></i>     地區 </h4>
+                        </div>
+                        <div class="container-dropdown d-flex justify-content-center align-items-center" >
+                            <div class="dropdown"> 
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style={{backgroundColor:'#858585b0'}}> 
+                                <span style={{color:'white'}}>Countries</span> <i class="fa fa-caret-down" style={{color:'white'}}></i> 
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#">Australia</a></li>
+                                        <li><a class="dropdown-item" href="#">India</a></li>
+                                        <li><a class="dropdown-item" href="#">United States</a></li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div>
+                                
+                        </div>
+                        <div class="container-dropdown d-flex justify-content-center align-items-center" >
+                            <div class="dropdown"> 
+                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" style={{backgroundColor:'#858585b0'}}> 
+                                <span style={{color:'white'}}>Countries</span> <i class="fa fa-caret-down" style={{color:'white'}}></i> 
+                                </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <li><a class="dropdown-item" href="#">Australia</a></li>
+                                        <li><a class="dropdown-item" href="#">India</a></li>
+                                        <li><a class="dropdown-item" href="#">United States</a></li>
+                                    </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     
   );
