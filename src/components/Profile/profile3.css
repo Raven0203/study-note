@@ -1,6 +1,6 @@
 body {
   background-color: white;
-  height: 100vh;
+  
 }
 
 .text,
@@ -39,7 +39,7 @@ textarea {
 
 .profile3-backgroundimg {
   width: 100%;
-
+max-height: none;
   display: flex;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;

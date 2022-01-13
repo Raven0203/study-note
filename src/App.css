@@ -15,7 +15,10 @@ body {
   align-items: center;
   display: flex;
 }
-
+/*修改按鈕樣式*/
+button:focus {
+  outline: 0;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
