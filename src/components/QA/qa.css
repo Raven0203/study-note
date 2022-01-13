@@ -1,0 +1,282 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  font-family: sans-serif;
+  background-color: #f1f1f1; 
+} */
+
+ 
+.heading {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  
+}
+
+.heading__title {
+  font-size: 3em;
+  margin-right:20px ;
+  color: rgb(68, 63, 63);
+  text-shadow:2px 2px 2px #7984b1;
+  position: relative;
+  
+}
+
+.heading__credits {
+  font-weight:bold;
+  color: #504f4f;
+  font-size: 25px;
+  transition: all 0.5s;
+}
+
+
+
+.qa-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left:300px;
+  margin-right:270px;
+  padding-bottom: 200px;
+  
+}
+
+
+.qa-container .qacard .icon {
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #727b88;
+  color:white;
+  text-align:center;
+  display: flex; 
+  align-items: center; 
+  border-radius:20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* .qa-container .qacard .icon .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  color: #fff;
+} */
+
+.qa-container .qacard .slide {
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+  border-radius:20px;
+}
+
+.qa-container .qacard .slide.slide1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transition: .7s;
+  transform: translateY(100px);
+  
+}
+
+.qa-container .qacard:hover .slide.slide1{
+  transform: translateY(0px);
+}
+
+.qa-container .qacard .slide.slide2 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: .8s;
+  transform: translateY(-100px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  background-color: ivory;
+}
+
+.qa-container .qacard:hover .slide.slide2{
+  transform: translateY(0);
+}
+
+.qa-container .qacard .slide.slide2::after{
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  bottom: 15px;
+  left: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2c73df;
+}
+
+.qa-container .qacard .slide.slide2 .content p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #414141;
+}
+
+.qa-container .qacard .slide.slide2 .content h3 {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-size: 24px;
+  text-align: center;
+  color: #414141;
+} 
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+  
+  .qa-qa-container {
+    padding: 30px;
+  }
+  
+  
+  
+  .heading {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+  
+  .heading__title {
+    font-weight: 600;
+    font-size: 50px;
+  }
+  
+  .heading__credits {
+    
+    color: #888888;
+    font-size: 25px;
+    transition: all 0.5s;
+  }
+  
+  .heading__link {
+    text-decoration: none;
+  }
+  
+  .heading__credits .heading__link {
+    color: inherit;
+  }
+  
+  .qaqacards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .qaqacard {
+    margin-bottom: 30px;
+    margin-left: 15px;
+    padding: 20px;
+    width: 350px;
+    min-height: 200px;
+    display: grid;
+    grid-template-rows: 20px 50px 1fr 50px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
+    
+  }
+  
+  .qaqacard:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }
+  
+  .qa-link,
+  .qa-exit,
+  .qa-icon {
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .qa-link::after {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.5s;
+  }
+  
+  .qa-link:hover::after {
+    width: 100%;
+  }
+  
+  .qa-exit {
+    grid-row: 1/2;
+    justify-self: end;
+  }
+  
+  .qa-icon {
+    grid-row: 2/3;
+    font-size: 30px;
+  }
+  
+  .qa-title {
+    grid-row: 3/4;
+    font-weight: 400;
+    color: #ffffff;
+  }
+  
+  .qa-apply {
+    grid-row: 4/5;
+    align-self: center;
+  }
+  
+  
+  
+  .qacard-1 {
+    background: radial-gradient(#1fe4f5, #3fbafe);
+  }
+  
+  .qacard-2 {
+    background: radial-gradient(#60efbc, #58d5c9);
+  }
+  
+  .qacard-3 {
+    background: radial-gradient(#76b2fe, #b69efe);
+  }
+  
+  .qacard-4 {
+    background: radial-gradient(#60efbc, #58d5c9);
+  }
+  
+  .qacard-5 {
+    background: radial-gradient(#60efbc, #58d5c9);
+  }
+  
+  
+  
+  @media (max-width: 1600px) {
+    .qacards {
+      justify-content: center;
+    }
+  } */
+  
+  

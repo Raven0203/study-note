@@ -47,7 +47,7 @@ export default function Navbar({ user }) {
                     <Link to=" " className='a'>首頁</Link>
 
                     <Link to="/journeyplanhome " className='a'>行程規劃</Link>
-                    <Link to="/" className='a'>部落格</Link>
+                    <Link to="/blog" className='a'>部落格</Link>
                 </div>
                 <button onClick={() => setShowLinks(!showLinks)}><ReorderIcon /></button>
             </div>

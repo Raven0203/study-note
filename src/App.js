@@ -23,6 +23,10 @@ import Profile3 from "./components/Profile/Profile3";
 import JourneyHome from "./components/JourneyPlanning/JourneyHome";
 import Test from "./Test/Test";
 import Journeyplan from "./components/JourneyPlanning/JourneyPlan";
+import Map from "./components/JourneyPlanning/Map";
+import About from "./components/About/About";
+import QuestionAnswer from "./components/QA/QuestionAnswer";
+import Blog from "./components/Blog/Blog";
 
 function App() {
   const [user, setUser] = useState({});
@@ -49,10 +53,14 @@ function App() {
             <Route path="/" element={<HomePage user={user} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/about" element={<About/>} />
+          <Route path="/qa" element={<QuestionAnswer/>} /> 
+          
+          <Route path="/blog" element={<Blog/>} />
             <Route path="/profile" element={<Profile3 />} />
             <Route path="/favorite" element={<Favorite />} />
             <Route path="/journeyplanhome" element={<JourneyHome />} />
-            <Route path="/journeyplan" element={<Journeyplan />} />
+            <Route path="/map" element={<Map />} />
           </Routes>
           <Footer />
         </BrowserRouter>

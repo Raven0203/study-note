@@ -45,7 +45,7 @@ export default function NavbarGuest() {
                     <Link to=" " className='a'>首頁</Link>
 
                     <Link to="/journeyplanhome " className='a'> 行程規劃</Link>
-                    <Link to="/" className='a'>部落格</Link>
+                    <Link to="/blog" className='a'>部落格</Link>
                     <Link to="/login" className='a'>登入 | 註冊</Link>
                     {/* <Link to="/test" className='a' onClick={()=>setTestOpen(!testopen)}>後台系統</Link> */}
                 </div>

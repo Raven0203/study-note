@@ -21,7 +21,7 @@ export default function JourneyHome() {
         <h1>行程規劃</h1>
 
         <Button disabled></Button>
-        <Link to="/journeyplan" ><Fab onClick={() => setJourneyOpen(true)} sx={{ backgroundColor: 'goldenrod' }}><AddIcon></AddIcon></Fab></Link>
+        <Link to="/map" ><Fab onClick={() => setJourneyOpen(true)} sx={{ backgroundColor: 'goldenrod' }}><AddIcon></AddIcon></Fab></Link>
       </div>
 
       <br /><br />
