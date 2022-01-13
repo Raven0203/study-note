@@ -48,7 +48,7 @@ function PlanTableTest({setResault,place}) {
         localStore(josonmodel);
     }
     useEffect(()=>{
-        //dataparse(jsondata)
+
     },[])
     
     function localStore(jsondata){
@@ -58,14 +58,16 @@ function PlanTableTest({setResault,place}) {
 
     function dataparse(jsondata) {
         temp = JSON.parse(jsondata.journeydetail).eachDays[0].eachPlaces; //暫存區放eachplace array
-        if(temp.length===1){
-            singleTitle = temp[0].placeName
+        console.log(temp)
+        singleTitle = temp[0]?temp[0].placeName:""
+        if(temp.length<=1){
             setData(temp); //只有一個物件時繪製journetplan用
         }
+
         beginDate = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
         for (var i = 0; i < temp.length - 1; i++) {
-            singleTitle="";
+           
             let continute = FetchDistance(temp[i].AttractionsId, temp[i + 1].AttractionsId, temp[i]);//取陣列送資料給derection算距離
             continute.then(() => {
                 count++;
@@ -102,7 +104,6 @@ function PlanTableTest({setResault,place}) {
             temp.location.placeId = data[i].AttractionsId
             waypoit[i-1] = temp;
         }
-        console.log(waypoit);
         return waypoit;
     }
 
@@ -138,7 +139,7 @@ function PlanTableTest({setResault,place}) {
 
     }
     
-    function deleteItem(e){ //delete event      
+    function deleteItem(e){ //delete event     
         jsondata = JSON.parse(window.localStorage.jsondata)
         jsondata.journeydetail = JSON.parse(jsondata.journeydetail)
         jsondata.journeydetail.eachDays[0].eachPlaces.splice(parseInt(e.target.id.substr(6,1)),1);
@@ -176,10 +177,13 @@ function PlanTableTest({setResault,place}) {
             <tr>
                 <th><input type="date" value={beginDate} onChange={changeDate} ></input></th>
             </tr>
-            {(singleTitle=="")?"":<tr><b>{singleTitle}</b><button id={`delbtn0`} className='delbutton'>刪除</button></tr>}
-            
-            {data.map((item,idex) => {
-                return <><tr><td><b>{item.placeName}</b><button id={`delbtn${idex}`} className='delbutton' onClick={deleteItem}>刪除</button></td></tr><tr>{item.distance}</tr></>
+            {(singleTitle=="")?"":<tr><b>{singleTitle}</b><button id={"delbtn0"} className='delbutton' onClick={deleteItem}>刪除</button><tr>{data[0]?data[0].distance:""}</tr></tr>}
+
+            {
+            data.map((item,idex) => {
+                if(idex>0){
+                    return <><tr><td><b>{item.placeName}</b><button id={`delbtn${idex}`} className='delbutton' onClick={deleteItem}>刪除</button></td></tr><tr>{item.distance}</tr></>                
+                }
             })}</table><button onClick={setMap}>MAP</button><br/><button onClick={saveData}>儲存</button>
     </div>)
 }
