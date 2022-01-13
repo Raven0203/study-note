@@ -151,6 +151,13 @@ function PlanTableTest({setResault,place}) {
         setResault(respone)
         console.log("draw map")
     }
+    function changeDate (e){
+        beginDate = e.target.value;
+        jsondata.journeydetail.beginDate =beginDate;
+        localStore(jsondata)
+        dataparse(jsondata)
+
+    }
     return (<div>{
         <DirectionsService options={{
             destination: { placeId: (data.length > 0) ? data[data.length - 1].AttractionsId : null },
@@ -167,7 +174,7 @@ function PlanTableTest({setResault,place}) {
     }
         <table >
             <tr>
-                <th><input type="date" value={beginDate} ></input></th>
+                <th><input type="date" value={beginDate} onChange={changeDate} ></input></th>
             </tr>
             {(singleTitle=="")?"":<tr><b>{singleTitle}</b><button id={`delbtn0`} className='delbutton'>刪除</button></tr>}
             
