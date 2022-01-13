@@ -34,6 +34,14 @@ const Test = () => {
     //   })
   }
 
+  const handleProxy = () => {
+
+    axios.get("/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=台中百貨公司")
+      .then((res) => console.log(res.data.results))
+      .catch((error) => console.log(error))
+
+  }
+
   return (
     <div>
 
@@ -41,6 +49,7 @@ const Test = () => {
       <br />
       <input type="text" name="" id="" ref={passwordref} />
       <button onClick={handledbjson}>Click</button>
+      <button onClick={handleProxy}>Proxy</button>
     </div>
   );
 }
