@@ -13,7 +13,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PlanTable from './PlanTable';
-import PlanTableTest from './plantabletest';
+import PlanTableTest from './PlanTableTest';
 import './map.css'
 import { ButtonBase } from '@mui/material';
 
@@ -90,7 +90,7 @@ function MyComponent() {
     <>
 
       <div className='maps'>
-        <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} place={place}/*把方法丟給table給他取用*//></div>
+        <div className='plan'><PlanTable setResault={setResault} detail={placedetail} place={place}/*把方法丟給table給他取用*//></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
