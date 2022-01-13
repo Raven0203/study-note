@@ -59,6 +59,7 @@ export default function Navbar() {
                 <Tooltip title='個人資訊'>
                     <IconButton onClick={handleMenuOpen}
                         size="small"
+                        
                         sx={{ ml: 2 }}
                         aria-controls={open ? 'account-menu' : false}
                         aria-haspopup="true"
@@ -69,6 +70,7 @@ export default function Navbar() {
 
                 </Tooltip>
                 <Menu anchorEl={anchorEl}
+                    border="hidden"
                     id="account-menu"
                     open={open}
                     onClose={handleMenuClose}
