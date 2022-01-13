@@ -34,13 +34,25 @@ const Test = () => {
     //   })
   }
 
+  const handleProxy = () => {
+
+    axios.get("/maps/api/place/textsearch/json?key=AIzaSyA1A_ajOEo-A7Mpuhm000U4zK-sGAvlTQc&language=zh-TW&query=台中百貨公司",{
+      baseURL:"https://maps.googleapis.com"
+    })
+    .then((res)=>console.log(res.data))
+    .catch((error)=>console.log(error));
+  }
+
+
+
   return (
     <div>
 
       <input type="text" name="" id="" ref={emailref} />
       <br />
       <input type="text" name="" id="" ref={passwordref} />
-      <button onClick={handledbjson}>Click</button>
+      {/* <button onClick={handledbjson}>Click</button> */}
+<button onClick={handleProxy}>Proxy</button>
     </div>
   );
 }
