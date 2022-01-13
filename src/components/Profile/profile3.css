@@ -30,14 +30,14 @@ textarea {
   font-size: large;
 }
 
-.img {
+.profile3-img {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
 }
 
-.backgroundimg {
+.profile3-backgroundimg {
   width: 100%;
 
   display: flex;
@@ -120,7 +120,7 @@ input[type="submit"]:hover {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.profile3-row:after {
   content: "";
   display: table;
   clear: both;

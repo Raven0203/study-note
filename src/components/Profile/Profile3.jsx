@@ -13,6 +13,7 @@ export default function Profile3() {
   const nicknameref = useRef("");
   const realnameref = useRef("");
   const birthdayref = useRef("");
+  const genderref = useRef("");
   const arearef = useRef("");
   const signref = useRef("");
   //用戶照片URL
@@ -42,6 +43,7 @@ export default function Profile3() {
           emailref={emailref}
           nicknameref={nicknameref}
           realnameref={realnameref}
+          genderref={genderref}
           birthdayref={birthdayref}
           arearef={arearef}
           signref={signref}
@@ -55,15 +57,15 @@ export default function Profile3() {
       <form action="">
         <div className="row">
           <div className="background">
-            <img className="backgroundimg" src="./img/1.jpg" alt="" />
+            <img className="profile3-backgroundimg" src="./img/1.jpg" alt="" />
           </div>
           
-          <div className="img">
+          <div className="profile3-img">
 
             <img className="avatarimg" src={profileURL === null ? "" : profileURL} alt="" />
           </div>
         </div>
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="email">電子信箱：</label>
           </div>
@@ -80,7 +82,7 @@ export default function Profile3() {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="nickname">暱稱：</label>
           </div>
@@ -96,7 +98,7 @@ export default function Profile3() {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="fname">姓名：</label>
           </div>
@@ -112,7 +114,7 @@ export default function Profile3() {
           </div>
         </div>
 
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="birthday">生日：</label>
           </div>
@@ -127,7 +129,7 @@ export default function Profile3() {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="constellations ">星座：</label>
           </div>
@@ -141,7 +143,7 @@ export default function Profile3() {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="area">地區：</label>
           </div>
@@ -185,7 +187,7 @@ export default function Profile3() {
             </select>
           </div>
         </div>
-        <div className="row">
+        <div className="profile3-row">
           <div className="col-25">
             <label className="profile-label" htmlFor="sign">個性簽名：</label>
           </div>
@@ -204,7 +206,7 @@ export default function Profile3() {
         <br />
 
         <div
-          className="row"
+          className="profile3-row"
           style={{
             display: "flex",
             textAlign: "center",
