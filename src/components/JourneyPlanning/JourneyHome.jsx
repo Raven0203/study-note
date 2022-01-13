@@ -10,18 +10,20 @@ import AddIcon from '@mui/icons-material/Add';
 import './journeyhome.css'
 import Fab from '@mui/material/Fab';
 import { Link } from 'react-router-dom';
+import { Avatar } from '@mui/material';
 
 export default function JourneyHome() {
   const [journeyopen, setJourneyOpen] = useState(false);
 
 
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: '100vh' ,backgroundColor:'#e8eaf6'}}>
       <div className='journey-home-title'>
         <h1>行程規劃</h1>
 
         <Button disabled></Button>
-        <Link to="/map" ><Fab onClick={() => setJourneyOpen(true)} sx={{ backgroundColor: 'goldenrod' }}><AddIcon></AddIcon></Fab></Link>
+        
+        <Link to="/map" ><Fab title='開始規劃' onClick={() => setJourneyOpen(true)} sx={{ backgroundColor: 'goldenrod' }}><AddIcon></AddIcon></Fab></Link>
       </div>
 
       <br /><br />
@@ -87,6 +89,8 @@ export default function JourneyHome() {
             <Button size="small">繼續旅程</Button>
           </CardActions>
         </Card>
+
+        
 
       </div>
     </div>
