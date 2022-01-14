@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 import Register from "./components/Login/Register";
 import Profile3 from "./components/Profile/Profile3";
 import JourneyHome from "./components/JourneyPlanning/JourneyHome";
-import Test from "./Test/Test";
+import Test from "./Test/TestProxy";
 
 import Map from "./components/JourneyPlanning/Map";
 import About from "./components/About/About";

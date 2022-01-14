@@ -6,7 +6,7 @@ import App from './App';
 import Profile from './components/Profile/Profile';
 import Profile3 from './components/Profile/Profile3';
 import Search from './Test/Search';
-import Test from './Test/Test';
+import Test from './Test/TestProxy';
 
 
 
