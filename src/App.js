@@ -59,7 +59,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/profile" element={<Profile3 />} />
             <Route path="/favorite" element={<Favorite />} />
-            <Route path="/journeyplanhome" element={<JourneyHome />} />
+            <Route path="/journeyhome" element={<JourneyHome />} />
             <Route path="/map" element={<Map />} />
           </Routes>
           <Footer />
