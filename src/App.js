@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-
+import React, { Component }  from 'react';
 import Prac from "./components/Practice/Prac";
 import Student from "./components/Practice/Student";
 import Profile from "./components/Profile/Profile";
@@ -54,9 +54,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/test" element={<Test />} />
             <Route path="/about" element={<About/>} />
-          <Route path="/qa" element={<QuestionAnswer/>} /> 
+            <Route path="/qa" element={<QuestionAnswer/>} /> 
           
-          <Route path="/blog" element={<Blog/>} />
+            <Route path="/blog" element={<Blog/>} />
             <Route path="/profile" element={<Profile3 />} />
             <Route path="/favorite" element={<Favorite />} />
             <Route path="/journeyplanhome" element={<JourneyHome />} />
