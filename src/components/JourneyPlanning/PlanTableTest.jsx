@@ -7,8 +7,10 @@ var jsondata;
 var post=true;//if true click button to post data else,put data 
 var singleTitle="";//one item event
 var lastplace;
+var daypointer= 0;
 function PlanTableTest({setResault,place}) {
     const [data, setData] = useState([])
+    const [test, setTest] = useState([])
      console.log("LOAD")
      function FetchData(journeyid) {
          //get資料庫已有行程
@@ -27,10 +29,9 @@ function PlanTableTest({setResault,place}) {
         jsondata.journeydetail = JSON.parse(jsondata.journeydetail)
         if(lastplace!=place.place_id &&  place.place_id ){
             lastplace=place.place_id;
-            jsondata.journeydetail.eachDays[0].eachPlaces.push({"placeName":place.place_name,"AttractionsId":place.place_id})
+            jsondata.journeydetail.eachDays[daypointer].eachPlaces.push({"placeName":place.place_name,"AttractionsId":place.place_id})
             localStore(jsondata);
             console.log("insert")
-            dataparse(jsondata)
         }       
        
     }else{//如果local storge 沒東西放一個 journey detail 格式的json進去
@@ -52,12 +53,13 @@ function PlanTableTest({setResault,place}) {
     },[])
     
     function localStore(jsondata){
-        jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)//為了要journeybean 對照到detail是string
+        jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)
+        dataparse(jsondata)//為了要journeybean 對照到detail是string
         window.localStorage.jsondata= JSON.stringify(jsondata);
     }
 
     function dataparse(jsondata) {
-        temp = JSON.parse(jsondata.journeydetail).eachDays[0].eachPlaces; //暫存區放eachplace array
+        temp = JSON.parse(jsondata.journeydetail).eachDays[daypointer].eachPlaces; //暫存區放eachplace array
         console.log(temp)
         singleTitle = temp[0]?temp[0].placeName:""
         if(temp.length<=1){
@@ -142,7 +144,7 @@ function PlanTableTest({setResault,place}) {
     function deleteItem(e){ //delete event     
         jsondata = JSON.parse(window.localStorage.jsondata)
         jsondata.journeydetail = JSON.parse(jsondata.journeydetail)
-        jsondata.journeydetail.eachDays[0].eachPlaces.splice(parseInt(e.target.id.substr(6,1)),1);
+        jsondata.journeydetail.eachDays[daypointer].eachPlaces.splice(parseInt(e.target.id.substr(6,1)),1);
         jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)
         window.localStorage.jsondata= JSON.stringify(jsondata);
         dataparse(jsondata)
@@ -156,8 +158,33 @@ function PlanTableTest({setResault,place}) {
         beginDate = e.target.value;
         jsondata.journeydetail.beginDate =beginDate;
         localStore(jsondata)
-        dataparse(jsondata)
 
+    }
+    function eachDaysChange(e){
+        console.log(jsondata)
+        if(e.target.innerText=="nextday"){
+            daypointer++;
+        }else{
+            daypointer--;
+        }
+        if(!jsondata.journeydetail.eachDays[daypointer]){
+            
+            let placeobject ={};
+            placeobject.beginTime = "0900"
+            placeobject.placesNum = "2"
+            placeobject.eachPlaces=[];
+            jsondata.journeydetail.eachDays.push(placeobject)
+              
+        }
+        localStore(jsondata) 
+    }
+    function formatDate(){
+        if(!!beginDate==true){
+            let date =new Date(beginDate);
+            date.setDate(date.getDate()+daypointer)
+            console.log(date.toISOString().substring(0, 10))
+            return date.toISOString().substring(0, 10)
+        }
     }
     return (<div>{
         <DirectionsService options={{
@@ -175,11 +202,12 @@ function PlanTableTest({setResault,place}) {
     }
         <table >
             <tr>
-                <th><input type="date" value={beginDate} onChange={changeDate} ></input></th>
+                <th><button onClick={eachDaysChange}>preday</button><input type="date" value={formatDate()} onChange={changeDate} ></input><button onClick={eachDaysChange}>nextday</button></th>
             </tr>
             {(singleTitle=="")?"":<tr><b>{singleTitle}</b><button id={"delbtn0"} className='delbutton' onClick={deleteItem}>刪除</button><tr>{data[0]?data[0].distance:""}</tr></tr>}
 
             {
+                
             data.map((item,idex) => {
                 if(idex>0){
                     return <><tr><td><b>{item.placeName}</b><button id={`delbtn${idex}`} className='delbutton' onClick={deleteItem}>刪除</button></td></tr><tr>{item.distance}</tr></>                
