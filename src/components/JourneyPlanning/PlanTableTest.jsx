@@ -7,11 +7,9 @@ var jsondata;
 var post=true;//if true click button to post data else,put data 
 var singleTitle="";//one item event
 var lastplace;
-var daypointer= 0;
+var daypointer= 0;//指向當前天數的arrayindex
 function PlanTableTest({setResault,place}) {
     const [data, setData] = useState([])
-    const [test, setTest] = useState([])
-     console.log("LOAD")
      function FetchData(journeyid) {
          //get資料庫已有行程
         fetch("http://localhost:8080/journey/"+journeyid)
@@ -39,8 +37,7 @@ function PlanTableTest({setResault,place}) {
         josonmodel.journeydetail={}
         josonmodel.journeydetail.beginDate="2021-02-15"
         josonmodel.journeydetail.daysNum=2
-        josonmodel.journeydetail.eachDays=[];
-       
+        josonmodel.journeydetail.eachDays=[];       
         let placeobject ={};
         placeobject.beginTime = "0900"
         placeobject.placesNum = "2"
@@ -48,14 +45,11 @@ function PlanTableTest({setResault,place}) {
         josonmodel.journeydetail.eachDays.push(placeobject)
         localStore(josonmodel);
     }
-    useEffect(()=>{
-
-    },[])
     
     function localStore(jsondata){
-        jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)
-        dataparse(jsondata)//為了要journeybean 對照到detail是string
+        jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)//為了要journeybean 對照到detail是string        
         window.localStorage.jsondata= JSON.stringify(jsondata);
+        dataparse(jsondata) //儲存後順道重新繪製plan table
     }
 
     function dataparse(jsondata) {
@@ -65,7 +59,6 @@ function PlanTableTest({setResault,place}) {
         if(temp.length<=1){
             setData(temp); //只有一個物件時繪製journetplan用
         }
-
         beginDate = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
         for (var i = 0; i < temp.length - 1; i++) {
@@ -83,6 +76,7 @@ function PlanTableTest({setResault,place}) {
         
     }
     async function FetchDistance(startID, endId, temp) {
+        //計算距離
         return await fetch(`/maps/api/distancematrix/json?origins=place_id:${startID}&destinations=place_id:${endId}&key=AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig`)
             .then((res) => {
                 return res.json();
@@ -99,6 +93,7 @@ function PlanTableTest({setResault,place}) {
     }
 
     function makeWayPoint(data) {
+        //配合directiom service 設定中間點
         let waypoit = [];
         for (let i = 1; i < data.length - 1; i++) {
             let temp = {};
@@ -145,9 +140,7 @@ function PlanTableTest({setResault,place}) {
         jsondata = JSON.parse(window.localStorage.jsondata)
         jsondata.journeydetail = JSON.parse(jsondata.journeydetail)
         jsondata.journeydetail.eachDays[daypointer].eachPlaces.splice(parseInt(e.target.id.substr(6,1)),1);
-        jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)
-        window.localStorage.jsondata= JSON.stringify(jsondata);
-        dataparse(jsondata)
+        localStore(jsondata)
     }
 
     function setMap() {
@@ -161,14 +154,12 @@ function PlanTableTest({setResault,place}) {
 
     }
     function eachDaysChange(e){
-        console.log(jsondata)
         if(e.target.innerText=="nextday"){
             daypointer++;
         }else{
             daypointer--;
         }
-        if(!jsondata.journeydetail.eachDays[daypointer]){
-            
+        if(!jsondata.journeydetail.eachDays[daypointer]){           
             let placeobject ={};
             placeobject.beginTime = "0900"
             placeobject.placesNum = "2"
@@ -202,7 +193,7 @@ function PlanTableTest({setResault,place}) {
     }
         <table >
             <tr>
-                <th><button onClick={eachDaysChange}>preday</button><input type="date" value={formatDate()} onChange={changeDate} ></input><button onClick={eachDaysChange}>nextday</button></th>
+                <th>{daypointer>0?<button onClick={eachDaysChange}>preday</button>:null}<input type="date" value={formatDate()} onChange={changeDate} ></input><button onClick={eachDaysChange}>nextday</button></th>
             </tr>
             {(singleTitle=="")?"":<tr><b>{singleTitle}</b><button id={"delbtn0"} className='delbutton' onClick={deleteItem}>刪除</button><tr>{data[0]?data[0].distance:""}</tr></tr>}
 
