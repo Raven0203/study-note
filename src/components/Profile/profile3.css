@@ -1,7 +1,7 @@
-body {
+/* body {
   background-color: white;
-  height: 100vh;
-}
+  
+} */
 
 .text,
 select,
@@ -39,7 +39,7 @@ textarea {
 
 .profile3-backgroundimg {
   width: 100%;
-
+max-height: none;
   display: flex;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -99,9 +99,9 @@ input[type="submit"]:hover {
 
 .profile-container {
   border-radius: 5px;
-  background-color: #f2f2f2;
-  margin: 300px;
-  padding: 20px;
+  background-color: #fafafa;
+  /* margin: 300px; */
+  padding: 4px 20px 20px 20px;
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px rgb(150, 150, 150);
   border-radius: 10px;
   box-shadow: inset 10px black;

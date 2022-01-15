@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-
+import React, { Component } from 'react';
 import Prac from "./components/Practice/Prac";
 import Student from "./components/Practice/Student";
 import Profile from "./components/Profile/Profile";
@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 import Register from "./components/Login/Register";
 import Profile3 from "./components/Profile/Profile3";
 import JourneyHome from "./components/JourneyPlanning/JourneyHome";
-import Test from "./Test/TestProxy";
+import Test from "./Test/Test";
 
 import Map from "./components/JourneyPlanning/Map";
 import About from "./components/About/About";
@@ -59,7 +59,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/profile" element={<Profile3 />} />
             <Route path="/favorite" element={<Favorite />} />
-            <Route path="/journeyhome" element={<JourneyHome />} />
+            <Route path="/journeyplanhome" element={<JourneyHome />} />
             <Route path="/map" element={<Map />} />
           </Routes>
           <Footer />

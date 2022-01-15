@@ -22,7 +22,7 @@ import { auth } from "../../Firebase/firebase-config";
 const Dropdownbar = () => {
   const [dialogopen, setDiaLogOpen] = useState(true);
 
-  
+
 
   const logout = async () => {
     await signOut(auth);
@@ -45,7 +45,7 @@ const Dropdownbar = () => {
       </Link>
       <Divider />
       <Link
-        to="/journeyhome"
+        to="/journeyplanhome"
         style={{ textDecoration: "none", color: "black" }}
       >
         <MenuItem>
@@ -83,7 +83,7 @@ const Dropdownbar = () => {
         </ListItemIcon>
         <li onClick={logout} style={{ fontWeight: "bolder" }}>
           登出
-          
+
         </li>
       </MenuItem>
     </nav>
