@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { DirectionsService, LoadScript } from '@react-google-maps/api';
+import { DragHandle } from "./partials/DragHandle";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { unstable_composeClasses } from '@mui/material';
+import { ListItem ,DistanceItem} from "./styles";
 var temp = [];
 var beginDate;
 var respone;
 var jsondata;
 var post=true;//if true click button to post data else,put data 
-var singleTitle="";//one item event
 var lastplace;
 var daypointer= 0;//指向當前天數的arrayindex
+//const list = [{"id":1,"title":"測試"},{"id":2,"title":"測試2"},{"id":3,"title":"測試3"}]
+
 function PlanTableTest({setResault,place}) {
+    useEffect(()=>{
+        localStore(jsondata)
+    },[])
     const [data, setData] = useState([])
      function FetchData(journeyid) {
          //get資料庫已有行程
@@ -55,25 +63,28 @@ function PlanTableTest({setResault,place}) {
     function dataparse(jsondata) {
         temp = JSON.parse(jsondata.journeydetail).eachDays[daypointer].eachPlaces; //暫存區放eachplace array
         console.log(temp)
-        singleTitle = temp[0]?temp[0].placeName:""
-        if(temp.length<=1){
-            setData(temp); //只有一個物件時繪製journetplan用
-        }
+
         beginDate = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
+        if(temp.length<=1){
+            setData(temp); //只有一個物件時繪製journetplan用           
+            setTimeout(()=>{
+                setData(temp);
+            },500) 
+        }
         for (var i = 0; i < temp.length - 1; i++) {
            
             let continute = FetchDistance(temp[i].AttractionsId, temp[i + 1].AttractionsId, temp[i]);//取陣列送資料給derection算距離
             continute.then(() => {
                 count++;
                 if (count == temp.length - 1) {
-                   
+                    temp[temp.length-1].distance="";
                     setData(temp);                   
                     console.log("DRAW TABLE")
                 }
             });
         }
-        
+
     }
     async function FetchDistance(startID, endId, temp) {
         //計算距離
@@ -154,11 +165,13 @@ function PlanTableTest({setResault,place}) {
 
     }
     function eachDaysChange(e){
-        if(e.target.innerText=="nextday"){
-            daypointer++;
-        }else{
-            daypointer--;
-        }
+
+            if(e.target.innerText=="-->>"){
+                daypointer++;
+            }else if(e.target.innerText=="<<--"){
+                daypointer--;
+            }
+       
         if(!jsondata.journeydetail.eachDays[daypointer]){           
             let placeobject ={};
             placeobject.beginTime = "0900"
@@ -191,19 +204,59 @@ function PlanTableTest({setResault,place}) {
 
         </DirectionsService>
     }
-        <table >
-            <tr>
-                <th>{daypointer>0?<button onClick={eachDaysChange}>preday</button>:null}<input type="date" value={formatDate()} onChange={changeDate} ></input><button onClick={eachDaysChange}>nextday</button></th>
-            </tr>
-            {(singleTitle=="")?"":<tr><b>{singleTitle}</b><button id={"delbtn0"} className='delbutton' onClick={deleteItem}>刪除</button><tr>{data[0]?data[0].distance:""}</tr></tr>}
+        <span><b>開始日期:</b></span><input type="date" value={beginDate} onChange={changeDate} ></input>
+      <h3>{daypointer>0?<button onClick={eachDaysChange} >{"<<--"}</button>:<button onClick={eachDaysChange} disabled={true}>{"<<--"}</button>}{`第${daypointer+1}天(${formatDate()})`} <button onClick={eachDaysChange}>{"-->>"}</button></h3>
+      <button onClick={setMap}>路線規劃</button><button onClick={saveData}>儲存</button>
+      <DragDropContext
+        onDragEnd={(param) => {
+          const srcI = param.source.index;//which item drag
+          const desI = param.destination?.index;//target index
+          if (desI||desI===0) {
+            data.splice(desI, 0, data.splice(srcI, 1)[0]);
+            
+            console.log(data)
+            jsondata.journeydetail.eachDays[daypointer].eachPlaces= data;
+            localStore(jsondata)
+            //List.saveList(list);
+          }
+        }}
+      >
+          
+          <Droppable droppableId="droppable-1">
+            {(provided, _) => (
+              <div ref={provided.innerRef} {...provided.droppableProps}>
+                {data.map((item, i) => (
+                    
 
-            {
-                
-            data.map((item,idex) => {
-                if(idex>0){
-                    return <><tr><td><b>{item.placeName}</b><button id={`delbtn${idex}`} className='delbutton' onClick={deleteItem}>刪除</button></td></tr><tr>{item.distance}</tr></>                
-                }
-            })}</table><button onClick={setMap}>MAP</button><br/><button onClick={saveData}>儲存</button>
+                    <div>
+                    
+                  <Draggable
+                    key={item.AttractionsId}
+                    draggableId={"draggable-" + item.AttractionsId}
+                    index={i}
+                  >
+                    {(provided, snapshot) => (
+                      <ListItem 
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+
+                      >
+                        <DragHandle {...provided.dragHandleProps} />
+                        
+                        <b>{item.placeName}</b><button id={`delbtn${i}`} className='delbutton' onClick={deleteItem}>刪除</button>
+                      </ListItem>                    
+                    )}   
+                                   
+                  </Draggable>                 
+                  {(item.distance)?<DistanceItem>{item.distance}</DistanceItem>:null}
+                  </div>              
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+      </DragDropContext>
+      
     </div>)
 }
 
