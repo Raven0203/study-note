@@ -24,6 +24,7 @@ function ScrollTop2(props) {
     });
 
     const handleClick = (event) => {
+        console.log(event.target.ownerDocument.querySelector('#back-to-top-anchor'))
         const anchor = (event.target.ownerDocument || document).querySelector(
             '#back-to-top-anchor',
         );
@@ -44,6 +45,7 @@ function ScrollTop2(props) {
                 sx={{ position: 'fixed', bottom: 16, right: 16 }}
             >
                 {children}
+                {/* {console.log(children)} */}
             </Box>
         </Zoom>
     );

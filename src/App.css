@@ -1,18 +1,24 @@
 .App {
- width: 100vw;
- height: 100vh;
+  width: 100vw;
+  height: 100vh;
 }
-*{
-	margin:0;
-	padding:0;
-	box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body{
-margin: 0;
-padding: 0;
-
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
-
+/*修改按鈕樣式*/
+button:focus {
+  outline: 0;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

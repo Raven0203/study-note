@@ -14,7 +14,8 @@ import ScrollTop from '../Homepage/ScrollTop';
 
 
 
-export default function Navbar() {
+export default function Navbar({ user }) {
+
     // RWDMenu
     const [showLinks, setShowLinks] = useState(false);
 
@@ -30,22 +31,23 @@ export default function Navbar() {
     const open = Boolean(anchorEl);
     const handleMenuOpen = (e) => {
         setAnchorEl(e.currentTarget);
-        console.log(e.currentTarget.style)
+        //console.log(e.currentTarget.style)
     };
     const handleMenuClose = () => {
         setAnchorEl(null);
     };
-
+    //profileURL
+    const profileURL = localStorage.getItem("profileURL")
 
 
     return (
         <div className='Navbar' id="hidden">
             <div className="leftSide">
                 <div className="links" id={showLinks ? "hidden" : ""}>
-                    <Link to=" "><a >首頁</a></Link>
-                    <a href="/journeyplanning">行程規劃</a>
-                    <a href="">部落格</a>
-                    <a href="">登入 | 註冊</a>
+                    <Link to=" " className='a'>首頁</Link>
+
+                    <Link to="/journeyplanhome" className='a'>行程規劃</Link>
+                    <Link to="/blog" className='a'>部落格</Link>
                 </div>
                 <button onClick={() => setShowLinks(!showLinks)}><ReorderIcon /></button>
             </div>
@@ -55,15 +57,19 @@ export default function Navbar() {
             <div className="rightSide">
                 <input type="search" name="" id="" placeholder='Search...' ref={searchRef} />
                 <button onClick={handleClickSearch}><SearchIcon /></button>
-                <Tooltip title='個人資訊'>
+
+
+
+                <Tooltip title='個人資訊' sx={{ ml: 2, outline: 'none', textDecoration: 'none', border: 'none', width: '20px' }} >
                     <IconButton onClick={handleMenuOpen}
                         size="small"
-                        sx={{ ml: 2 }}
+                        sx={{ ml: 2, outline: 'none', textDecoration: 'none', border: 'none', width: '20px' }}
                         aria-controls={open ? 'account-menu' : false}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : false}>
+
                         {/* memberImage */}
-                        <Avatar className='memberImg' />
+                        <Avatar src={profileURL} className='memberImg' />
                     </IconButton>
 
                 </Tooltip>

@@ -166,9 +166,9 @@ function PlanTableTest({setResault,place}) {
     }
     function eachDaysChange(e){
 
-            if(e.target.innerText=="-->>"){
+            if(e.target.innerText==">>"){
                 daypointer++;
-            }else if(e.target.innerText=="<<--"){
+            }else if(e.target.innerText=="<<"){
                 daypointer--;
             }
        
@@ -205,7 +205,7 @@ function PlanTableTest({setResault,place}) {
         </DirectionsService>
     }
         <span><b>開始日期:</b></span><input type="date" value={beginDate} onChange={changeDate} ></input>
-      <h3>{daypointer>0?<button onClick={eachDaysChange} >{"<<--"}</button>:<button onClick={eachDaysChange} disabled={true}>{"<<--"}</button>}{`第${daypointer+1}天(${formatDate()})`} <button onClick={eachDaysChange}>{"-->>"}</button></h3>
+      <h6>{daypointer>0?<button onClick={eachDaysChange} >{"<<"}</button>:<button onClick={eachDaysChange} disabled={true}>{"<<"}</button>}{`第${daypointer+1}天(${formatDate()})`} <button onClick={eachDaysChange}>{">>"}</button></h6>
       <button onClick={setMap}>路線規劃</button><button onClick={saveData}>儲存</button>
       <DragDropContext
         onDragEnd={(param) => {
@@ -248,7 +248,7 @@ function PlanTableTest({setResault,place}) {
                     )}   
                                    
                   </Draggable>                 
-                  {(item.distance)?<DistanceItem>{item.distance}</DistanceItem>:null}
+                  {(data.length>1&&item.distance)?<DistanceItem>{item.distance}</DistanceItem>:null}
                   </div>              
                 ))}
                 {provided.placeholder}

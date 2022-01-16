@@ -13,9 +13,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PlanTable from './PlanTable';
-import PlanTableTest from './PlanTableTest';
+
 import './map.css'
 import { ButtonBase } from '@mui/material';
+import PlanTableTest from './PlanTableTest';
 
 // Modal
 const style = {

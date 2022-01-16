@@ -1,0 +1,138 @@
+/* body {
+  background-color: white;
+  
+} */
+
+.text,
+select,
+textarea {
+  font-size: large;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.email {
+  font-size: large;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.profile-date {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: large;
+}
+
+.profile3-img {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.profile3-backgroundimg {
+  width: 100%;
+max-height: none;
+  display: flex;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.avatarimg {
+  /* z-index: 1; */
+  display: flex;
+  background-color: white;
+  width: 50%;
+  height: 200px;
+  position: relative;
+  bottom: 30px;
+  margin-top: -75px;
+  display: block;
+  margin-left: 150px;
+  margin-bottom: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 10px solid #fff;
+  transition-duration: 0.4s;
+  transition-property: transform;
+  /* display: flex;
+   justify-content: center;
+   align-content: center;
+   
+    text-align: center;
+    margin-left: 350px;
+    
+    
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; */
+}
+
+.profile-label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type="submit"] {
+  background-color: #04aa6d;
+
+  width: 40%;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.profile-container {
+  border-radius: 5px;
+  background-color: #fafafa;
+  /* margin: 300px; */
+  padding: 4px 20px 20px 20px;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px rgb(150, 150, 150);
+  border-radius: 10px;
+  box-shadow: inset 10px black;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.profile3-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+
+  .col-25,
+  .col-75,
+  input[type="submit"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
