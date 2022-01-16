@@ -27,9 +27,7 @@ const Dropdownbar = () => {
   const logout = async () => {
     await signOut(auth);
 
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-    localStorage.removeItem("profileURL");
+    localStorage.clear();
     window.location.href = "/";
   };
 

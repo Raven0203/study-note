@@ -4,10 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 
+
+
+
 import Profile from './components/Profile/Profile';
 import Profile3 from './components/Profile/Profile3';
+
+
+
 import Search from './Test/Search';
-import Test from './Test/Test';
+
 
 
 
@@ -16,7 +22,9 @@ import Test from './Test/Test';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      {/* <MainContext /> */}
       <App />
+
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

@@ -29,14 +29,14 @@ export default function ProfileData({
   let realname = realnameref.current.value;
   // realname, email, profileURL, nickname, birthday, area, sign
   let profiledata = {
-    membername:realname,
-    memberemail:email,
-    membericon:profileURL,
-    membernickname:nickname,
-    memberbirth:birthday,
-    memebergender:"1",
-    memebercityid:area,
-    memberintro:sign
+    membername: realname,
+    memberemail: email,
+    membericon: profileURL,
+    membernickname: nickname,
+    memberbirth: birthday,
+    memebergender: "1",
+    memebercityid: area,
+    memberintro: sign
   };
 
   // const handleClickOpen = () => {
@@ -52,13 +52,13 @@ export default function ProfileData({
 
   const handleAgree = (e) => {
     e.preventDefault();
-    
+
     setProfileSend(false);
 
     // axios.post("url...",profiledata)
     // .then((res)=>console.log(res))
     // .catch((error)=>console.log(error));
-    
+
     console.log(profiledata);
   };
 
@@ -67,7 +67,7 @@ export default function ProfileData({
       {/* <Button variant="outlined" onClick={handleClickOpen}>
         開啟對話窗
       </Button> */}
-      
+
       <Dialog
         open={profilesend}
         onClose={handleClose}
@@ -75,10 +75,10 @@ export default function ProfileData({
         aria-describedby="alert-dialog-description"
         onBackdropClick={() => setProfileSend(false)}
       >
-        <DialogTitle id="alert-dialog-title">提示視窗</DialogTitle>
+        <DialogTitle id="alert-dialog-title"><h3>提示視窗</h3></DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            確定要把表單送出嗎?
+            <h5> 確定要把表單送出嗎?</h5>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
