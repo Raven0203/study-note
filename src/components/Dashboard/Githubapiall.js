@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react'
 
 import axios from 'axios'
 import { Typography } from '@mui/material';
+import Githubstatus from './Githubstatus';
+import { Grid } from '@mui/material';
 
-function Githubapi() {
+function Githubapiall() {
 
     const [data, setData] = useState([])
-    let test = null;
+    const [data1, setData1] = useState([])
+    const [data2, setData2] = useState([])
+    let test = [];
+    let temp = null;
     var okres = null;
     let eventurl = 'https://api.github.com/users/Bofutw/received_events'
     let commiturl = 'https://api.github.com/repos/EEIT36-Travel/Brian_Web_Demo/commits'
@@ -16,22 +21,33 @@ function Githubapi() {
         async function fetchapi(){
            try {
             const res = await axios.get(commiturl)
-         /*  console.log(res); */
-           okres = res.data[0]
+           
+           okres = res.data.slice(0,3)
+            
+         
            
          
-            okres.commit.author.date = okres.commit.author.date.replace('T',' ')
-            okres.commit.author.date = okres.commit.author.date.replace('Z',' ')
-         
             
-           test = {
-            message: okres.commit.message,
-            author:  okres.commit.author.name,
-            time: okres.commit.author.date,
-            email: okres.commit.author.email
+           
+           okres.map((okres)=>{
+            okres.commit.author.date = okres.commit.author.date.replace('T',' ')
+            okres.commit.author.date = okres.commit.author.date.replace('Z',' ') 
+            temp = {
+                message: okres.commit.message,
+                author:  okres.commit.author.name,
+                time: okres.commit.author.date,
+                email: okres.commit.author.email
             }
+            test.push(temp);
+           })
+           
+            
             console.log(test);
-             setData(test)  
+            console.log(test[0]);
+             setData(test[0]) 
+             setData1(test[1])
+             setData2(test[2]) 
+             
            } catch (error) {
                console.log(error);
            }
@@ -41,6 +57,7 @@ function Githubapi() {
         
         useEffect(() => {
            fetchapi();
+           
            /* console.log(test); */
            
         }, [])
@@ -81,16 +98,30 @@ function Githubapi() {
             >
                     Github
                     Status
-                    
+                    Details
                     <hr></hr>
             </Typography>
 
-            <Typography
+            <Grid container spacing={3}>
+                <Grid item xs={4}>
+                <Githubstatus data={data} align={'center'}></Githubstatus>
+                </Grid>
+                <Grid item xs={4}>
+                <Githubstatus data={data1} align={'center'}></Githubstatus>
+                </Grid>
+                <Grid item xs={4}>
+                <Githubstatus data={data2} align={'center'}></Githubstatus>
+                </Grid>
+                </Grid>
+            
+            
+            
+            {/* <Typography
                 display='inline'
                 component="h1"
                 variant="body1"
                 color="#607d8b"
-                /* noWrap */
+                
                 align="center"
                 sx={{ flexGrow: 10 }}
             >
@@ -117,10 +148,10 @@ function Githubapi() {
                 <br></br>
                 <br></br>
 
-            </Typography>
+            </Typography> */}
             
         </>
     )
 }
 
-export default Githubapi
+export default Githubapiall

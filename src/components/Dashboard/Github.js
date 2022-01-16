@@ -30,6 +30,8 @@ import { height, margin, padding } from '@mui/system';
 import Githubapi from './Githubapi';
 import Clone from './Clone';
 import Depositsgit from './Depositsgit'
+import Githubapiall from './Githubapiall';
+import Cloneweek from './Cloneweek'
 
 
 function Copyright(props) {
@@ -198,7 +200,20 @@ function DashboardContent() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
+            <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  {<Depositsgit></Depositsgit>}
+                  {/* <Deposits /> */}
+                </Paper>
+              </Grid>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
@@ -213,48 +228,28 @@ function DashboardContent() {
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  {<Depositsgit></Depositsgit>}
-                  {/* <Deposits /> */}
-                </Paper>
-              </Grid>
+              
               {/* Recent Orders */}
              
-              <Grid container spacing={3}>
-              <Grid item xs={4.5} >
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2, marginLeft:3 }}>
-            
+              <Grid container spacing={2}>
+              <Grid item xs={5} >
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2, marginLeft:2 }}>
+                  
+                  <Cloneweek></Cloneweek>
                   {/* <Areachart></Areachart> */}
               
                   {/* <Orders /> */}
                 </Paper>
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={7} >
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2,paddingLeft:0}}>
                 
                   {/* <Agechart></Agechart> */}
-              
+                  <Githubapiall></Githubapiall>
                   {/* <Orders /> */}
                 </Paper>
               </Grid>
 
-              <Grid item xs={2.5}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2}}>
-                
-                 {/*  <Githubapi></Githubapi> */}
-              
-                  {/* <Orders /> */}
-                </Paper>
-              </Grid>
-              
             </Grid>
             </Grid>
             <Copyright sx={{ pt: 4 }} />

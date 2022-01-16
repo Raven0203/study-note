@@ -24,15 +24,15 @@ export default function Chart() {
       method: 'get',
       url: url,
       headers: {
-        Authorization: 'token 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',
+        Authorization: 'token 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',
         Accept: 'application/vnd.github.v3+json'
       }
     });
     clones = res.data.clones;
+    console.log(clones);
     clones.map((dataa)=>{
       console.log(dataa.timestamp.substr(5,5));
       dataa.timestamp = dataa.timestamp.substr(5,5)
-      /* dataa.timestamp = dataa.timestamp.replace('-',' / ') */
     })
     console.log(clones);
     setData(clones)
@@ -65,7 +65,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Travel Clones</Title>
+      <Title>Travel Repo Clones</Title>
       <ResponsiveContainer>
         <LineChart
           data={data}
@@ -94,7 +94,7 @@ export default function Chart() {
                 ...theme.typography.body1,
               }}
             >
-              Repo Clone
+              Clone Counts
             </Label>
           </YAxis>
           <Tooltip />
