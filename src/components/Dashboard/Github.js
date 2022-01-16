@@ -28,7 +28,8 @@ import Areachart from './Areachart';
 import Agechart from './Agechart'
 import { height, margin, padding } from '@mui/system';
 import Githubapi from './Githubapi';
-
+import Clone from './Clone';
+import Depositsgit from './Depositsgit'
 
 
 function Copyright(props) {
@@ -97,7 +98,7 @@ const mdTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#81c784',
+      main: '#8d6e63',
       darker: '#053e85',
     },
     neutral: {
@@ -118,16 +119,6 @@ function DashboardContent() {
     setOpen(!open);
   };
 
-  // DropDownBar
-/* const [anchorEl, setAnchorEl] = useState(null);
-const Elopen = Boolean(anchorEl);
-const handleMenuOpen = (e) => {
-    setAnchorEl(e.currentTarget);
-    console.log(e.currentTarget.style)
-};
-const handleMenuClose = () => {
-    setAnchorEl(null);
-}; */
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -218,7 +209,7 @@ const handleMenuClose = () => {
                     height: 240,
                   }}
                 >
-                  <Chart />
+                  <Clone />
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
@@ -231,7 +222,8 @@ const handleMenuClose = () => {
                     height: 240,
                   }}
                 >
-                  <Deposits />
+                  {<Depositsgit></Depositsgit>}
+                  {/* <Deposits /> */}
                 </Paper>
               </Grid>
               {/* Recent Orders */}
@@ -240,7 +232,7 @@ const handleMenuClose = () => {
               <Grid item xs={4.5} >
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2, marginLeft:3 }}>
             
-                  <Areachart></Areachart>
+                  {/* <Areachart></Areachart> */}
               
                   {/* <Orders /> */}
                 </Paper>
@@ -248,7 +240,7 @@ const handleMenuClose = () => {
               <Grid item xs={5}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2,paddingLeft:0}}>
                 
-                  <Agechart></Agechart>
+                  {/* <Agechart></Agechart> */}
               
                   {/* <Orders /> */}
                 </Paper>
@@ -257,7 +249,7 @@ const handleMenuClose = () => {
               <Grid item xs={2.5}>
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2}}>
                 
-                  <Githubapi></Githubapi>
+                 {/*  <Githubapi></Githubapi> */}
               
                   {/* <Orders /> */}
                 </Paper>
@@ -273,6 +265,6 @@ const handleMenuClose = () => {
   );
 }
 
-export default function Dashboard() {
+export default function Github() {
   return <DashboardContent />;
 }

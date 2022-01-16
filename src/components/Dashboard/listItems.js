@@ -10,16 +10,18 @@ import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import BadgeIcon from '@mui/icons-material/Badge';
+import { unstable_HistoryRouter } from 'react-router-dom';
+
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+    <ListItem button onClick={()=>window.location.href='/dashboard'}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={()=>window.location.href='/members'}>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
@@ -31,13 +33,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Customers" />
     </ListItem> */}
-    <ListItem button>
+    <ListItem button onClick={()=>window.location.href='/github'}>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={()=>window.location.href='/employee'}>
       <ListItemIcon>
         <BadgeIcon />
       </ListItemIcon>

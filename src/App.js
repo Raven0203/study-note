@@ -13,11 +13,12 @@ import ScrollTop from './components/Homepage/ScrollTop';
 import Favorite from './components/Favorite/Favorite';
 import Test from './components/Practice/Bootstrap';
 import Dashboard from './components/Dashboard/Dashboard';
+import Github from './components/Dashboard/Github';
 
 function App() {
   const location=useLocation()
   console.log(location);
-  const isdashboardRendering = location.pathname==="/dashboard"
+  const isdashboardRendering = location.pathname==="/dashboard" || "/members" || "reports" || "employee"
   return (
     <div className="App">
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/journeyplanning" element={<Map />} />
           <Route path="/test" element={<Test />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/github" element={<Github />} />
         </Routes>
        
         {!isdashboardRendering && <Footer />}
