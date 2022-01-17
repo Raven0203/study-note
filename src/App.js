@@ -34,6 +34,7 @@ function App() {
   const [user, setUser] = useState({});
   //後台登入判斷const [testopen, setTestOpen] = useState(false);
 
+  const [openMap, setOpenMap] = useState(false);
   //登出狀態 監聽
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -64,7 +65,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/profile" element={<Profile3 />} />
           <Route path="/favorite" element={<Favorite />} />
-          <Route path="/journeyplanhome" element={<JourneyHome />} />
+          <Route path="/journeyplanhome" element={<JourneyHome openMap={openMap} setOpenMap={setOpenMap}/>} />
           <Route path="/map" element={<Map />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>

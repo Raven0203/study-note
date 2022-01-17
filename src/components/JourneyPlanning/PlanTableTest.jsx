@@ -4,20 +4,38 @@ import { DragHandle } from "./partials/DragHandle";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { unstable_composeClasses } from '@mui/material';
 import { ListItem ,DistanceItem} from "./styles";
-var temp = [];
-var beginDate;
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+
+//var beginDate;
 var respone;
 var jsondata;
-var post=true;//if true click button to post data else,put data 
 var lastplace;
-var daypointer= 0;//指向當前天數的arrayindex
-//const list = [{"id":1,"title":"測試"},{"id":2,"title":"測試2"},{"id":3,"title":"測試3"}]
-
+;//指向當前天數的arrayindex
+let daypointer= 0;
 function PlanTableTest({setResault,place}) {
     useEffect(()=>{
-        localStore(jsondata)
+        localStore(jsondata);
     },[])
     const [data, setData] = useState([])
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+        daypointer=newValue
+        if(!jsondata.journeydetail.eachDays[daypointer]){           
+          let placeobject ={};
+          placeobject.eachPlaces=[];
+          jsondata.journeydetail.eachDays.push(placeobject)
+            
+      }
+    
+      localStore(jsondata) 
+        //console.log(newValue);
+    };
+
+
      function FetchData(journeyid) {
          //get資料庫已有行程
         fetch("http://localhost:8080/journey/"+journeyid)
@@ -28,6 +46,19 @@ function PlanTableTest({setResault,place}) {
                 console.log(jsondata)
                 window.localStorage.jsondata = JSON.stringify(jsondata)
             })
+    }
+    if(window.localStorage.date){
+      let date = JSON.parse(window.localStorage.date)
+      let josonmodel ={};
+      josonmodel.journeydetail={}
+      josonmodel.journeydetail.beginDate=date.beginDate
+      josonmodel.journeydetail.daysNum=date.daysNum
+      josonmodel.journeydetail.eachDays=[];       
+      let placeobject ={};
+      placeobject.eachPlaces=[];
+      josonmodel.journeydetail.eachDays.push(placeobject)
+      window.localStorage.removeItem("date")
+      localStore(josonmodel);
     }
      if(window.localStorage.jsondata/*檢查local storge*/ ){
         jsondata = JSON.parse(window.localStorage.jsondata)
@@ -40,20 +71,21 @@ function PlanTableTest({setResault,place}) {
             console.log("insert")
         }       
        
-    }else{//如果local storge 沒東西放一個 journey detail 格式的json進去
-       let josonmodel ={};
-        josonmodel.journeydetail={}
-        josonmodel.journeydetail.beginDate="2021-02-15"
-        josonmodel.journeydetail.daysNum=2
-        josonmodel.journeydetail.eachDays=[];       
-        let placeobject ={};
-        placeobject.beginTime = "0900"
-        placeobject.placesNum = "2"
-        placeobject.eachPlaces=[];
-        josonmodel.journeydetail.eachDays.push(placeobject)
-        localStore(josonmodel);
     }
+
+    let day =[];
+      let beginDate = new Date(jsondata.journeydetail.beginDate)
+      let daysNum = jsondata.journeydetail.daysNum
+      for(let i =0;i<daysNum;i++){
+         let dateObj={}
+         dateObj.date = `第${i+1}天(${beginDate.toISOString().slice(0,10)})`;
+         day.push(dateObj)
+         beginDate.setDate(beginDate.getDate()+1)
+         
+      }
     
+ 
+    console.log(day)
     function localStore(jsondata){
         jsondata.journeydetail= JSON.stringify(jsondata.journeydetail)//為了要journeybean 對照到detail是string        
         window.localStorage.jsondata= JSON.stringify(jsondata);
@@ -61,10 +93,10 @@ function PlanTableTest({setResault,place}) {
     }
 
     function dataparse(jsondata) {
-        temp = JSON.parse(jsondata.journeydetail).eachDays[daypointer].eachPlaces; //暫存區放eachplace array
+        let temp = JSON.parse(jsondata.journeydetail).eachDays[daypointer].eachPlaces; //暫存區放eachplace array
         console.log(temp)
 
-        beginDate = JSON.parse(jsondata.journeydetail).beginDate;
+        // beginDate = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
         if(temp.length<=1){
             setData(temp); //只有一個物件時繪製journetplan用           
@@ -117,8 +149,22 @@ function PlanTableTest({setResault,place}) {
 
 
     function saveData() {
-        if(post){
-            fetch("http://localhost:8080/journey/memberid=1", {
+      if(jsondata.journeyid){
+        alert("update")
+        fetch("http://localhost:8080/journey/", {//update
+        method: 'PUT', 
+        body: window.localStorage.jsondata, 
+        headers: new Headers({
+          'Content-Type': 'application/json'
+        })
+      }).then((res )=>{  return res.json() })               
+      .catch(error => console.log(error) )
+      .then(response =>{
+        console.log(response)
+      });
+      }else{
+        alert("new")
+        fetch("http://localhost:8080/journey/memberid=2", {
                 method: 'POST', 
                 body: window.localStorage.jsondata, 
                 headers: new Headers({
@@ -129,21 +175,10 @@ function PlanTableTest({setResault,place}) {
               .catch(error => alert(error) )
               .then(response =>{          
                 FetchData(response.journeyid) //post後從資料庫拿新資料 轉換成編輯已有行程狀態
-                post = false;
+                
               });
-        }else{
-            fetch("http://localhost:8080/journey/", {//update
-                method: 'PUT', 
-                body: window.localStorage.jsondata, 
-                headers: new Headers({
-                  'Content-Type': 'application/json'
-                })
-              }).then((res )=>{  return res.json() })               
-              .catch(error => console.log(error) )
-              .then(response =>{
-                console.log(response)
-              });
-        }
+      }
+
 
     }
     
@@ -158,38 +193,7 @@ function PlanTableTest({setResault,place}) {
         setResault(respone)
         console.log("draw map")
     }
-    function changeDate (e){
-        beginDate = e.target.value;
-        jsondata.journeydetail.beginDate =beginDate;
-        localStore(jsondata)
 
-    }
-    function eachDaysChange(e){
-
-            if(e.target.innerText==">>"){
-                daypointer++;
-            }else if(e.target.innerText=="<<"){
-                daypointer--;
-            }
-       
-        if(!jsondata.journeydetail.eachDays[daypointer]){           
-            let placeobject ={};
-            placeobject.beginTime = "0900"
-            placeobject.placesNum = "2"
-            placeobject.eachPlaces=[];
-            jsondata.journeydetail.eachDays.push(placeobject)
-              
-        }
-        localStore(jsondata) 
-    }
-    function formatDate(){
-        if(!!beginDate==true){
-            let date =new Date(beginDate);
-            date.setDate(date.getDate()+daypointer)
-            console.log(date.toISOString().substring(0, 10))
-            return date.toISOString().substring(0, 10)
-        }
-    }
     return (<div>{
         <DirectionsService options={{
             destination: { placeId: (data.length > 0) ? data[data.length - 1].AttractionsId : null },
@@ -204,10 +208,17 @@ function PlanTableTest({setResault,place}) {
 
         </DirectionsService>
     }
-        <span><b>開始日期:</b></span><input type="date" value={beginDate} onChange={changeDate} ></input>< br />< br />
-        <div style={{"display":"flex","padding":"8px"}}><div style={{"flex":"20%"}}><button onClick={setMap}>路線規劃</button></div><div style={{"flex":"10"}}><button onClick={saveData}>儲存</button></div></div>
-      <h5 style={{"padding":"10px"}}>{daypointer>0?<button onClick={eachDaysChange} >{"<<"}</button>:<button onClick={eachDaysChange} disabled={true}>{"<<"}</button>}<span style={{"padding":"10px"}}>{`第${daypointer+1}天(${formatDate()})`}</span> <button onClick={eachDaysChange}>{">>"}</button></h5>
-      
+        <Box sx={{ width: '100%' }}>
+            <Box sx={{ borderBottom: 1, borderColor: 'Highlight' }}>
+                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" scrollButtons="auto" variant='scrollable'>
+                    {day.map((item, index) => {
+                        return (
+                            <Tab label={item.date} />
+                        )
+                    })}
+                </Tabs>
+            </Box> 
+        </Box>
       <DragDropContext
         onDragEnd={(param) => {
           const srcI = param.source.index;//which item drag
@@ -237,19 +248,30 @@ function PlanTableTest({setResault,place}) {
                     index={i}
                   >
                     {(provided, snapshot) => (
+                      
                       <ListItem 
                         ref={provided.innerRef}
                         {...provided.draggableProps}
 
                       >
+                        {(snapshot.isDragging)?<>{
+                        ( [].slice.call(document.getElementsByClassName("distanceItem")).map((item)=>{
+                                  item.style.display="none";
+                        }))}</>
+                        :<>{
+                        ( [].slice.call(document.getElementsByClassName("distanceItem")).map((item)=>{
+                          item.style.display="";
+                        }))}</>}
+
+                        {/* {} */}
                         <DragHandle {...provided.dragHandleProps} />
-                        
+
                         <b>{item.placeName}</b><button id={`delbtn${i}`} className='delbutton' onClick={deleteItem}>刪除</button>
                       </ListItem>                    
                     )}   
                                    
                   </Draggable>                 
-                  {(data.length>1&&item.distance)?<DistanceItem>{item.distance}</DistanceItem>:null}
+                  {(data.length>1&&item.distance)?<DistanceItem className='distanceItem'>{item.distance}</DistanceItem>:null}
                   </div>              
                 ))}
                 {provided.placeholder}
@@ -257,7 +279,8 @@ function PlanTableTest({setResault,place}) {
             )}
           </Droppable>
       </DragDropContext>
-      
+      <div style={{"display":"flex","padding":"8px"}}><div style={{"flex":"20%"}}><button onClick={setMap}>路線規劃</button></div><div style={{"flex":"10"}}><button onClick={saveData}>儲存</button></div></div>
+
     </div>)
 }
 

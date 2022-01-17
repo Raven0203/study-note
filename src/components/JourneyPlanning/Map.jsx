@@ -74,16 +74,6 @@ function MyComponent() {
     libraries: ["places"]
   })
 
-/*   useEffect(() => {
-   
-   if (placedetail.opening_hours != undefined){
-    openhour = JSON.stringify(placedetail.opening_hours.weekday_text)
-   } else {
-     openhour = null;
-   }
-   
-   }, [placedetail]) */
-
   if (loadError) {
     return <div>Map cannot be loaded right now, sorry.</div>
   }
@@ -91,7 +81,7 @@ function MyComponent() {
     <>
 
       <div className='maps'>
-        <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} place={place}/*把方法丟給table給他取用*//></div>
+        <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} place={place} /*把方法丟給table給他取用*//></div>
         <div>
           {/* {  <LoadScript
         googleMapsApiKey="AIzaSyAyzMJTILn9Et7hkWpxfA3jyOdILF7zCig"
