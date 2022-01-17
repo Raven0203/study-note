@@ -118,7 +118,7 @@ function PlanTableTest({setResault,place}) {
 
     function saveData() {
         if(post){
-            fetch("http://localhost:8080/journey/2", {
+            fetch("http://localhost:8080/journey/memberid=1", {
                 method: 'POST', 
                 body: window.localStorage.jsondata, 
                 headers: new Headers({
@@ -204,9 +204,10 @@ function PlanTableTest({setResault,place}) {
 
         </DirectionsService>
     }
-        <span><b>開始日期:</b></span><input type="date" value={beginDate} onChange={changeDate} ></input>
-      <h6>{daypointer>0?<button onClick={eachDaysChange} >{"<<"}</button>:<button onClick={eachDaysChange} disabled={true}>{"<<"}</button>}{`第${daypointer+1}天(${formatDate()})`} <button onClick={eachDaysChange}>{">>"}</button></h6>
-      <button onClick={setMap}>路線規劃</button><button onClick={saveData}>儲存</button>
+        <span><b>開始日期:</b></span><input type="date" value={beginDate} onChange={changeDate} ></input>< br />< br />
+        <div style={{"display":"flex","padding":"8px"}}><div style={{"flex":"20%"}}><button onClick={setMap}>路線規劃</button></div><div style={{"flex":"10"}}><button onClick={saveData}>儲存</button></div></div>
+      <h5 style={{"padding":"10px"}}>{daypointer>0?<button onClick={eachDaysChange} >{"<<"}</button>:<button onClick={eachDaysChange} disabled={true}>{"<<"}</button>}<span style={{"padding":"10px"}}>{`第${daypointer+1}天(${formatDate()})`}</span> <button onClick={eachDaysChange}>{">>"}</button></h5>
+      
       <DragDropContext
         onDragEnd={(param) => {
           const srcI = param.source.index;//which item drag
