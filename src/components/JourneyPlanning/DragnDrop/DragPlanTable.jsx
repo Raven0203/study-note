@@ -18,15 +18,15 @@ var itemsFromBackend = [
 ];
 
 export const day = [
-    { id: "1", date: "Day 1" },
-    { id: "2", date: "Day 2" },
-    { id: "3", date: "Day 3" },
-    { id: "4", date: "Day 4" },
-    { id: "5", date: "Day 5" },
-    { id: "6", date: "Day 6" },
+    { id: "1", content: "Day 1" },
+    { id: "2", content: "Day 2" },
+    { id: "3", content: "Day 3" },
+    { id: "4", content: "Day 4" },
+    { id: "5", content: "Day 5" },
+    { id: "6", content: "Day 6" },
 ]
 
-export const userdays = JSON.parse(localStorage.getItem("userdays"));
+export const userdays = JSON.parse(localStorage.getItem("userdays")) || day;
 
 console.log("DragPlanTable-userdays", userdays[0].content);
 
@@ -43,7 +43,7 @@ const columnsFromBackend = {
     [uuid()]: {
         name: "我的景點",
         items: JSON.parse(localStorage.getItem("list")),
-        date: day
+        content: day
 
     }
 };
@@ -112,7 +112,7 @@ function DragPlanTable() {
                     return (
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                {/* {day.map((item, index) => <li key={item.id}>{item.date}</li>)} */}
+                                {/* {day.map((item, index) => <li key={item.id}>{item.content}</li>)} */}
                             </div>
 
                             <div
