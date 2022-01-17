@@ -25,6 +25,11 @@ export const day = [
     { id: "5", date: "Day 5" },
     { id: "6", date: "Day 6" },
 ]
+
+export const userdays = JSON.parse(localStorage.getItem("userdays"));
+
+console.log("DragPlanTable-userdays", userdays[0].content);
+
 //____
 localStorage.setItem("list", JSON.stringify(itemsFromBackend));
 

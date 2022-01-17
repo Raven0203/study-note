@@ -32,23 +32,24 @@ export default function DatePicker() {
 
 
     // console.log(value);
+    //用戶選擇時間後的天數計算
+    const d1 = new Date(`${startdate.slice(0, 4)}-${startdate.slice(5, 7)}-${startdate.slice(8, 10)}`);
+    const d2 = new Date(`${enddate.slice(0, 4)}-${enddate.slice(5, 7)}-${enddate.slice(8, 10)}`);
+    console.log("startdate", d1);
 
-     const d1 = new Date(`${startdate.slice(0,4)}-${startdate.slice(5,7)}-${startdate.slice(8,10)}`);
-     const d2 = new Date(`${enddate.slice(0,4)}-${enddate.slice(5,7)}-${enddate.slice(8,10)}`);
-    console.log("startdate",d1);
-
-    console.log("enddate",d2);
-    let daynum = (Math.abs(d2-d1)/(3600000 * 24)) 
-    let days = []
-    for(let i = 0;i<daynum+1;i++){
-        let temp={};
-        temp.id = i+1+""       
-        temp.content =  d1.toISOString().slice(0,10);
-        d1.setDate(d1.getDate()+1)
+    console.log("enddate", d2);
+    let daynum = (Math.abs(d2 - d1) / (3600000 * 24))
+    var days = []
+    for (let i = 0; i < daynum + 1; i++) {
+        var temp = {};
+        temp.id = i + 1 + ""
+        temp.content = d1.toISOString().slice(0, 10);
+        d1.setDate(d1.getDate() + 1)
         //.toISOString().slice(0,10)
         days.push(temp)
     }
-    console.log("days",days)
+    //把用戶時間塞進localStorage
+    localStorage.setItem("userdays", JSON.stringify(days));
 
 
     //渲染選擇天數
@@ -76,7 +77,7 @@ export default function DatePicker() {
         // locale={zhTW}
         <>
 
-            <LocalizationProvider dateAdapter={AdapterDateFns}  locale={zhTW}>
+            <LocalizationProvider dateAdapter={AdapterDateFns} locale={zhTW}>
 
                 <DateRangePicker
 
@@ -100,3 +101,4 @@ export default function DatePicker() {
         </>
     );
 }
+

@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import DragPlanTable, { day } from './DragnDrop/DragPlanTable';
+import DragPlanTable, { userdays } from './DragnDrop/DragPlanTable';
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -26,11 +26,7 @@ function TabPanel(props) {
     );
 }
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    index: PropTypes.number.isRequired,
-    value: PropTypes.number.isRequired,
-};
+
 
 function a11yProps(index) {
     return {
@@ -51,9 +47,9 @@ export default function JourneyTabs() {
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'Highlight' }}>
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" scrollButtons="auto" variant='scrollable'>
-                    {day.map((item, index) => {
+                    {userdays.map((item, index) => {
                         return (
-                            <Tab label={item.date} />
+                            <Tab label={`${(item.content).slice(5, 7)}月${(item.content).slice(8, 10)}日`} />
                         )
                     })}
                     {/* <Tab label="Item One" {...a11yProps(0)} />
@@ -62,10 +58,10 @@ export default function JourneyTabs() {
                 </Tabs>
             </Box>
             {/*每一天行程內容的進入點 */}
-            {day.map((item, index) => {
+            {userdays.map((item, index) => {
                 return (
                     <TabPanel value={value} index={parseInt(item.id) - 1}>
-                        {item.date}
+                        {`第${item.id}天`}
                         <DragPlanTable />
                     </TabPanel>
                 )
