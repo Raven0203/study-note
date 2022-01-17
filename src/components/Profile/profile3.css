@@ -39,19 +39,21 @@ textarea {
 
 .profile3-backgroundimg {
   width: 100%;
+ 
 max-height: none;
   display: flex;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
+
 }
 
 .avatarimg {
   /* z-index: 1; */
   display: flex;
-  background-color: white;
+  background-color: #faf7cf;
   width: 50%;
-  height: 200px;
+  height:200px;
   position: relative;
   bottom: 30px;
   margin-top: -75px;
@@ -60,7 +62,7 @@ max-height: none;
   margin-bottom: auto;
   margin-right: auto;
   border-radius: 50%;
-  border: 10px solid #fff;
+  border: 10px solid #faf7cf;
   transition-duration: 0.4s;
   transition-property: transform;
   /* display: flex;
@@ -99,12 +101,13 @@ input[type="submit"]:hover {
 
 .profile-container {
   border-radius: 5px;
-  background-color: #fafafa;
+  background-color: #faf7cf;
   /* margin: 300px; */
   padding: 4px 20px 20px 20px;
-  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px rgb(150, 150, 150);
+  box-shadow: 13px 13px 20px rgb(199, 165, 107), -13px -13px 20px rgb(199, 165, 107);
   border-radius: 10px;
   box-shadow: inset 10px black;
+  
 }
 
 .col-25 {

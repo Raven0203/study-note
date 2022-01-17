@@ -27,6 +27,7 @@ import Map from "./components/JourneyPlanning/Map";
 import About from "./components/About/About";
 import QuestionAnswer from "./components/QA/QuestionAnswer";
 import Blog from "./components/Blog/Blog";
+import BlogShow from "./components/Blog-show/BlogShow";
 
 function App() {
   const [user, setUser] = useState({});
@@ -61,6 +62,7 @@ function App() {
             <Route path="/favorite" element={<Favorite />} />
             <Route path="/journeyplanhome" element={<JourneyHome />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/blogshow" element={<BlogShow />} />
           </Routes>
           <Footer />
         </BrowserRouter>

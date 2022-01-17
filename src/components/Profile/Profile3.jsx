@@ -35,8 +35,8 @@ export default function Profile3() {
 
 
   return (
-    <div style={{padding:'150px 300px 150px 300px',display:"flex"}}>
-        <div className="profile-container" style={{ fontSize: "1.5rem" }}>
+    <div style={{padding:'350px 300px 200px 440px',display:"flex",backgroundImage:'url("/images/683602d049d4e3854580d5180cbbdaba.png")',backgroundSize:'100% 100%'}}>
+        <div className="profile-container" style={{ fontSize: "1.3rem" }}>
           {profilesend ? (
             <ProfileData
               profilesend={profilesend}
@@ -96,6 +96,7 @@ export default function Profile3() {
                   id="nickname"
                   name="nickname"
                   placeholder="暱稱..."
+                  style={{backgroundColor:'#faf7cf'}}
                 />
               </div>
             </div>
@@ -111,6 +112,7 @@ export default function Profile3() {
                   id="fname"
                   name="firstname"
                   placeholder="姓名..."
+                  style={{backgroundColor:'#faf7cf'}}
                 />
               </div>
             </div>
@@ -127,7 +129,19 @@ export default function Profile3() {
                   id="birthday"
                   name="lastname"
                   placeholder="Your last name.."
+                  style={{backgroundColor:'#faf7cf'}}
                 />
+              </div>
+            </div>
+            <div>
+              <div >
+                <label >性別：</label>
+              </div>
+              <div style={{marginLeft:'230px',marginTop:'-40px'}}>
+                <input type="radio" id="r1" name="rr" />
+                <label for="r1"><span></span>男生</label>
+                <input type="radio" id="r2" name="rr" style={{marginLeft:'80px'}} />
+                <label for="r2"><span></span>女生</label>
               </div>
             </div>
             <div className="profile3-row">
@@ -141,6 +155,7 @@ export default function Profile3() {
                   id="constellations "
                   name="constellations "
                   placeholder="星座..."
+                  style={{backgroundColor:'#faf7cf'}}
                 />
               </div>
             </div>
@@ -149,26 +164,26 @@ export default function Profile3() {
                 <label className="profile-label" htmlFor="area">地區：</label>
               </div>
               <div className="col-75">
-                <select id="area" name="country" ref={arearef}>
+                <select id="area" name="country" ref={arearef} style={{backgroundColor:'#faf7cf'}}>
                   <optgroup label="北">
-                    <option value="1">基隆</option>
-                    <option value="2">臺北</option>
-                    <option value="3">新北</option>
+                    <option value="1">基隆市</option>
+                    <option value="2">臺北市</option>
+                    <option value="3">新北市</option>
 
-                    <option value="4">桃園</option>
+                    <option value="4">桃園市</option>
                     <option value="5">新竹市</option>
                     <option value="6">新竹縣</option>
 
-                    <option value="19">宜蘭</option>
+                    <option value="19">宜蘭縣</option>
                   </optgroup>
                   <optgroup label="中">
                     <option value="7">苗栗縣</option>
-                    <option value="8">臺中</option>
+                    <option value="8">臺中市</option>
                     <option value="9">彰化縣</option>
                     <option value="10">南投縣</option>
                   </optgroup>
                   <optgroup label="南">
-                    <option value="11">雲林</option>
+                    <option value="11">雲林縣</option>
                     <option value="12">嘉義市</option>
                     <option value="13">嘉義縣</option>
                     <option value="14">台南市</option>
@@ -198,7 +213,7 @@ export default function Profile3() {
                   ref={signref}
                   name="sign"
                   placeholder="寫些特別的吧 ..."
-                  style={{ height: "200px" }}
+                  style={{ height: "200px",backgroundColor:'#faf7cf'}}
                 ></textarea>
               </div>
             </div>
@@ -219,6 +234,8 @@ export default function Profile3() {
           </form>
           <Divider sx={{ color: "black" }} />
         </div>
+        
+        
        
     </div>
     
