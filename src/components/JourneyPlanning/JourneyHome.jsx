@@ -14,6 +14,9 @@ import { Avatar } from '@mui/material';
 import { Data } from '@react-google-maps/api';
 import JourneyDialog from './JourneyDialog';
 
+
+
+let memberid =3;
 export default function JourneyHome({ openMap, setOpenMap }) {
   const [journeyopen, setJourneyOpen] = useState(false);
   const [data, setData] = useState([1,2]);
@@ -21,7 +24,7 @@ export default function JourneyHome({ openMap, setOpenMap }) {
   const [open, setOpen] = useState(false);
   let nagative =useNavigate();
   function fetchData(){
-    fetch("http://localhost:8080/journey/memberid=2")
+    fetch("http://localhost:8080/journey/memberid="+memberid)
     .then((res)=>{
       return res.json();
     })

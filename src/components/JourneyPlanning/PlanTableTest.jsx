@@ -12,10 +12,13 @@ import Box from '@mui/material/Box';
 var respone;
 var jsondata;
 var lastplace;
+
+let memberid =3;
 ;//指向當前天數的arrayindex
 let daypointer= 0;
 function PlanTableTest({setResault,place}) {
     useEffect(()=>{
+        daypointer= 0;
         localStore(jsondata);
     },[])
     const [data, setData] = useState([])
@@ -150,7 +153,7 @@ function PlanTableTest({setResault,place}) {
 
     function saveData() {
       if(jsondata.journeyid){
-        alert("update")
+        
         fetch("http://localhost:8080/journey/", {//update
         method: 'PUT', 
         body: window.localStorage.jsondata, 
@@ -163,8 +166,8 @@ function PlanTableTest({setResault,place}) {
         console.log(response)
       });
       }else{
-        alert("new")
-        fetch("http://localhost:8080/journey/memberid=2", {
+        
+        fetch("http://localhost:8080/journey/memberid="+memberid, {
                 method: 'POST', 
                 body: window.localStorage.jsondata, 
                 headers: new Headers({
