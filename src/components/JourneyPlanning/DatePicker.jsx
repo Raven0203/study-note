@@ -33,10 +33,10 @@ export default function DatePicker() {
 
     // console.log(value);
 
-    const d1 = new Date();
-    const d2 = new Date();
-    console.log(startdate.replace(("年", "月", "日"), ("87", "87")));
-    //console.log(enddate);
+    // const d1 = new Date();
+    // const d2 = new Date();
+    console.log("startdate",startdate);
+    console.log("enddate",enddate);
 
 
 
@@ -67,7 +67,7 @@ export default function DatePicker() {
         // locale={zhTW}
         <>
 
-            <LocalizationProvider dateAdapter={AdapterDateFns} locale={zhTW} >
+            <LocalizationProvider dateAdapter={AdapterDateFns}  locale={zhTW}>
 
                 <DateRangePicker
 
