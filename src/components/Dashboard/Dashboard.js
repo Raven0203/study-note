@@ -25,6 +25,8 @@ import { blue, green, purple, white } from '@mui/material/colors';
 import Dropdownbar from '../Navbar/DropDownBar'
 import { useState } from 'react';
 import Areachart from './Areachart';
+import  Avatar  from '@mui/material/Avatar';
+import { Button } from '@mui/material';
 
 
 
@@ -165,11 +167,12 @@ const handleMenuClose = () => {
             </Typography>
             <IconButton color="usewhite" >
               {/* Content可以塞data state */}
-              <Badge badgeContent={4} color="neutral">
-                <NotificationsIcon />
+              <Badge  badgeContent={0} color="neutral">
+                <NotificationsIcon sx={{marginRight:'15px'}}/>
               </Badge>
             </IconButton>
-           
+           {/* <Avatar sx={{width: 56, height: 56,bgcolor:"black"}}  src="/static/images/avatar/1.jpg" /> */}
+          <Button sx={{bgcolor:'white',color:'#a5d6a7','&:hover':{backgroundColor:'#eceff1',color:'black',fontWeight:'bold'},borderRadius:'10%',width: 75, height: 35}}>Logout</Button>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>

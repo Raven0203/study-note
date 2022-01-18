@@ -53,11 +53,11 @@ function App() {
 
   const isdashboardRendering = (location.pathname === "/dashboard" || location.pathname === "/dashboardlogin");
 
-  const [isadmin, setIsAdmin] = useState(true);
+  const [isadmin, setIsAdmin] = useState(false);
 
-
+console.log("App",isadmin);
   return (
-    <AppContext.Provider value={{ user }}>
+    <AppContext.Provider value={{ user,isadmin,setIsAdmin }}>
       <div className="App">
 
 
@@ -83,8 +83,8 @@ function App() {
 
           {user && <Route path="/map" element={<Map />} />}
 
-          <Route path="/dashboardlogin" element={<DashBoardLogin />} />
-          {isadmin && <Route path="/dashboard" element={<Dashboard />} />}
+          <Route path="/dashboardlogin/*" element={<DashBoardLogin isadmin={isadmin} setIsAdmin={setIsAdmin}/>} />
+           {localStorage.getItem("isadmin")==="true" && <Route path="/dashboard" element={<Dashboard />} />}
         </Routes>
         {!isdashboardRendering && <Footer />}
 
