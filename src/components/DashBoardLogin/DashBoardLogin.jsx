@@ -3,8 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+
 import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
@@ -16,6 +15,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { AppContext } from "../../App";
 import { useNavigate } from "react-router-dom";
+import { getDatabase, ref, child, get, set } from "firebase/database";
+
 
 function Copyright(props) {
   return (
@@ -39,6 +40,8 @@ const theme = createTheme();
 
 export default function DashBoardLogin({ isadmin, setIsAdmin }) {
   const [admindata, setAdminData] = useState([]);
+  //
+  const dbRef = ref(getDatabase());
 
   let navigate = useNavigate();
 
@@ -70,7 +73,11 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
     };
     admincondition();
     //console.log("useeffect判斷後台登入",isadmin);
-  }, [isadmin]);
+  }, [handleSubmit]);
+//預計放firebase realtimedatabase 判斷
+  useEffect(()=>{
+
+  },[])
 
   //console.log(typeof localStorage.getItem("isadmin"));
 

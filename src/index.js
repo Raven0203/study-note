@@ -3,19 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
-
-
-
-
-import Profile from './components/Profile/Profile';
-import Profile3 from './components/Profile/Profile3';
-
-
-
-import Search from './Test/Search';
-
-
-
+import FirebaseTest1 from './Test/FirebaseDatabase/FirebaseTest1';
 
 
 
@@ -23,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       {/* <MainContext /> */}
-      <App />
+      <FirebaseTest1 />
 
     </BrowserRouter>
   </React.StrictMode>,

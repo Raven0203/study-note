@@ -52,7 +52,7 @@ function App() {
   //判斷後台和後台登入
   const location = useLocation();
 
-  const isdashboardRendering = (location.pathname === "/dashboard" || "/members" || "reports" || "employee"|| location.pathname === "/dashboardlogin");
+  const isdashboardRendering = (location.pathname === "/dashboard" || location.pathname === "/dashboardlogin");
 
   const [isadmin, setIsAdmin] = useState(false);
 
