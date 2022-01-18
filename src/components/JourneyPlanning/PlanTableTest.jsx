@@ -23,7 +23,7 @@ import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 var respone;
 var jsondata;
 var lastplace;
-
+var title;
 let memberid =window.localStorage.memberid;//登入功能完整後 ，變成到localstorge取值 
 ;//指向當前天數的arrayindex
 let daypointer= 0;
@@ -67,11 +67,13 @@ function PlanTableTest({setResault,place,setOpen}) {
       josonmodel.journeydetail={}
       josonmodel.journeydetail.beginDate=date.beginDate
       josonmodel.journeydetail.daysNum=date.daysNum
+      josonmodel.journeydetail.title=window.localStorage.title
       josonmodel.journeydetail.eachDays=[];       
       let placeobject ={};
       placeobject.eachPlaces=[];
       josonmodel.journeydetail.eachDays.push(placeobject)
       window.localStorage.removeItem("date")
+      window.localStorage.removeItem("title")
       localStore(josonmodel);
     }
      if(window.localStorage.jsondata/*檢查local storge*/ ){
@@ -107,9 +109,10 @@ function PlanTableTest({setResault,place,setOpen}) {
     }
 
     function dataparse(jsondata) {
+        
         let temp = JSON.parse(jsondata.journeydetail).eachDays[daypointer].eachPlaces; //暫存區放eachplace array
         console.log(temp)
-
+        title = JSON.parse(jsondata.journeydetail).title;
         // beginDate = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
         if(temp.length<=1){
@@ -118,7 +121,9 @@ function PlanTableTest({setResault,place,setOpen}) {
             setTimeout(()=>{
                 setData(temp);
                 setOpen(false);
-            },300) 
+            },200) 
+        }else{
+          setOpen(false);
         }
         for (var i = 0; i < temp.length - 1; i++) {
            
@@ -249,6 +254,7 @@ function PlanTableTest({setResault,place,setOpen}) {
 
         </DirectionsService>
     }
+    <h2>{title}</h2>
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'Highlight' }}>
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" scrollButtons="auto" variant='scrollable'>

@@ -16,6 +16,7 @@ export default function JourneyDialog({ open, setOpen, openMap, setOpenMap }) {
     };
 
     const handlestart = () => {
+        window.localStorage.title = document.getElementById ("inputtitle").value
         window.location.reload();
         setOpen(false);
         window.location.href = "/map"
@@ -48,6 +49,7 @@ export default function JourneyDialog({ open, setOpen, openMap, setOpenMap }) {
                 <DialogTitle id="alert-dialog-title">
                     選擇旅程時間
                 </DialogTitle>
+
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description" >
                         <br />
@@ -55,7 +57,7 @@ export default function JourneyDialog({ open, setOpen, openMap, setOpenMap }) {
                     <DatePicker />
                 </DialogContent>
                 <DialogActions>
-
+                    <label>為您的旅程取個名字</label><input id = "inputtitle" />
                     <Button onClick={handleClose}>關閉</Button>
                     <Button onClick={handlestart} autoFocus>
                         {/* <Link to={openMap ? "/map" : "/journeyplanhome"} ></Link> */}
