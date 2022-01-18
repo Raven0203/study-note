@@ -7,24 +7,27 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useState } from "react";
 import axios from "axios";
-
+import LoadingButton from '@mui/lab/LoadingButton';
 export default function ProfileData({
   profilesend,
   setProfileSend,
   emailref,
   nicknameref,
   realnameref,
+  genderref,
   birthdayref,
   profileURL,
   arearef,
   signref,
 }) {
-  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [agree, setAgree] = useState(false);
+
   let email = emailref.current.value;
   let nickname = nicknameref.current.value;
   let birthday = birthdayref.current.value;
-  let area = arearef.current.value;
+  let gender = genderref.current.value
+  let area = parseInt(arearef.current.value);
   let sign = signref.current.value;
   let realname = realnameref.current.value;
   // realname, email, profileURL, nickname, birthday, area, sign
@@ -34,10 +37,12 @@ export default function ProfileData({
     membericon: profileURL,
     membernickname: nickname,
     memberbirth: birthday,
-    memebergender: "1",
-    memebercityid: area,
+    membergender: "1",
+    membercityid: area,
     memberintro: sign
   };
+
+
 
   // const handleClickOpen = () => {
   //   setOpen(true);
@@ -50,10 +55,27 @@ export default function ProfileData({
     setAgree(false);
   };
 
-  const handleAgree = (e) => {
-    e.preventDefault();
+  const handleAgree = async (e) => {
 
-    setProfileSend(false);
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(async () => {
+      try {
+        setLoading(true);
+        const axiospost = await axios.post("http://localhost:8080/member/", profiledata);
+
+        const axiosresult = await axiospost.data;
+
+
+        console.log("successs", axiosresult);
+
+        setProfileSend(false);
+      } catch (error) {
+        console.log(error);
+      }
+    }, (10000));
+
+
 
     // axios.post("url...",profiledata)
     // .then((res)=>console.log(res))
@@ -82,10 +104,15 @@ export default function ProfileData({
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>再想想</Button>
-          <Button onClick={handleAgree} autoFocus>
-            確認送出
-          </Button>
+          {loading ? <LoadingButton loadingPosition='center' loading={loading} variant='outlined' disabled>等待中</LoadingButton>
+            :
+            <>
+              <Button onClick={handleAgree} autoFocus>確認送出</Button>
+              <Button onClick={handleClose}>再想想</Button>
+            </>
+          }
+
+
         </DialogActions>
       </Dialog>
     </div>

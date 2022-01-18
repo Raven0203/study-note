@@ -39,12 +39,33 @@ textarea {
 
 .profile3-backgroundimg {
   width: 100%;
-max-height: none;
+  max-height: none;
   display: flex;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
 }
+
+.profile-editbtn {
+  border: none;
+  background: none;
+  color: rgb(0, 0, 0);
+  justify-content: space-evenly;
+  align-items: flex-end;
+  text-align: end;
+
+  font-size: "2000px";
+
+}
+
+.profile-editbtn .fa-edit {
+
+
+  -webkit-filter: drop-shadow(12px 12px 7px rgba(19, 8, 8, 0.5));
+  filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5))
+}
+
+
 
 .avatarimg {
   /* z-index: 1; */
@@ -81,7 +102,30 @@ max-height: none;
   display: inline-block;
 }
 
-input[type="submit"] {
+.profile3-notsubmit {
+
+
+  width: 40%;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+
+}
+
+.profile3-notsubmit:hover {
+
+  cursor: not-allowed;
+}
+
+.profile3-notsubmit:disabled,
+.profile3-notsubmit[disabled] {
+  background-color: rgb(26, 26, 26);
+  color: grey;
+}
+
+.profile3-submit {
   background-color: #04aa6d;
 
   width: 40%;
@@ -93,7 +137,7 @@ input[type="submit"] {
 
 }
 
-input[type="submit"]:hover {
+.profile3-submit:hover {
   background-color: #45a049;
 }
 

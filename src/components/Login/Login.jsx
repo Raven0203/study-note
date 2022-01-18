@@ -114,7 +114,7 @@ const Login = () => {
 
   return (
 
-    <div>
+    <div className="login-backgroundimg" >
 
       {pagechange === 1 ? (<div className="login">
 

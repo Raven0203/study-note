@@ -3,7 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import "./profile3.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { Avatar, Divider } from "@mui/material";
+import { Avatar, Button, Divider, Fab } from "@mui/material";
+import EditIcon from '@mui/icons-material/Edit';
 
 import ProfileData from "./ProfileData";
 
@@ -24,8 +25,13 @@ export default function Profile3() {
   const [date, setDate] = useState("");
   // const [time, setTime] = useState("");
 
+  //能否修改
+  const [edit, setEdit] = useState(false);
 
-
+  const handleEdit = (e) => {
+    e.preventDefault();
+    setEdit(!edit);
+  }
 
   //用戶照片URL
   let profileURL = localStorage.getItem("profileURL");
@@ -105,23 +111,23 @@ export default function Profile3() {
   return (
     <div style={{ padding: '150px 300px 150px 300px', display: "flex" }}>
       <div className="profile-container" style={{ fontSize: "1.5rem" }}>
-        {profilesend ? (
-          <ProfileData
-            profilesend={profilesend}
-            setProfileSend={setProfileSend}
-            emailref={emailref}
-            nicknameref={nicknameref}
-            realnameref={realnameref}
-            genderref={genderref}
-            birthdayref={birthdayref}
-            arearef={arearef}
-            signref={signref}
-            profileURL={profileURL}
 
-          />
-        ) : (
-          ""
-        )}
+        {profilesend && <ProfileData
+          profilesend={profilesend}
+          setProfileSend={setProfileSend}
+          emailref={emailref}
+          nicknameref={nicknameref}
+          realnameref={realnameref}
+          genderref={genderref}
+          birthdayref={birthdayref}
+          arearef={arearef}
+          signref={signref}
+          profileURL={profileURL}
+
+        />
+        }
+
+
 
         <form action="">
           <div className="row">
@@ -134,10 +140,14 @@ export default function Profile3() {
               <img className="avatarimg" src={profileURL === null ? "" : profileURL} alt="" />
             </div>
           </div>
+          <div className="profile-editbtn">
+            <button className="profile-editbtn" onClick={handleEdit} ><i class="fas fa-edit"></i></button>
+          </div>
           <div className="profile3-row">
             <div className="col-25">
               <label className="profile-label" htmlFor="email">電子信箱：</label>
             </div>
+
             <div className="col-75">
               <input
                 type="email"
@@ -160,6 +170,7 @@ export default function Profile3() {
                 type="text"
                 required
                 ref={nicknameref}
+                disabled={edit ? null : "disabled"}
                 className="text"
                 id="nickname"
                 name="nickname"
@@ -174,6 +185,7 @@ export default function Profile3() {
             <div className="col-75">
               <input
                 type="text"
+                disabled={edit ? null : "disabled"}
                 ref={realnameref}
                 className="text"
                 id="fname"
@@ -189,6 +201,7 @@ export default function Profile3() {
             </div>
             <div className="col-75">
               <input
+                disabled={edit ? null : "disabled"}
                 className="profile-date"
                 type="date"
                 onChange={(e) => setDate(e.target.value)}
@@ -206,6 +219,7 @@ export default function Profile3() {
             <div className="col-75">
               <input
                 value={constellation}
+                disabled="disabled"
                 type="text"
                 className="text"
                 id="constellations "
@@ -219,7 +233,7 @@ export default function Profile3() {
               <label className="profile-label" htmlFor="area">地區：</label>
             </div>
             <div className="col-75">
-              <select id="area" name="country" ref={arearef}>
+              <select id="area" name="country" ref={arearef} disabled={edit ? null : "disabled"}>
                 <optgroup label="北">
                   <option value="1">基隆</option>
                   <option value="2">臺北</option>
@@ -265,6 +279,7 @@ export default function Profile3() {
             <div className="col-75">
               <textarea
                 id="sign"
+                disabled={edit ? null : "disabled"}
                 ref={signref}
                 name="sign"
                 placeholder="寫些特別的吧 ..."
@@ -284,7 +299,7 @@ export default function Profile3() {
               justifyContent: "center",
             }}
           >
-            <input type="submit" value="Submit" onClick={submitClick} />
+            <input disabled={edit ? null : "disabled"} className={edit ? "profile3-submit" : "profile3-notsubmit"} type="submit" value="送出" onClick={submitClick} />
           </div>
         </form>
         <Divider sx={{ color: "black" }} />

@@ -1,4 +1,9 @@
-.login  {
+.login-backgroundimg {
+    background-image: url("loginbackground.jpg");
+
+}
+
+.login {
 
     height: 100vh;
     width: 100vw;
@@ -8,7 +13,7 @@
     align-items: center;
     justify-content: center;
     color: #555;
-    background-image: linear-gradient(to top left, #373B44, #4286f4);
+    /* background-image: linear-gradient(to top left, #373B44, #4286f4); */
 
 }
 
@@ -43,7 +48,7 @@
     letter-spacing: 0.5px;
 }
 
-.login-title .login-p{
+.login-title .login-p {
     cursor: pointer;
 }
 
@@ -131,7 +136,7 @@
 
 .login-with-google-btn:hover {
     transition: all 0.7s;
-    background-color:rgb(255, 14, 14);
+    background-color: rgb(255, 14, 14);
     border-radius: 5px;
     cursor: pointer;
     color: white;

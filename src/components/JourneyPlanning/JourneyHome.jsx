@@ -102,7 +102,7 @@ export default function JourneyHome({ openMap, setOpenMap }) {
 
         </div>
       </div>
-      {open ? <JourneyDialog open={open} setOpen={setOpen} openMap={openMap} setOpenMap={setOpenMap} /> : ""}
+      {open && <JourneyDialog open={open} setOpen={setOpen} openMap={openMap} setOpenMap={setOpenMap} />}
     </>
   );
 }

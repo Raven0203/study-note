@@ -28,14 +28,14 @@ export const day = [
 
 export const userdays = JSON.parse(localStorage.getItem("userdays")) || day;
 
-console.log("DragPlanTable-userdays", userdays[0].content);
+//console.log("DragPlanTable-userdays", userdays[0].content);
 
 //____
 localStorage.setItem("list", JSON.stringify(itemsFromBackend));
 
 
 
-// var getdata = JSON.parse(localStorage.getItem("list"));
+
 
 
 

@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import React, { Component } from 'react';
+import React, { Component, createContext, useContext } from 'react';
 import Prac from "./components/Practice/Prac";
 import Student from "./components/Practice/Student";
 import Profile from "./components/Profile/Profile";
@@ -31,6 +31,10 @@ import QuestionAnswer from './components/QA/QuestionAnswer';
 import DashBoardLogin from './components/DashBoardLogin/DashBoardLogin';
 import DatePicker from './components/JourneyPlanning/DatePicker';
 
+
+export const AppContext = createContext();
+
+
 function App() {
   const [user, setUser] = useState({});
 
@@ -49,8 +53,11 @@ function App() {
 
   const isdashboardRendering = (location.pathname === "/dashboard" || location.pathname === "/dashboardlogin");
 
+  const [isadmin, setIsAdmin] = useState(true);
+
+
   return (
-    <>
+    <AppContext.Provider value={{ user }}>
       <div className="App">
 
 
@@ -69,19 +76,21 @@ function App() {
           <Route path="/qa" element={<QuestionAnswer />} />
 
           <Route path="/blog" element={<Blog />} />
-          <Route path="/profile" element={<Profile3 />} />
-          <Route path="/favorite" element={<Favorite />} />
-          <Route path="/journeyplanhome" element={<JourneyHome openMap={openMap} setOpenMap={setOpenMap} />} />
-          <Route path="/map" element={<Map />} />
+          {user && <Route path="/profile" element={<Profile3 />} />}
+
+          {user && <Route path="/favorite" element={<Favorite />} />}
+          {user && <Route path="/journeyplanhome" element={<JourneyHome openMap={openMap} setOpenMap={setOpenMap} />} />}
+
+          {user && <Route path="/map" element={<Map />} />}
 
           <Route path="/dashboardlogin" element={<DashBoardLogin />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          {isadmin && <Route path="/dashboard" element={<Dashboard />} />}
         </Routes>
         {!isdashboardRendering && <Footer />}
 
 
       </div>
-    </>
+    </AppContext.Provider>
   );
 }
 {
