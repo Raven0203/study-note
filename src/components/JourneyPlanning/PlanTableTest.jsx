@@ -7,6 +7,17 @@ import { ListItem ,DistanceItem} from "./styles";
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
+import { deepPurple,pink,blue } from '@mui/material/colors';
+import { margin } from '@mui/system';
+import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 //var beginDate;
 var respone;
@@ -140,7 +151,7 @@ function PlanTableTest({setResault,place,setOpen}) {
                 result.distanceValue = data.distance.value;
                 result.durationText = data.duration.text;
                 result.durationValue = data.duration.value;
-                temp.distance = `距離:${result.distanceText} 時間:${result.durationText}`;//距離結果存回temp方便畫plan table
+                temp.distance = `距離： ${result.distanceText} 時間： ${result.durationText}`;//距離結果存回temp方便畫plan table
                 return true;
             })
     }
@@ -203,8 +214,33 @@ function PlanTableTest({setResault,place,setOpen}) {
         setResault(respone)
         console.log("draw map")
     }
+    // 新增主題控色
+    const mdTheme = createTheme({
+      status: {
+        danger: '#e53e3e',
+      },
+      palette: {
+        primary: {
+          main: blue[500],
+          darker: '#053e85',
+        },
+        secondary:{
+          main: pink[400]
+        },
+        neutral: {
+          main: '#64748B',
+          contrastText: '#fff',
+        }/* ,
+        usewhite: {
+          main: green[50]
+        } */
+      },
+    });
 
-    return (<div>{
+    return (
+    <div>
+      <ThemeProvider theme={mdTheme}>
+      {
         <DirectionsService options={{
             destination: { placeId: (data.length > 0) ? data[data.length - 1].AttractionsId : null },
             origin: { placeId: (data.length > 0) ? data[0].AttractionsId : null },
@@ -277,7 +313,10 @@ function PlanTableTest({setResault,place,setOpen}) {
                         {/* {} */}
                         <DragHandle {...provided.dragHandleProps} />
 
-                        <b>{item.placeName}</b><button id={`delbtn${i}`} className='delbutton' onClick={deleteItem}>刪除</button>
+                        <b>{item.placeName}</b>
+                        {/* <Button id={`delbtn${i}`} variant="outlined" startIcon={<DeleteIcon />} className='delbutton' onClick={deleteItem}></Button> */}
+                        <IconButton aria-label="delete" id={`delbtn${i}`} className='delbutton' onClick={deleteItem} size='small'><DeleteIcon /></IconButton>
+                        {/* <button id={`delbtn${i}`} className='delbutton' onClick={deleteItem}>刪除</button> */}
                       </ListItem>                    
                     )}   
                                    
@@ -290,8 +329,35 @@ function PlanTableTest({setResault,place,setOpen}) {
             )}
           </Droppable>
       </DragDropContext>
-      <div style={{"display":"flex","padding":"8px"}}><div style={{"flex":"20%"}}><button onClick={setMap}>路線規劃</button></div><div style={{"flex":"10"}}><button onClick={saveData}>儲存</button></div></div>
-
+      <div style={{"display":"flex","padding":"8px"}}><div style={{"flex":"20%"}}>
+      <LoadingButton
+        onClick={setMap}
+        endIcon={<SendIcon />}
+        /* loading={loading} */
+       /*  loadingPosition="end" */
+        variant="contained"
+        size='small'
+        sx={{marginLeft:2.5}}
+      >
+        路線規劃  
+      </LoadingButton>
+      
+      <LoadingButton
+        color='secondary'
+        /* color='#673ab7' */
+        onClick={saveData}
+        /* loading={loading}
+        loadingPosition="start" */
+        endIcon={<SaveIcon />}
+        variant="contained"
+        size='small'
+        sx={{marginLeft:2.5}}
+      >
+        儲存
+      </LoadingButton>
+       {/*  <button onClick={setMap}>路線規劃</button></div><div style={{"flex":"10"}}> */}
+         {/*  <button onClick={saveData}>儲存</button> */}</div></div>
+         </ThemeProvider>
     </div>)
 }
 

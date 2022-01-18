@@ -48,7 +48,8 @@ function MyComponent() {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleSent = () => {setPlace({"place_id":placedetail.place_id,"place_name":placedetail.name});}
+  const handleSent = () => {setPlace({"place_id":placedetail.place_id,"place_name":placedetail.name});
+  setOpen(false);}
 //
 
   const [center, setCenter] = useState({
