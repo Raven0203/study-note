@@ -17,14 +17,15 @@ import PlanTable from './PlanTable';
 import './map.css'
 import { ButtonBase } from '@mui/material';
 import PlanTableTest from './PlanTableTest';
-
+import CloseIcon from '@mui/icons-material/Close';
+import IconButton from '@mui/material/IconButton';
 // Modal
 const style = {
   position: 'absolute',
-  top: '50%',
-  left: '30%',
+  top: '55%',
+  left: '32%',
   transform: 'translate(-50%, -50%)',
-  width: 300,
+  width: 330,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -75,6 +76,17 @@ function MyComponent() {
     libraries: ["places"]
   })
 
+ /*  const jsonreturn = [];
+
+  useEffect(() => {
+    placedetail.opening_hours
+    return () => {
+      cleanup
+    }
+  }, [placedetail]) */
+  
+  
+
   if (loadError) {
     return <div>Map cannot be loaded right now, sorry.</div>
   }
@@ -103,9 +115,9 @@ function MyComponent() {
                 console.log(autocomplete.getPlace());
                 setPlacedetail(autocomplete.getPlace());
 
+                
 
-
-                console.log(placedetail.opening_hours);
+                /* console.log(placedetail.opening_hours); */
                /*  if(placedetail.opening_hours != undefined){
                   openhour = placedetail.opening_hours
                 }else{
@@ -113,15 +125,15 @@ function MyComponent() {
                 } */
                 
                 
-                console.log('openhour'+openhour);
-                console.log("------------");
+               /*  console.log('openhour'+openhour);
+                console.log("------------"); */
                 
                 
                 setCenter(autocomplete.getPlace().geometry.location);//重新定位
                 setMark(autocomplete.getPlace().geometry.location);//標記
                 setZoomin(20);//拉近
             
-                console.log(openhour);
+               /*  console.log(openhour); */
               }}
             >
               <input
@@ -130,8 +142,8 @@ function MyComponent() {
                 style={{
                   boxSizing: `border-box`,
                   border: `1px solid transparent`,
-                  width: `240px`,
-                  height: `32px`,
+                  width: `280px`,
+                  height: `40px`,
                   padding: `0 12px`,
                   borderRadius: `3px`,
                   boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
@@ -166,21 +178,47 @@ function MyComponent() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         hideBackdrop="true"
+       /*  sx={{display:'flex'}} */
       >
         <Box sx={style}>
-        <Button  /* variant="outlined" */ onClick={handleClose} style={{float: 'right'}} /* startIcon={<DeleteIcon />} */>X</Button>
-       
+        {/* <Button variant="outlined"  sx={{width:'10px'}} size='small' onClick={handleClose} style={{float: 'right'}}  startIcon={<DeleteIcon />} >X</Button> */}
+        <IconButton aria-label="delete" onClick={handleClose} style={{float: 'right'}}>
+       <CloseIcon />
+        </IconButton>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <a href={placedetail.url}>{placedetail.name}</a>
+            <hr></hr>
           </Typography>
           <Typography inline id="modal-modal-description" sx={{ mt: 2 }}>
-           <b>電話</b>：{placedetail.formatted_phone_number} <br></br>
-           地址：{placedetail.formatted_address} <br></br>
-           {console.log(placedetail.opening_hours)}
-         
-           {placedetail.opening_hours==undefined?null:"開放時間： "+JSON.stringify(placedetail.opening_hours.weekday_text)} 
+           <b>電話：</b><br/>{placedetail.formatted_phone_number} <br></br><br></br>
+           <b>地址：</b><br/>{placedetail.formatted_address} <br></br><br></br>
            
-           <Button  onClick={handleSent} variant="contained" style={{marginLeft:'28%',marginTop:'10%'}}>加入行程</Button>
+           {console.log('test')}
+            <b>
+           {/*  {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[0]}  */}
+           
+           {/*  {placedetail.opening_hours==undefined?null:placedetail.opening_hours.map((res)=>{return res.weekday_text})}  */}
+           {placedetail.opening_hours==undefined?null:"開放時間： "} 
+           </b>
+           <br></br>
+           {/* {placedetail.opening_hours==undefined?null:JSON.stringify(placedetail.opening_hours.weekday_text)}  */}
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[0]}
+           <br></br>
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[1]}
+           <br></br>
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[2]}
+           <br></br>
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[3]}
+           <br></br>
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[4]}
+           <br></br>
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[5]}
+           <br></br>
+           {placedetail.opening_hours==undefined?null:placedetail.opening_hours.weekday_text[6]}
+           <br></br>
+
+           <br></br>
+           <Button  color="primary" onClick={handleSent} variant="contained" style={{marginLeft:'28%',marginTop:'10%'}}>加入行程</Button>
            {/* 三元運算 */}
 
           {/* test: {placeopen} */}
