@@ -11,7 +11,7 @@ const data = [
   { name: "離島", value: Math.round(Math.random()*50+5) }
 ];
 
-const COLORS = ["#90caf9", "#f48fb1", "#ffe082", "#c5e1a5", "#b0bec5"];
+const COLORS = ["#90caf9", "#f48fb1", "#ffb300", "#66bb6a", "#b0bec5"];
 
 const RADIAN = Math.PI / 180;
 
@@ -24,7 +24,7 @@ export default function Areachart() {
     <Typography
               component="h1"
               variant="h5"
-              color="#a5d6a7"
+              color="primary"/* "#a5d6a7" */
               noWrap
               align="center"
               sx={{ flexGrow: 1 }}

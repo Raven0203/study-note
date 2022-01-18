@@ -61,7 +61,7 @@ export default function App() {
     <Typography
     component="h1"
     variant="h5"
-    color="#a5d6a7"
+    color="primary"
     noWrap
     align="center"
     sx={{ flexGrow: 1 }}

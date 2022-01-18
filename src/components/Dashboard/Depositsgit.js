@@ -5,6 +5,7 @@ import Title from './Title';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios'
+import Depositsnum from './Depositsnum';
 
 function preventDefault(event) {
   event.preventDefault();
@@ -21,7 +22,7 @@ export default function Deposits() {
       method: 'get',
       url: url,
       headers: {
-        Authorization: 'token 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',
+        Authorization: process.env.githubtoken,
         Accept: 'application/vnd.github.v3+json'
       }
     });
@@ -51,20 +52,20 @@ export default function Deposits() {
     <React.Fragment>
       <Title>Git push count</Title>
       <Typography component="p" variant="h4">
-      {data.total} 
+      <Depositsnum num={data.total} duration={1000}></Depositsnum>
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-      {new Date().getMonth()+1} / {new Date().getDate()-6} ~ {new Date().getMonth()+1} / {new Date().getDate()}
+      <Depositsnum num={new Date().getMonth()+1} duration={1000}></Depositsnum> / <Depositsnum num={new Date().getDate()-6} duration={1000}></Depositsnum> ~ <Depositsnum num={new Date().getMonth()+1} duration={1000}></Depositsnum> / <Depositsnum num={new Date().getDate()} duration={1000}></Depositsnum>
       </Typography>
 
       <Typography component="p" variant="h4">
-      {data1.total} 
+      <Depositsnum num={data1.total} duration={1000}></Depositsnum>
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-      {new Date().getMonth()+1} / {new Date().getDate()-13} ~ {new Date().getMonth()+1} / {new Date().getDate()-7}
+      <Depositsnum num={new Date().getMonth()+1} duration={1000}></Depositsnum> / <Depositsnum num={new Date().getDate()-13} duration={1000}></Depositsnum> ~ <Depositsnum num={new Date().getMonth()+1} duration={1000}></Depositsnum> / <Depositsnum num={new Date().getDate()-7} duration={1000}></Depositsnum>
       </Typography>
       <div>
-        <Link color="primary" href="https://github.com/EEIT36-Travel/Brian_Web_Demo" onClick={preventDefault}>
+        <Link color="primary" href="https://github.com/EEIT36-Travel/Brian_Web_Demo" /* onClick={preventDefault} */>
           View Github Details
         </Link>
       </div>

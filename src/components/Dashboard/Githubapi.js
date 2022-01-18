@@ -81,7 +81,7 @@ function Githubapi() {
             >
                     Github
                     Status
-                    
+                    Detail
                     <hr></hr>
             </Typography>
 

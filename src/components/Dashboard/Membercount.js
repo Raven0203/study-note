@@ -4,17 +4,15 @@ import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer,Tooltip } fro
 import Title from './Title';
 import axios from 'axios'
 import { useEffect,useState } from 'react';
-/* import config from 'config'
-import fs from 'fs' */
 
 
-const token = ''
-const url = 'https://api.github.com/repos/EEIT36-Travel/Brian_Web_Demo/traffic/clones'
+
+const url = 'https://1208-118-163-218-100.ngrok.io/member/'
 let clones = [];
 
 
 
-export default function Chart() {
+export default function Membercount() {
 
   const theme = useTheme();
   /* const config = require('config') */
@@ -23,19 +21,21 @@ export default function Chart() {
      const res = await axios({
       method: 'get',
       url: url,
-      headers: {
+      /* headers: {
         Authorization: token,
         Accept: 'application/vnd.github.v3+json'
-      }
+      } */
     });
-    clones = res.data.clones;
+
+    console.log(res.data);
+   /*  clones = res.data.clones;
     console.log(clones);
     clones.map((dataa)=>{
       console.log(dataa.timestamp.substr(5,5));
       dataa.timestamp = dataa.timestamp.substr(5,5)
     })
     console.log(process.env.githubtoken);
-    console.log(clones);
+    console.log(clones); */
     setData(clones)
     
     /* clones.map((res)=>{

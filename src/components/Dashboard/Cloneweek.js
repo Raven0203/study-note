@@ -91,14 +91,13 @@ let clones = [
 export default function Cloneweek() {
 
   const theme = useTheme();
-
   async function fetchapi(){
     try {
      const res = await axios({
       method: 'get',
       url: url,
       headers: {
-        Authorization: 'token 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',
+       /*  Authorization: process.env.githubtoken, */
         Accept: 'application/vnd.github.v3+json'
       }
     });
