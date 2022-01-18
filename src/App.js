@@ -56,9 +56,9 @@ function App() {
 
   const [isadmin, setIsAdmin] = useState(false);
 
-console.log("App",isadmin);
+  //console.log("App",isadmin);
   return (
-    <AppContext.Provider value={{ user,isadmin,setIsAdmin }}>
+    <AppContext.Provider value={{ user, isadmin, setIsAdmin }}>
       <div className="App">
 
 
@@ -83,9 +83,9 @@ console.log("App",isadmin);
           {user && <Route path="/journeyplanhome" element={<JourneyHome openMap={openMap} setOpenMap={setOpenMap} />} />}
 
           {user && <Route path="/map" element={<Map />} />}
-          {localStorage.getItem("isadmin")==="true" && <Route path="/github" element={<Github />} />}
-          <Route path="/dashboardlogin/*" element={<DashBoardLogin isadmin={isadmin} setIsAdmin={setIsAdmin}/>} />
-           {localStorage.getItem("isadmin")==="true" && <Route path="/dashboard" element={<Dashboard />} />}
+          {localStorage.getItem("isadmin") === "true" && <Route path="/github" element={<Github />} />}
+          <Route path="/dashboardlogin/*" element={<DashBoardLogin isadmin={isadmin} setIsAdmin={setIsAdmin} />} />
+          {localStorage.getItem("isadmin") === "true" && <Route path="/dashboard" element={<Dashboard />} />}
         </Routes>
         {!isdashboardRendering && <Footer />}
 
