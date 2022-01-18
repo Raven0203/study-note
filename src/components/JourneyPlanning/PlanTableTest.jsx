@@ -16,7 +16,7 @@ var lastplace;
 let memberid =window.localStorage.memberid;//登入功能完整後 ，變成到localstorge取值 
 ;//指向當前天數的arrayindex
 let daypointer= 0;
-function PlanTableTest({setResault,place}) {
+function PlanTableTest({setResault,place,setOpen}) {
     useEffect(()=>{
         daypointer= 0;
         localStore(jsondata);
@@ -102,10 +102,12 @@ function PlanTableTest({setResault,place}) {
         // beginDate = JSON.parse(jsondata.journeydetail).beginDate;
         let count = 0;
         if(temp.length<=1){
-            setData(temp); //只有一個物件時繪製journetplan用           
+            setData(temp); //只有一個物件時繪製journetplan用
+          
             setTimeout(()=>{
                 setData(temp);
-            },500) 
+                setOpen(false);
+            },300) 
         }
         for (var i = 0; i < temp.length - 1; i++) {
            
