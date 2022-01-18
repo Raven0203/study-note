@@ -19,7 +19,7 @@ import JourneyDialog from './JourneyDialog';
 let memberid =window.localStorage.memberid;//登入功能完整後 ，變成到localstorge取值 
 export default function JourneyHome({ openMap, setOpenMap }) {
   const [journeyopen, setJourneyOpen] = useState(false);
-  const [data, setData] = useState([1,2]);
+  const [data, setData] = useState([]);
   setOpenMap(true)
   const [open, setOpen] = useState(false);
   let nagative =useNavigate();
@@ -71,21 +71,25 @@ function deleteButton(e){
 
       <br /><br />
       <div className='journey-home-container' >
-      {data.map((item)=>{
-        
+      {data.map((item,id)=>{
+        let temp = `./img/img${id+1}.jpg`
+        let beginDate = JSON.parse(item.journeydetail).beginDate
+        let date = new Date(beginDate)
+        date.setDate(date.getDate()+JSON.parse(item.journeydetail).daysNum-1)
+        let endDate = date.toISOString().slice(0,10)
         return (<Card sx={{ maxWidth: 345 }} variant="outlined" >
         <CardMedia
           component="img"
           alt="green iguana"
           height="140"
-          image="./img/img1.jpg"
+          image={temp}
         />
         <CardContent>
           <Typography textAlign="left" gutterBottom variant="h5" component="div">
-            玉山三天兩夜
+            {JSON.parse(item.journeydetail).title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            2022年1月13日 - 2022年1月15日
+            {beginDate+"~"+endDate }
           </Typography>
         </CardContent>
         <CardActions>
