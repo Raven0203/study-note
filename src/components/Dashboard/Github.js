@@ -5,7 +5,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -29,9 +28,10 @@ import Areachart from './Areachart';
 import Agechart from './Agechart'
 import { height, margin, padding } from '@mui/system';
 import Githubapi from './Githubapi';
-import { useNavigate } from 'react-router-dom';
-import { async } from '@firebase/util';
-
+import Clone from './Clone';
+import Depositsgit from './Depositsgit'
+import Githubapiall from './Githubapiall';
+import Cloneweek from './Cloneweek'
 
 
 function Copyright(props) {
@@ -100,7 +100,7 @@ const mdTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#81c784',
+      main: '#8d6e63',
       darker: '#053e85',
     },
     neutral: {
@@ -120,27 +120,7 @@ function DashboardContent() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
-let navaigate = useNavigate();
 
-
-  // DropDownBar
-/* const [anchorEl, setAnchorEl] = useState(null);
-const Elopen = Boolean(anchorEl);
-const handleMenuOpen = (e) => {
-    setAnchorEl(e.currentTarget);
-    console.log(e.currentTarget.style)
-};
-const handleMenuClose = () => {
-    setAnchorEl(null);
-}; */
-
-const logout = async() => {
-  localStorage.setItem("isadmin","false")
-
- setTimeout(()=>{navaigate("/dashboardlogin")},1)
-
-  
-}
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -181,11 +161,11 @@ const logout = async() => {
             </Typography>
             <IconButton color="usewhite" >
               {/* Content可以塞data state */}
-              <Badge badgeContent={0} color="neutral">
+              <Badge badgeContent={4} color="neutral">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <Button onClick={logout} sx={{bgcolor:'white',color:'#a5d6a7','&:hover':{backgroundColor:'#eceff1',color:'black',fontWeight:'bold'},borderRadius:'10%',width: 75, height: 35}}>Logout</Button>
+           
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -220,7 +200,20 @@ const logout = async() => {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
+            <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  {<Depositsgit></Depositsgit>}
+                  {/* <Deposits /> */}
+                </Paper>
+              </Grid>
               {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
@@ -231,51 +224,32 @@ const logout = async() => {
                     height: 240,
                   }}
                 >
-                  <Chart />
+                  <Clone />
                 </Paper>
               </Grid>
               {/* Recent Deposits */}
-              <Grid item xs={12} md={4} lg={3}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    height: 240,
-                  }}
-                >
-                  <Deposits />
-                </Paper>
-              </Grid>
+              
               {/* Recent Orders */}
              
-              <Grid container spacing={3}>
-              <Grid item xs={4.5} >
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2, marginLeft:3 }}>
-            
-                  <Areachart></Areachart>
+              <Grid container spacing={2}>
+              <Grid item xs={5} >
+                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2, marginLeft:2 }}>
+                  
+                  <Cloneweek></Cloneweek>
+                  {/* <Areachart></Areachart> */}
               
                   {/* <Orders /> */}
                 </Paper>
               </Grid>
-              <Grid item xs={5}>
+              <Grid item xs={7} >
                 <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2,paddingLeft:0}}>
                 
-                  <Agechart></Agechart>
-              
+                  {/* <Agechart></Agechart> */}
+                  <Githubapiall></Githubapiall>
                   {/* <Orders /> */}
                 </Paper>
               </Grid>
 
-              <Grid item xs={2.5}>
-                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' ,marginTop:2}}>
-                
-                  <Githubapi></Githubapi>
-              
-                  {/* <Orders /> */}
-                </Paper>
-              </Grid>
-              
             </Grid>
             </Grid>
             <Copyright sx={{ pt: 4 }} />
@@ -286,7 +260,6 @@ const logout = async() => {
   );
 }
 
-
-export default function Dashboard() {
+export default function Github() {
   return <DashboardContent />;
 }

@@ -39,9 +39,9 @@ const theme = createTheme();
 
 export default function DashBoardLogin({ isadmin, setIsAdmin }) {
   const [admindata, setAdminData] = useState([]);
-  
+
   let navigate = useNavigate();
-  
+
   const admininfo = {
     email: "admin@mail.com",
     password: "admin",
@@ -50,33 +50,33 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    
+
     setAdminData({ email: data.get("email"), password: data.get("password") });
     // console.log({
     //   email: data.get('email'),
     //   password: data.get('password'),
     // });
   };
-  
+
   setIsAdmin(JSON.stringify(admininfo) === JSON.stringify(admindata));
- 
-  
+
   useEffect(() => {
     const admincondition = () => {
       if (isadmin) {
-        localStorage.setItem("isadmin",true);
-        return navigate("/dashboard");
+        localStorage.setItem("isadmin", true);
+        navigate("/dashboard");
+        window.location.reload();
       }
     };
     admincondition();
     //console.log("useeffect判斷後台登入",isadmin);
   }, [isadmin]);
 
-console.log(typeof localStorage.getItem("isadmin"));
+  //console.log(typeof localStorage.getItem("isadmin"));
 
-  console.log(admininfo);
-  console.log("判斷後台登入",isadmin);
-  console.log(admindata);
+  // console.log(admininfo);
+  // console.log("判斷後台登入",isadmin);
+  // console.log(admindata);
 
   return (
     <ThemeProvider theme={theme}>
@@ -147,5 +147,3 @@ console.log(typeof localStorage.getItem("isadmin"));
     </ThemeProvider>
   );
 }
-
-

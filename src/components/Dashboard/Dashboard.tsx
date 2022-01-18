@@ -21,8 +21,6 @@ import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
-import { Button } from '@mui/material';
-import { AppContext } from '../../App';
 
 function Copyright(props: any) {
   return (
@@ -96,7 +94,6 @@ function DashboardContent() {
   };
 
   return (
-    
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
@@ -106,7 +103,6 @@ function DashboardContent() {
               pr: '24px', // keep right padding when drawer closed
             }}
           >
-            
             <IconButton
               edge="start"
               color="inherit"

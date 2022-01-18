@@ -30,6 +30,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import QuestionAnswer from './components/QA/QuestionAnswer';
 import DashBoardLogin from './components/DashBoardLogin/DashBoardLogin';
 import DatePicker from './components/JourneyPlanning/DatePicker';
+import Github from "./components/Dashboard/Github";
 
 
 export const AppContext = createContext();
@@ -51,7 +52,7 @@ function App() {
   //判斷後台和後台登入
   const location = useLocation();
 
-  const isdashboardRendering = (location.pathname === "/dashboard" || location.pathname === "/dashboardlogin");
+  const isdashboardRendering = (location.pathname === "/dashboard" || "/members" || "reports" || "employee"|| location.pathname === "/dashboardlogin");
 
   const [isadmin, setIsAdmin] = useState(false);
 
@@ -82,7 +83,7 @@ console.log("App",isadmin);
           {user && <Route path="/journeyplanhome" element={<JourneyHome openMap={openMap} setOpenMap={setOpenMap} />} />}
 
           {user && <Route path="/map" element={<Map />} />}
-
+          {localStorage.getItem("isadmin")==="true" && <Route path="/github" element={<Github />} />}
           <Route path="/dashboardlogin/*" element={<DashBoardLogin isadmin={isadmin} setIsAdmin={setIsAdmin}/>} />
            {localStorage.getItem("isadmin")==="true" && <Route path="/dashboard" element={<Dashboard />} />}
         </Routes>

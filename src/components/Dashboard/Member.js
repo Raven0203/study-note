@@ -5,7 +5,6 @@ import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
@@ -29,8 +28,6 @@ import Areachart from './Areachart';
 import Agechart from './Agechart'
 import { height, margin, padding } from '@mui/system';
 import Githubapi from './Githubapi';
-import { useNavigate } from 'react-router-dom';
-import { async } from '@firebase/util';
 
 
 
@@ -100,7 +97,7 @@ const mdTheme = createTheme({
   },
   palette: {
     primary: {
-      main: '#81c784',
+      main: '#64b5f6',
       darker: '#053e85',
     },
     neutral: {
@@ -120,8 +117,6 @@ function DashboardContent() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
-let navaigate = useNavigate();
-
 
   // DropDownBar
 /* const [anchorEl, setAnchorEl] = useState(null);
@@ -133,14 +128,6 @@ const handleMenuOpen = (e) => {
 const handleMenuClose = () => {
     setAnchorEl(null);
 }; */
-
-const logout = async() => {
-  localStorage.setItem("isadmin","false")
-
- setTimeout(()=>{navaigate("/dashboardlogin")},1)
-
-  
-}
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -181,11 +168,11 @@ const logout = async() => {
             </Typography>
             <IconButton color="usewhite" >
               {/* Content可以塞data state */}
-              <Badge badgeContent={0} color="neutral">
+              <Badge badgeContent={4} color="neutral">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-            <Button onClick={logout} sx={{bgcolor:'white',color:'#a5d6a7','&:hover':{backgroundColor:'#eceff1',color:'black',fontWeight:'bold'},borderRadius:'10%',width: 75, height: 35}}>Logout</Button>
+           
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -286,7 +273,6 @@ const logout = async() => {
   );
 }
 
-
-export default function Dashboard() {
+export default function Member() {
   return <DashboardContent />;
 }
