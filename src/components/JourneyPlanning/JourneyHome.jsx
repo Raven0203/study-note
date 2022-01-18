@@ -16,7 +16,7 @@ import JourneyDialog from './JourneyDialog';
 
 
 
-let memberid =3;
+let memberid =1;
 export default function JourneyHome({ openMap, setOpenMap }) {
   const [journeyopen, setJourneyOpen] = useState(false);
   const [data, setData] = useState([1,2]);
@@ -35,7 +35,7 @@ export default function JourneyHome({ openMap, setOpenMap }) {
 
   )
 }
-function buttonClick(e){
+function continuteButton(e){
   fetch("http://localhost:8080/journey/"+e.target.id)
     .then((res)=>{
       return res.json();
@@ -45,6 +45,17 @@ function buttonClick(e){
       window.localStorage.jsondata = JSON.stringify(result);
       nagative("/map")
   })
+}
+function deleteButton(e){
+  
+  fetch("http://localhost:8080/journey/"+e.target.id.slice(3), {//update
+        method: 'DELETE'
+      }).then((res )=>{  return res.json() })               
+      .catch(error => console.log(error) )
+      .then(response =>{
+        console.log(response)
+        window.location.reload();
+      });
 }
   useEffect(fetchData,[]);
   return (
@@ -79,7 +90,9 @@ function buttonClick(e){
         </CardContent>
         <CardActions>
 
-          <Button size="small" id={item.journeyid} onClick={buttonClick}>繼續旅程</Button>
+          <Button size="small" id={item.journeyid} onClick={continuteButton}>繼續旅程</Button>
+          <Button size="small" id={"del"+item.journeyid} onClick={deleteButton}>旅程掰掰</Button>
+
         </CardActions>
       </Card>)})}
       </div>

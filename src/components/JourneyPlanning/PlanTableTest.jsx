@@ -13,7 +13,7 @@ var respone;
 var jsondata;
 var lastplace;
 
-let memberid =3;
+let memberid =1;
 ;//指向當前天數的arrayindex
 let daypointer= 0;
 function PlanTableTest({setResault,place}) {
