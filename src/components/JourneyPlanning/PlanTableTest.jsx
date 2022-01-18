@@ -13,7 +13,7 @@ var respone;
 var jsondata;
 var lastplace;
 
-let memberid =1;
+let memberid =window.localStorage.memberid;//登入功能完整後 ，變成到localstorge取值 
 ;//指向當前天數的arrayindex
 let daypointer= 0;
 function PlanTableTest({setResault,place}) {

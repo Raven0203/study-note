@@ -16,7 +16,7 @@ import JourneyDialog from './JourneyDialog';
 
 
 
-let memberid =1;
+let memberid =window.localStorage.memberid;//登入功能完整後 ，變成到localstorge取值 
 export default function JourneyHome({ openMap, setOpenMap }) {
   const [journeyopen, setJourneyOpen] = useState(false);
   const [data, setData] = useState([1,2]);
