@@ -41,7 +41,7 @@ function App() {
   });
   //判斷後台
   const location = useLocation();
-  const isdashboardRendering = location.pathname === "/dashboard"
+  const isdashboardRendering = location.pathname === "/dashboard" /* || "journeyplanhome" */
 
   return (
     <>

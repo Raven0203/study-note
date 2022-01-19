@@ -291,7 +291,7 @@ function PlanTableTest({setResault,place,setOpen}) {
                     : "white",
                 padding: 4,
                 width: 'auto',
-                minHeight: 500
+                minHeight: 'auto'  
             }}{...provided.droppableProps}>
                 
                 {data.map((item, i) => (
@@ -316,7 +316,8 @@ function PlanTableTest({setResault,place,setOpen}) {
                           userSelect: "none",
                           padding: 16,
                           margin: "0 0 8px 0",
-                          minHeight: "50px",
+                          /* padding: "50 0 200 20" , */
+                          minHeight: "40px",
                           backgroundColor: snapshot.isDragging
                               ? "#263B4A"
                               : "white",
@@ -342,7 +343,7 @@ function PlanTableTest({setResault,place,setOpen}) {
 
                         <b>{item.placeName}</b>
                         {/* <Button id={`delbtn${i}`} variant="outlined" startIcon={<DeleteIcon />} className='delbutton' onClick={deleteItem}></Button> */}
-                        <IconButton aria-label="delete" id={`delbtn${i}`} className='delbutton' onClick={deleteItem} size='small'><DeleteIcon /></IconButton>
+                        <IconButton  color='error' aria-label="delete" id={`delbtn${i}`} className='delbutton' onClick={deleteItem} size='small'><DeleteIcon /></IconButton>
                         {/* <button id={`delbtn${i}`} className='delbutton' onClick={deleteItem}>刪除</button> */}
                       </ListItem>                    
                     )}   
