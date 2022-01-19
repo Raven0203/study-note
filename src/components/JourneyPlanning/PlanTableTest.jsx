@@ -151,7 +151,7 @@ function PlanTableTest({setResault,place,setOpen}) {
                 result.distanceValue = data.distance.value;
                 result.durationText = data.duration.text;
                 result.durationValue = data.duration.value;
-                temp.distance = `距離： ${result.distanceText} 時間： ${result.durationText}`;//距離結果存回temp方便畫plan table
+                temp.distance = `距離：  ${result.distanceText} \u00A0\u00A0\u00A0\u00A0 時間： ${result.durationText}`;//距離結果存回temp方便畫plan table
                 return true;
             })
     }

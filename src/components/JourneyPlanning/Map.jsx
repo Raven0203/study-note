@@ -110,35 +110,30 @@ function MyComponent() {
             <Autocomplete
               onLoad={(auto) => { autocomplete = auto }/**/}
               onPlaceChanged={() => {
-                {handleOpen()};
-                console.log("------------");
+                
+                
+                console.log(autocomplete);
                 console.log(autocomplete.getPlace());
-                setPlacedetail(autocomplete.getPlace());
-
+                
+                if (autocomplete.getPlace().geometry!=undefined) {
+                  setPlacedetail(autocomplete.getPlace());
+                  setCenter(autocomplete.getPlace().geometry.location);//重新定位
+                  setMark(autocomplete.getPlace().geometry.location);//標記
+                  setZoomin(20);//拉近
+                  {handleOpen()};
+                } else {
+                  
+                }
                 
 
-                /* console.log(placedetail.opening_hours); */
-               /*  if(placedetail.opening_hours != undefined){
-                  openhour = placedetail.opening_hours
-                }else{
-                  openhour = 'yo'
-                } */
-                
-                
-               /*  console.log('openhour'+openhour);
-                console.log("------------"); */
-                
-                
-                setCenter(autocomplete.getPlace().geometry.location);//重新定位
-                setMark(autocomplete.getPlace().geometry.location);//標記
-                setZoomin(20);//拉近
-            
-               /*  console.log(openhour); */
+               
+              
               }}
             >
               <input
+                id='yoyoyo'
                 type="text"
-                placeholder="勞贖"
+                placeholder="搜尋 Google 地圖"
                 style={{
                   boxSizing: `border-box`,
                   border: `1px solid transparent`,
@@ -190,7 +185,7 @@ function MyComponent() {
             <hr></hr>
           </Typography>
           <Typography inline id="modal-modal-description" sx={{ mt: 2 }}>
-           <b>電話：</b><br/>{placedetail.formatted_phone_number} <br></br><br></br>
+           <b>電話：</b><br/>{placedetail.formatted_phone_number}<br></br><br></br>
            <b>地址：</b><br/>{placedetail.formatted_address} <br></br><br></br>
            
            {console.log('test')}

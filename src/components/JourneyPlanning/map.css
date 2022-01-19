@@ -4,3 +4,10 @@
     height: 50rem;
     padding: 10px;
 }
+
+#yoyoyo{
+  background-image: url(../JourneyPlanning/loupe.png);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 245px 8px;
+}
