@@ -282,12 +282,22 @@ function PlanTableTest({setResault,place,setOpen}) {
       >
           
           <Droppable droppableId="droppable-1">
-            {(provided, _) => (
-              <div ref={provided.innerRef} {...provided.droppableProps}>
+            {(provided, snapshot) => (
+              <div ref={provided.innerRef }   style={{
+                borderRadius: ' 0.3rem',
+                boxShadow: '0.1rem 0.1rem 0.4rem #aaaaaa',
+                background: snapshot.isDraggingOver
+                    ? "lightblue"
+                    : "white",
+                padding: 4,
+                width: 350,
+                minHeight: 500
+            }}{...provided.droppableProps}>
+                
                 {data.map((item, i) => (
                     
 
-                    <div>
+                    <div >
                     
                   <Draggable
                     key={item.AttractionsId}
@@ -299,7 +309,22 @@ function PlanTableTest({setResault,place,setOpen}) {
                       <ListItem 
                         ref={provided.innerRef}
                         {...provided.draggableProps}
+                        style={{
+                          borderRadius: ' 0.3rem',
+                          boxShadow: '0.2rem 0.5rem 0.4rem #aaaaaa',
+                          userSelect: "none",
+                          padding: 16,
+                          margin: "0 0 8px 0",
+                          minHeight: "50px",
+                          backgroundColor: snapshot.isDragging
+                              ? "#263B4A"
+                              : "white",
+                          display: 'flex',
+                          justifyContent: 'space-between',
 
+                          color: snapshot.isDragging ? "white" : "black",
+                          ...provided.draggableProps.style
+                      }}
                       >
                         {(snapshot.isDragging)?<>{
                         ( [].slice.call(document.getElementsByClassName("distanceItem")).map((item)=>{
