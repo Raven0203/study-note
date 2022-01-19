@@ -290,7 +290,7 @@ function PlanTableTest({setResault,place,setOpen}) {
                     ? "lightblue"
                     : "white",
                 padding: 4,
-                width: 350,
+                width: 'auto',
                 minHeight: 500
             }}{...provided.droppableProps}>
                 
@@ -305,10 +305,11 @@ function PlanTableTest({setResault,place,setOpen}) {
                     index={i}
                   >
                     {(provided, snapshot) => (
-                      
+                        
                       <ListItem 
                         ref={provided.innerRef}
                         {...provided.draggableProps}
+                        {...provided.dragHandleProps}
                         style={{
                           borderRadius: ' 0.3rem',
                           boxShadow: '0.2rem 0.5rem 0.4rem #aaaaaa',
@@ -334,9 +335,10 @@ function PlanTableTest({setResault,place,setOpen}) {
                         ( [].slice.call(document.getElementsByClassName("distanceItem")).map((item)=>{
                           item.style.display="";
                         }))}</>}
-
+                        
+        
                         {/* {} */}
-                        <DragHandle {...provided.dragHandleProps} />
+                       {/*  <DragHandle {...provided.dragHandleProps} /> */}
 
                         <b>{item.placeName}</b>
                         {/* <Button id={`delbtn${i}`} variant="outlined" startIcon={<DeleteIcon />} className='delbutton' onClick={deleteItem}></Button> */}
@@ -369,7 +371,6 @@ function PlanTableTest({setResault,place,setOpen}) {
       
       <LoadingButton
         color='secondary'
-        /* color='#673ab7' */
         onClick={saveData}
         /* loading={loading}
         loadingPosition="start" */
