@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -39,7 +39,9 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function DashBoardLogin({ isadmin, setIsAdmin }) {
-  const [admindata, setAdminData] = useState([]);
+
+
+
   //
   const dbRef = ref(getDatabase());
 
@@ -54,15 +56,19 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
-    setAdminData({ email: data.get("email"), password: data.get("password") });
+    setIsAdmin(JSON.stringify(admininfo) === JSON.stringify({ email: data.get("email"), password: data.get("password") }));
+
     // console.log({
     //   email: data.get('email'),
     //   password: data.get('password'),
     // });
+
+    // console.log(JSON.stringify(admininfo), JSON.stringify({ email: data.get("email"), password: data.get("password") }))
+
+
   };
 
-  setIsAdmin(JSON.stringify(admininfo) === JSON.stringify(admindata));
-
+  //判斷登入
   useEffect(() => {
     const admincondition = () => {
       if (isadmin) {
@@ -73,11 +79,11 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
     };
     admincondition();
     //console.log("useeffect判斷後台登入",isadmin);
-  }, [handleSubmit]);
-//預計放firebase realtimedatabase 判斷
-  useEffect(()=>{
+  }, [handleSubmit, isadmin]);
+  //預計放firebase realtimedatabase 判斷
+  useEffect(() => {
 
-  },[])
+  }, [])
 
   //console.log(typeof localStorage.getItem("isadmin"));
 
@@ -111,8 +117,11 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
           >
             <TextField
               margin="normal"
+
+              error={false}
               required
               fullWidth
+
               id="email"
               label="帳號"
               name="email"
@@ -122,6 +131,7 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
             <TextField
               margin="normal"
               required
+
               fullWidth
               name="password"
               label="密碼"
@@ -137,7 +147,7 @@ export default function DashBoardLogin({ isadmin, setIsAdmin }) {
                 mt: 3,
                 mb: 2,
                 backgroundColor: "#a5d6a7",
-                "&:hover": { backgroundColor: "black", color: "white" },
+                "&:hover": { backgroundColor: "#94af76", color: "white", boxShadow: ' 3px 7px #888888' },
                 color: "white",
               }}
             >
