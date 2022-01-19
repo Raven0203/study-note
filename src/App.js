@@ -54,6 +54,8 @@ function App() {
 
   const isdashboardRendering = (location.pathname === "/dashboard" || location.pathname === "/dashboardlogin");
 
+  const ismap = location.pathname === "/map";
+
   const [isadmin, setIsAdmin] = useState(false);
 
   //console.log("App",isadmin);
@@ -80,14 +82,15 @@ function App() {
           {user && <Route path="/profile" element={<Profile3 />} />}
 
           {user && <Route path="/favorite" element={<Favorite />} />}
-          {user && <Route path="/journeyplanhome" element={<JourneyHome openMap={openMap} setOpenMap={setOpenMap} />} />}
+          <Route path="/journeyplanhome" element={user ? <JourneyHome openMap={openMap} setOpenMap={setOpenMap} /> : <Login />} />
 
           {user && <Route path="/map" element={<Map />} />}
           {localStorage.getItem("isadmin") === "true" && <Route path="/github" element={<Github />} />}
           <Route path="/dashboardlogin/*" element={<DashBoardLogin isadmin={isadmin} setIsAdmin={setIsAdmin} />} />
           {localStorage.getItem("isadmin") === "true" && <Route path="/dashboard" element={<Dashboard />} />}
         </Routes>
-        {!isdashboardRendering && <Footer />}
+        {(!isdashboardRendering & !ismap) && <Footer />}
+
 
 
       </div>
