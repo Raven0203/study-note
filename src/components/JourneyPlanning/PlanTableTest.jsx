@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { DirectionsService, LoadScript } from '@react-google-maps/api';
 import { DragHandle } from "./partials/DragHandle";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
@@ -17,6 +17,15 @@ import SaveIcon from '@mui/icons-material/Save';
 import { deepPurple,pink,blue } from '@mui/material/colors';
 import { margin } from '@mui/system';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+import * as React from 'react';
+import { Toast } from 'react-bootstrap';
+
+//Toast
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 
 //var beginDate;
@@ -170,6 +179,8 @@ function PlanTableTest({setResault,place,setOpen}) {
 
 
     function saveData() {
+      /* setShowA(true); */
+      setTopen(true);
       if(jsondata.journeyid){
         
         fetch("http://localhost:8080/journey/", {//update
@@ -237,9 +248,29 @@ function PlanTableTest({setResault,place,setOpen}) {
       },
     });
 
+     // Toast
+     /* const [showA, setShowA] = useState(false); */
+   
+     const [Topen, setTopen] = React.useState(false);
+
+   
+   
+     const handleTClose = (event, reason) => {
+       if (reason === 'clickaway') {
+         return;
+       }
+       setTopen(false);
+     };
+   
+  
+    
+
     return (
     <div>
+
       <ThemeProvider theme={mdTheme}>
+     
+      
       {
         <DirectionsService options={{
             destination: { placeId: (data.length > 0) ? data[data.length - 1].AttractionsId : null },
@@ -382,6 +413,19 @@ function PlanTableTest({setResault,place,setOpen}) {
       >
         儲存
       </LoadingButton>
+      
+
+     
+     
+      <Snackbar open={Topen} autoHideDuration={2000} onClose={handleTClose}>
+        <Alert onClose={handleTClose} severity="success" sx={{ width: '100%' }}>
+          恭喜！您的旅程已儲存成功
+        </Alert>
+      </Snackbar>
+     
+          {/* <Toast show={showA} onClose={() => setShowA(false)} show={showA} delay={2000} autohide>
+      <Toast.Body>恭喜！您的旅程已儲存成功!</Toast.Body>
+    </Toast> */}
        {/*  <button onClick={setMap}>路線規劃</button></div><div style={{"flex":"10"}}> */}
          {/*  <button onClick={saveData}>儲存</button> */}</div></div>
          </ThemeProvider>

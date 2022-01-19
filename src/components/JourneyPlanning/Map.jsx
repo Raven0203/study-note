@@ -19,6 +19,8 @@ import { ButtonBase } from '@mui/material';
 import PlanTableTest from './PlanTableTest';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
+
+
 // Modal
 const style = {
   position: 'absolute',
@@ -76,14 +78,8 @@ function MyComponent() {
     libraries: ["places"]
   })
 
- /*  const jsonreturn = [];
-
-  useEffect(() => {
-    placedetail.opening_hours
-    return () => {
-      cleanup
-    }
-  }, [placedetail]) */
+ 
+  
   
   
 
@@ -92,7 +88,8 @@ function MyComponent() {
   }
   return isLoaded ? (
     <>
-
+     
+      
       <div className='maps'>
         <div className='plan'><PlanTableTest setResault={setResault} detail={placedetail} place={place} setOpen ={setOpen}/*把方法丟給table給他取用*//></div>
         <div>
