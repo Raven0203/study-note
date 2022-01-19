@@ -21,6 +21,8 @@ import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import * as React from 'react';
 import { Toast } from 'react-bootstrap';
+import Slide from '@mui/material/Slide';
+import Typography from '@mui/material/Typography';
 
 //Toast
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -285,7 +287,11 @@ function PlanTableTest({setResault,place,setOpen}) {
 
         </DirectionsService>
     }
-    <h2>{title}</h2>
+    <Typography id="modal-modal-title2" variant="h5" component="h2" align='center'>
+            {title}
+            <hr></hr>
+          </Typography>
+   
         <Box sx={{ width: '100%' }}>
             <Box sx={{ borderBottom: 1, borderColor: 'Highlight' }}>
                 <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" scrollButtons="auto" variant='scrollable'>
@@ -345,7 +351,7 @@ function PlanTableTest({setResault,place,setOpen}) {
                           borderRadius: ' 0.3rem',
                           boxShadow: '0.2rem 0.5rem 0.4rem #aaaaaa',
                           userSelect: "none",
-                          padding: 16,
+                          padding: 8,
                           margin: "0 0 8px 0",
                           /* padding: "50 0 200 20" , */
                           minHeight: "40px",
@@ -417,7 +423,7 @@ function PlanTableTest({setResault,place,setOpen}) {
 
      
      
-      <Snackbar open={Topen} autoHideDuration={2000} onClose={handleTClose}>
+      <Snackbar open={Topen} autoHideDuration={1500} onClose={handleTClose} TransitionComponent={Slide}>
         <Alert onClose={handleTClose} severity="success" sx={{ width: '100%' }}>
           恭喜！您的旅程已儲存成功
         </Alert>
