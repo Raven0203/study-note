@@ -3,20 +3,26 @@ import Footer from '../Footer/Footer'
 import './homepage.css'
 import ScrollTop from './ScrollTop'
 import axios from 'axios'
+import Skeleton from '@mui/material/Skeleton';
+import { Typography } from '@mui/material'
 
 export default function HomePage() {
-    let pic = '';
-    let res = null;
-    const [data, setData] = useState([])
+/*     let pic = '';
+ */   /*  let res = null; */
+    
+    const [data, setData] = useState('')
+    console.log({data});
     async function getpic(){
         try {
-            res = await axios.get('https://api.unsplash.com/photos/random?client_id=k-qvIjBpFwU9A_1HhaVakxTJhwLbUEaksJU4XqM_zus',{
+            
+          const  res = await axios.get('https://api.unsplash.com/photos/random?client_id=k-qvIjBpFwU9A_1HhaVakxTJhwLbUEaksJU4XqM_zus',{
             //URL参數放在params屬性裏面
             params: {
                query:'travel'
+               
             }
         })
-        pic = res.data.urls.regular
+       const pic = await res.data.urls.full
         console.log(pic);
         setData(pic)
         } catch (error) {
@@ -25,6 +31,7 @@ export default function HomePage() {
         
     }
     useEffect(() => {
+        /* setTimeout(getpic,5000) */
         getpic();
         
      }, [])
@@ -34,11 +41,16 @@ export default function HomePage() {
     return (
 
         <main className='main'>
-
+         
             <div style={{ backgroundColor: '#021E39' }}>
-                <img className='mainImg' src={data} /* "./img/3.jpg" */ alt="" />
+            {data ===''? <Skeleton variant="rectangular" animation='pulse' width={1500} height={900}  sx={{ bgcolor: 'gray' }}></Skeleton>: 
+                <img className='mainImg' src={data}  alt="randomimg" /> 
+            }
+                
+              {/*   <h2 style={{margin:'50px 50px 50px 50px'}}>yoyoyoy</h2> */}
             </div>
-
+           {/*  <div><Skeleton variant="rectangular" animation='pulse' width={1500} height={900}  sx={{ bgcolor: 'gray' }}/></div> */}
+            {/* <Skeleton variant="rectangular" animation="wave" width={1200} height={900} /> */}
             <section className="sec-01">
                 <div className="container">
                     <h2 className="main-title">最新消息</h2>

@@ -41,7 +41,8 @@ function App() {
   });
   //判斷後台
   const location = useLocation();
-  const isdashboardRendering = location.pathname === "/dashboard" /* || "journeyplanhome" */
+  const isdashboardRendering = location.pathname === "/dashboard"
+  const ismap = location.pathname === "/map"
 
   return (
     <>
@@ -49,9 +50,10 @@ function App() {
 
 
 
-        {!isdashboardRendering && <ScrollTop />}
+      {!isdashboardRendering && <ScrollTop />}
 
-        {!isdashboardRendering && (user ? <Navbar user={user} /> : <NavbarGuest user={user} />)}
+      {!isdashboardRendering && (user ? <Navbar user={user} /> : <NavbarGuest user={user} />)}
+
 
         <Routes>
           {/* need write route */}
@@ -69,8 +71,8 @@ function App() {
           <Route path="/map" element={<Map />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-        {!isdashboardRendering && <Footer />}
-
+        {(!isdashboardRendering & !ismap) && <Footer />}
+        
 
       </div>
     </>

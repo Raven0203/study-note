@@ -221,6 +221,7 @@ function PlanTableTest({setResault,place,setOpen}) {
         jsondata.journeydetail = JSON.parse(jsondata.journeydetail)
         jsondata.journeydetail.eachDays[daypointer].eachPlaces.splice(parseInt(e.target.id.substr(6,1)),1);
         localStore(jsondata)
+        setT2open(true);
     }
 
     function setMap() {
@@ -254,7 +255,7 @@ function PlanTableTest({setResault,place,setOpen}) {
      /* const [showA, setShowA] = useState(false); */
    
      const [Topen, setTopen] = React.useState(false);
-
+     const [T2open, setT2open] = React.useState(false);
    
    
      const handleTClose = (event, reason) => {
@@ -262,6 +263,7 @@ function PlanTableTest({setResault,place,setOpen}) {
          return;
        }
        setTopen(false);
+       setT2open(false)
      };
    
   
@@ -402,7 +404,8 @@ function PlanTableTest({setResault,place,setOpen}) {
        /*  loadingPosition="end" */
         variant="contained"
         size='small'
-        sx={{marginLeft:2.5}}
+        sx={{marginLeft:2.5,display:(!data.length  && 'none')}}
+        
       >
         路線規劃  
       </LoadingButton>
@@ -415,17 +418,21 @@ function PlanTableTest({setResault,place,setOpen}) {
         endIcon={<SaveIcon />}
         variant="contained"
         size='small'
-        sx={{marginLeft:2.5}}
+        sx={{marginLeft:2.5,display:(data.length<1?'none':'')}}
       >
         儲存
       </LoadingButton>
       
 
-     
+      <Snackbar open={T2open} autoHideDuration={500} onClose={handleTClose} TransitionComponent={Slide}>
+        <Alert onClose={handleTClose} severity="warning" sx={{ width: '100%' }}>
+          系統提示：已刪除行程
+        </Alert>
+      </Snackbar>
      
       <Snackbar open={Topen} autoHideDuration={1500} onClose={handleTClose} TransitionComponent={Slide}>
         <Alert onClose={handleTClose} severity="success" sx={{ width: '100%' }}>
-          恭喜！您的旅程已儲存成功
+          系統提示：您的旅程已儲存成功！
         </Alert>
       </Snackbar>
      
