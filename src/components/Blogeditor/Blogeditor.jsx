@@ -9,22 +9,9 @@ export default function BlogShow() {
         <div style={{display: 'grid',gridTemplateColumns:'70% 30%'}}>
             <div>
             <div class="center">
-                <div class="form-input">
-                    <div class="preview">
-                    <img id="file-ip-1-preview"/>
-                    </div>
-                    <label for="file-ip-1">Upload Image</label>
-                    <input type="file" id="file-ip-1" accept="image/*" 
-                    onchange={(event =>{if(event.target.files.length > 0){
-                        var src = URL.createObjectURL(event.target.files[0]);
-                        var preview = document.getElementById("file-ip-1-preview");
-                        preview.src = src;
-                        preview.style.display = "block";
-                    }})}/>
-
-                </div>
+                
             </div> 
-                {/* <div class="bls" style={{ width:'1000px',height:'350px',margin: '70px',display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
+                <div class="bls" style={{ width:'1000px',height:'350px',margin: '70px',display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
                     <img src='\images\P_20200213_120535.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
                 </div>
                 <div style={{marginLeft:'160px', marginTop:"-50px",marginBottom:'120px',width:'900px'}}>
@@ -222,7 +209,7 @@ export default function BlogShow() {
                 <br/>
                 <img src='\images\P_20200213_120535.jpg'style={{height:"200px"}}/>
                 </div>
-                </div> */}
+                </div>
             </div>
 
         </div>
