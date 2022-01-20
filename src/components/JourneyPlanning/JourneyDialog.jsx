@@ -5,20 +5,22 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Link } from 'react-router-dom';
-import DatePicker from '../DatePicker';
+import { Link,useNavigate } from 'react-router-dom';
+import DatePicker from './DatePicker';
 
 export default function JourneyDialog({ open, setOpen, openMap, setOpenMap }) {
     // const [open, setOpen] = useState(false);
-
+    let nagative = useNavigate()
     const handleClickOpen = () => {
         setOpen(true);
     };
 
     const handlestart = () => {
+        window.localStorage.title = document.getElementById ("inputtitle").value
         window.location.reload();
         setOpen(false);
         window.location.href = "/map"
+        
     }
 
     const handleClose = (e) => {
@@ -47,6 +49,7 @@ export default function JourneyDialog({ open, setOpen, openMap, setOpenMap }) {
                 <DialogTitle id="alert-dialog-title">
                     選擇旅程時間
                 </DialogTitle>
+
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description" >
                         <br />
@@ -54,7 +57,7 @@ export default function JourneyDialog({ open, setOpen, openMap, setOpenMap }) {
                     <DatePicker />
                 </DialogContent>
                 <DialogActions>
-
+                    <label>為您的旅程取個名字</label><input id = "inputtitle" />
                     <Button onClick={handleClose}>關閉</Button>
                     <Button onClick={handlestart} autoFocus>
                         {/* <Link to={openMap ? "/map" : "/journeyplanhome"} ></Link> */}
