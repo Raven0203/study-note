@@ -10,7 +10,7 @@ class Blog extends Component {
                 <h1 style={{fontWeight:'bold'}}>熱門文章</h1>
                 {/* <img src='\img\未命名-1.jpg' style={{width:'180px',height:'45px',marginBottom:'15px'}}></img> */}
             </div>
-           <div class="container-xl"style={{ zIndex:'-1',border:'solid',borderWidth:'3px',borderRadius:'15px',borderColor:'rgba(182,182,182,0.1)',backgroundColor:'rgba(182,182,182,0.6)',Filter:'blur(20px)'}}>
+           <div class="container-xl"style={{ zIndex:'-1',border:'solid',borderWidth:'3px',borderRadius:'15px',borderColor:'rgba(255,255,255,0.1)',backgroundColor:'rgba(255,255,255,0.4)',Filter:'blur(20px)'}}>
                 <div class="row">
                     <div class="col-md-10 mx-auto">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
@@ -292,7 +292,7 @@ class Blog extends Component {
                             <h4><i class="fa fa-map-marker" aria-hidden="true"></i>     地區 </h4>                            
                         </div>
                         <div class="center">
-                            <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type" style={{width:'182px',marginLeft:'170px',marginTop:'-70px'}}>
+                            <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type" style={{width:'255px',marginLeft:'170px',marginTop:'-70px'}}>
                                 <option value="profile">Profile</option>
                                 <option value="word">Word</option>
                                 <option value="hashtag">Hashtag</option>
@@ -303,7 +303,7 @@ class Blog extends Component {
                                 <h4><i class="fa fa-map-o" aria-hidden="true"></i>     類型 </h4>
                         </div>   
                         <div class="center">
-                            <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type" style={{width:'182px',marginLeft:'170px',marginTop:'-70px'}}>
+                            <select name="sources" id="sources" class="custom-select sources" placeholder="Source Type" style={{width:'255px',marginLeft:'170px',marginTop:'-70px'}}>
                                 <option value="profile">Profile</option>
                                 <option value="word">Word</option>
                                 <option value="hashtag">Hashtag</option>
