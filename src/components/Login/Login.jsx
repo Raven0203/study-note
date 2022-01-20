@@ -1,3 +1,4 @@
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -47,20 +48,42 @@ const Login = () => {
 
 
     } catch (error) {
+      
+      
+      
+      
       alert(error.message)
       console.log(error.message);
     }
   };
 
   const login = async (e) => {
+    e.preventDefault();
     try {
+      
+      const axiosuseremail = await axios.get(`http://localhost:8080/member/email=${loginEmail}`);
+      const axiosuserdata = await axiosuseremail.data;
+      const queryemailresult = await axiosuserdata.memberemail;
+var testemail = queryemailresult;
+
+
+      if(loginEmail === queryemailresult){
+        alert("已經重複囉")
+      }
+      
+      
+      
+      
+      
       const user = await signInWithEmailAndPassword(
         auth,
         loginEmail,
         loginPassword
       );
-      e.preventDefault();
+      
       console.log(user.user.email);
+      
+      
 
 
       setLoginEmail("")
@@ -84,7 +107,10 @@ const Login = () => {
 
 
     } catch (error) {
-      alert(error.message)
+      if(testemail === loginEmail && !!loginPassword===!!null){
+        alert('密碼錯誤')
+      }
+      //alert("帳號不存在或輸入錯誤")
       console.log(error.message);
     }
   };

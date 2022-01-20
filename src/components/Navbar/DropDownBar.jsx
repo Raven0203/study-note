@@ -14,7 +14,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-
+import MenuBookTwoToneIcon from '@mui/icons-material/MenuBookTwoTone';
 import { Link } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase/firebase-config";
@@ -55,9 +55,16 @@ const Dropdownbar = () => {
       </Link>
       <MenuItem>
         <ListItemIcon>
-          <EditTwoToneIcon sx={{ color: "black" }} fontSize="medium" />
+          <EditTwoToneIcon sx={{ color: "#ffb74d" }} fontSize="medium" />
         </ListItemIcon>
         <li style={{ fontWeight: "bolder" }}>開始撰寫文章</li>
+      </MenuItem>
+
+      <MenuItem>
+        <ListItemIcon>
+          <MenuBookTwoToneIcon sx={{ color: "#1b0000" }} fontSize="medium" />
+        </ListItemIcon>
+        <li style={{ fontWeight: "bolder" }}>我的文章</li>
       </MenuItem>
 
       <Link to="/favorite" style={{ textDecoration: "none", color: "black" }}>
