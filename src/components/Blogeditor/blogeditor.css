@@ -1,0 +1,157 @@
+/* * {
+  box-sizing: border-box;
+} */
+
+/* Add a gray background color with some padding */
+/* body {
+  font-family: Arial;
+  
+  background: #f1f1f1;
+} */
+
+
+.header1 {
+  
+    font-size: 40px;
+    width:1150px;
+    background: white;
+  }
+  
+  
+  
+  .leftcolumn {   
+    /* float: left; */
+    width: 100%;
+    padding-left: 70px;
+    margin-bottom: 150px;
+   
+  }
+  
+  .rightcolumn {
+    float: left;
+    width: 85%;
+    padding-left: 70px;
+    z-index: -1;
+    padding-top: 50px;
+  
+  }
+  
+  
+  .fakeimg {
+    background-color: #aaa;
+    width: 100%;
+    padding: 0px;
+  }
+  
+  
+  .card {
+     background-color: white;
+     padding: 20px;
+     margin-top: 20px;
+     height:350px;
+  }
+  
+  .card1 {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  
+  
+  
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {   
+      width: 100%;
+      padding: 0;
+    }
+  }
+  
+  
+  
+  /* .carousel-inner img {
+    width: 100%
+  }
+  
+  .carousel-item img {
+    width: 320px;
+    height: 240px !important;
+    padding-left: 10px;
+  } */
+  
+  #blogCarousel .carousel-indicators {
+    position: static;
+    margin-top: 0px
+  }
+  
+  #blogCarousel .carousel-indicators>li {
+    width: 100px
+  }
+  
+  #blogCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.75
+  }
+  
+  #blogCarousel .carousel-indicators li.active img {
+    opacity: 1
+  }
+  
+  #blogCarousel .carousel-indicators li:hover img {
+    opacity: 0.75
+  }
+  
+  
+  .center {
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+  }
+  .form-input {
+    width:350px;
+    padding:20px;
+    background:#fff;
+    box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+                3px 3px 7px rgba(94, 104, 121, 0.377);
+  }
+  .form-input input {
+    display:none;
+  
+  }
+  .form-input label {
+    display:block;
+    width:45%;
+    height:45px;
+    margin-left: 25%;
+    line-height:50px;
+    text-align:center;
+    background:#1172c2;
+  
+    color:#fff;
+    font-size:15px;
+    font-family:"Open Sans",sans-serif;
+    text-transform:Uppercase;
+    font-weight:600;
+    border-radius:5px;
+    cursor:pointer;
+  }
+  
+  .form-input img {
+    width:100%;
+    display:none;
+  
+    margin-bottom:30px;
+  }
+  
+  
+  
+  

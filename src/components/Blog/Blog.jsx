@@ -7,8 +7,8 @@ class Blog extends Component {
   return (
         <div style={{backgroundImage:'url("/images/AnyConv.com__E_US5SHVQAIuSbE.jpg")',backgroundSize:'100% 100%'}}>
             <div style={{ paddingTop:'60px',marginBottom:'-35px',marginLeft:'250px',width:'200px',zIndex:'3'}}>
-                {/* <h1 style={{backgroundColor:'white',opacity:'100%'}}>熱門文章</h1> */}
-                <img src='\img\未命名-1.jpg' style={{width:'180px',height:'45px',marginBottom:'15px'}}></img>
+                <h1 style={{fontWeight:'bold'}}>熱門文章</h1>
+                {/* <img src='\img\未命名-1.jpg' style={{width:'180px',height:'45px',marginBottom:'15px'}}></img> */}
             </div>
            <div class="container-xl"style={{ zIndex:'-1',border:'solid',borderWidth:'3px',borderRadius:'15px',borderColor:'rgba(182,182,182,0.1)',backgroundColor:'rgba(182,182,182,0.6)',Filter:'blur(20px)'}}>
                 <div class="row">
@@ -27,11 +27,11 @@ class Blog extends Component {
                                     <div class="col-sm-4">
                                         <div class="thumb-wrapper">
                                             <div class="img-box">
-                                                <img src="\images\7.jpg" class="img-fluid" alt=""/>
+                                                <img src="\blogimg\b1\44879896482_720c553daa_c.jpg" class="img-fluid" alt=""/>
                                             </div>
                                             <div class="thumb-content">
-                                                <h4>London</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
+                                                <h4>九份三天兩夜</h4>
+                                                <p>回顧從前礦業奮鬥的歷史，走入歷史的遺跡欣賞古城之美</p>
                                                 <a href="/BlogShow" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
                                             </div>						
                                         </div>
@@ -39,24 +39,24 @@ class Blog extends Component {
                                     <div class="col-sm-4">
                                         <div class="thumb-wrapper">
                                             <div class="img-box">
-                                                <img src="\images\12.jpg" class="img-fluid" alt=""/>
+                                                <img src="\blogimg\b2\jpg.webp" class="img-fluid" alt=""/>
                                             </div>
                                             <div class="thumb-content">
-                                                <h4>New York</h4>
-                                                <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
-                                                <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                                <h4>玉山三天兩夜</h4>
+                                                <p>攻頂台灣最高峰，一覽台灣壯闊之景</p>
+                                                <a href="/BlogShow2" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
                                             </div>						
                                         </div>
                                     </div>				
                                     <div class="col-sm-4">
                                         <div class="thumb-wrapper">
                                             <div class="img-box">
-                                                <img src="\images\13.jpg" class="img-fluid" alt=""/>
+                                                <img src="\blogimg\b3\shutterstock_668912911-e1585703768352.jpg" class="img-fluid" alt=""/>
                                             </div>
                                             <div class="thumb-content">
-                                                <h4>Paris</h4>
-                                                <p>Convallis eget pretium eu, bibendum non leo. Proin susc ipit purus adipiscing dolor.</p>
-                                                <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                                <h4>台北三天兩夜</h4>
+                                                <p>台灣首屈一指的大都市，歷史與科技交織而成的城市</p>
+                                                <a href="/BlogShow3" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
                                             </div>						
                                         </div>					
                                     </div>
@@ -67,24 +67,24 @@ class Blog extends Component {
                                     <div class="col-sm-4">
                                         <div class="thumb-wrapper">
                                             <div class="img-box">
-                                                <img src="\images\15.jpg" class="img-fluid" alt=""/>
+                                                <img src="\blogimg\b4\20150925193840221.jpg" class="img-fluid" alt=""/>
                                             </div>
                                             <div class="thumb-content">
-                                                <h4>Kuala Lumpur</h4>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam.</p>
-                                                <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                                <h4>小琉球兩天一夜</h4>
+                                                <p>享受海中美景與自然，充滿奇蹟的小島</p>
+                                                <a href="/BlogShow4" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
                                             </div>						
                                         </div>
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="thumb-wrapper">
                                             <div class="img-box">
-                                                <img src="\images\P_20200210_104806.jpg" class="img-fluid" alt=""/>
+                                                <img src="\blogimg\b5\池上伯朗大道.jpg" class="img-fluid" alt=""/>
                                             </div>
                                             <div class="thumb-content">
-                                                <h4>Agra</h4>
-                                                <p>Vivamus fermentum in arcu in aliquam. Quisque aliqua porta odio in fringilla vivamus.</p>
-                                                <a href="#" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
+                                                <h4>台東三天兩夜</h4>
+                                                <p>遠離城市的喧囂，放鬆自我的輕旅行</p>
+                                                <a href="/BlogShow5" class="btn btn-primary">More <i class="fa fa-angle-right"></i></a>
                                             </div>						
                                         </div>
                                     </div>

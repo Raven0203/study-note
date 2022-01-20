@@ -55,13 +55,14 @@ const Dropdownbar = () => {
           <li style={{ fontWeight: "bolder" }}>行程規劃</li>
         </MenuItem>
       </Link>
+      <Link to="/blogeditor"style={{ textDecoration: "none", color: "black" }} >
       <MenuItem>
         <ListItemIcon>
           <EditTwoToneIcon sx={{ color: "black" }} fontSize="medium" />
         </ListItemIcon>
         <li style={{ fontWeight: "bolder" }}>開始撰寫文章</li>
       </MenuItem>
-
+      </Link>
       <Link to="/favorite" style={{ textDecoration: "none", color: "black" }}>
         <MenuItem>
           <ListItemIcon>

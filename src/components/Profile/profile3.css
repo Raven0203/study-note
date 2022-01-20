@@ -51,7 +51,7 @@ max-height: none;
 .avatarimg {
   /* z-index: 1; */
   display: flex;
-  background-color: #faf7cf;
+  background-color: #f7f5e1;
   width: 50%;
   height:200px;
   position: relative;
@@ -62,7 +62,7 @@ max-height: none;
   margin-bottom: auto;
   margin-right: auto;
   border-radius: 50%;
-  border: 10px solid #faf7cf;
+  border: 10px solid #f7f5e1;
   transition-duration: 0.4s;
   transition-property: transform;
   /* display: flex;
@@ -101,7 +101,7 @@ input[type="submit"]:hover {
 
 .profile-container {
   border-radius: 5px;
-  background-color: #faf7cf;
+  background-color: #f7f5e1;
   /* margin: 300px; */
   padding: 4px 20px 20px 20px;
   box-shadow: 13px 13px 20px rgb(199, 165, 107), -13px -13px 20px rgb(199, 165, 107);

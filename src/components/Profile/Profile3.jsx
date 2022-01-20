@@ -96,7 +96,7 @@ export default function Profile3() {
                   id="nickname"
                   name="nickname"
                   placeholder="暱稱..."
-                  style={{backgroundColor:'#faf7cf'}}
+                  style={{backgroundColor:'#f7f5e1'}}
                 />
               </div>
             </div>
@@ -112,7 +112,7 @@ export default function Profile3() {
                   id="fname"
                   name="firstname"
                   placeholder="姓名..."
-                  style={{backgroundColor:'#faf7cf'}}
+                  style={{backgroundColor:'#f7f5e1'}}
                 />
               </div>
             </div>
@@ -129,7 +129,7 @@ export default function Profile3() {
                   id="birthday"
                   name="lastname"
                   placeholder="Your last name.."
-                  style={{backgroundColor:'#faf7cf'}}
+                  style={{backgroundColor:'#f7f5e1'}}
                 />
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function Profile3() {
                   id="constellations "
                   name="constellations "
                   placeholder="星座..."
-                  style={{backgroundColor:'#faf7cf'}}
+                  style={{backgroundColor:'#f7f5e1'}}
                 />
               </div>
             </div>
@@ -164,7 +164,7 @@ export default function Profile3() {
                 <label className="profile-label" htmlFor="area">地區：</label>
               </div>
               <div className="col-75">
-                <select id="area" name="country" ref={arearef} style={{backgroundColor:'#faf7cf'}}>
+                <select id="area" name="country" ref={arearef} style={{backgroundColor:'#f7f5e1'}}>
                   <optgroup label="北">
                     <option value="1">基隆市</option>
                     <option value="2">臺北市</option>
@@ -213,7 +213,7 @@ export default function Profile3() {
                   ref={signref}
                   name="sign"
                   placeholder="寫些特別的吧 ..."
-                  style={{ height: "200px",backgroundColor:'#faf7cf'}}
+                  style={{ height: "200px",backgroundColor:'#f7f5e1'}}
                 ></textarea>
               </div>
             </div>

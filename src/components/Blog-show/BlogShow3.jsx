@@ -9,10 +9,10 @@ export default function BlogShow() {
         <div style={{display: 'grid',gridTemplateColumns:'70% 30%'}}>
             <div>
                 <div class="bls" style={{ width:'1000px',height:'350px',margin: '70px',display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
-                    <img src='\blogimg\b1\44879896482_720c553daa_c.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
+                    <img src='\blogimg\b3\shutterstock_668912911-e1585703768352.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
                 </div>
                 <div style={{marginLeft:'100px', marginTop:"-50px",marginBottom:'60px',width:'900px'}}>
-                    <h1>九份三天兩夜</h1>
+                    <h1>台北三天兩夜</h1>
                 </div>
                 <div >
                     <div class="leftcolumn"style={{backgroundColor:'',overflow: 'auto',height:'1000px'}}>
@@ -20,45 +20,39 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：水湳洞十三層遺址</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p> 十三層遺址，號稱『台版天空之城』
-                                    建於1933年日治時代，是銅礦與黃金冶煉廠，主要用來處理、精煉從金瓜石和九份送來的礦石。
-                                    建築物擁有三條極長的排氣管道－廢煙道，管道從山坡上延伸2公里，是世界上最長的排氣道。
-                                    這是釋放有毒鍊銅廢氣的地方，時至今日仍存有重金屬殘留。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：少帥禪園</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p> 宛如走入武俠小說場景的少帥禪園，隱身在北投山林之中，日式鬼瓦建築彷彿置身京都市郊，興建於1921年的少帥禪園，是以前名流紳士喜愛泡湯飲食之處，後來日治時期為軍方所用。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1583291348-1103427651.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\901ad610433e458a9ce345437c96398c327a1377c8f5b1650a16b615cfeb488d.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：陰陽海</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>「一半金黃、一半碧藍」，陰陽海成因可是渾然天成
-                                    主因是金瓜石礦山蘊藏大量黃鐵礦，和雨水產生化學作用後，形成含鐵離子黃色酸礦水。
-                                    流經黃金瀑布，最注入海中與海水藍色產生鮮明對比，下雨時黃色會更加深些，難得奇景非常值得一看呢。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：北投圖書館</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>台灣首座綠建築圖書館，內部採用木材設計，圖書館內可以聽見水流聲，甚至是鳥叫聲，四周圍繞著林木，到這裡不妨空下時間讀本書，放慢腳步，愜意地在大自然裡閱讀。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1583291315-545461466.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\D8B9FC3F-D91C-4609-957C-9B152E7D7298_e.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站： 祈堂老街</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>金瓜石祈堂老街 (又稱：金瓜石老街)，百年歷史，寧靜懷舊鮮少商業化，近來因祈堂老街彩虹階梯翻紅。
-                                    穿梭在祈堂老街美食＆咖啡廳不少，白帶魚米粉湯、阿嬤的廚房、礦工食堂、散散步咖啡旅宿等，一路吃超滿足。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站： 士林夜市</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>士林夜市位於劍潭捷運站外面，攤販下午四五點就開始營業，大約凌晨0點左右就陸續收攤，炸雞排、蚵仔煎、青蛙下蛋、胡椒餅、臭豆腐、珍珠奶茶、泡泡冰等都是來到士林夜市非吃不可的美食。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1621866194-2004049519-g.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\pic_154_14.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
@@ -67,41 +61,39 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：穿屋巷</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>依山而建的九份山城最大的特色就是有很多階梯，其中比較特別的就是這穿屋巷。穿屋巷就好像是一個山洞一樣，只是山洞的牆壁是由民宅屋頂、牆壁、樓地板所構成
-                                    ，在九份想要避開壅擠的人潮，利用穿屋巷是一種很便利的方法。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：四四南村</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>四四南村是國民政府遷到台灣後所蓋的第一處眷村，因為位於四十四兵工廠之南，也被稱為四四南村。來到四四南村可見50幾年前的建築樣貌，連動式的平房非常迷你有韻味，四四南村裡包含了特展館、眷村展示館、展演館、社區館、四四廣場及文化公園。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\750218856_m.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\1562425193-3388001068.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：九份金礦博物館</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>在九份停止採集金礦後，為了保留九份地區礦業的技能及文物，由礦工成立的九份金礦博物館裡面收藏許多早期九份礦業所留下來的文物及珍貴的礦石，而且還有淘金的體驗，想要了解以前怎麼採集金子來九份金礦博物館就對了！</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：台北101觀景台</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>台北101儼然就是台灣的代表地標，曾經為世界第一高的大樓，真心推薦一定要來到台北101觀景台一覽360度的大台北美景喔。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\5279120_full.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\11e9-afbb-163c662afc97.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：九份老街</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>九份老街是全台最有名的觀光老街，許多國際遊客來台必訪，早期因為採金礦發達，後來又因悲情城市爆紅，最後更因為神隱少女傳聞來阿妹茶樓取景，
-                                    廣受日本客喜愛，九份老街不分平假日總擠滿人潮，老街美食最有名的就是阿蘭草仔粿、芋圓、肉丸、花生捲冰淇淋每樣都好吃。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：象山步道</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>搭乘淡水信義線在象山站下車，僅需20幾分鐘的路程便能抵達象山觀景平台，沿途好多外國遊客，都只為了一睹金碧輝煌的台北夜景而來，這幅場景更宛如香港太平山夜景，象山雖少了登山纜車，但是一景一物的氛圍簡直就是一模一樣呢，把象山夜景稱之為香港太平山復刻版夜景一點也不為過。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\111.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\303dff78e8d084914decacbfcbd50e40.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
@@ -110,43 +102,42 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：山城食堂</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>位在水湳洞的山城食堂原是水湳洞遊客服務中心，現已是山城食堂，菜單以輕食、飲料為主，可以在這邊享用美味的餐點，同時也能欣賞周邊的美景。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：台北故宮博物院</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>台北故宮博物院聞名全世界，珍藏了西周後期青銅器、中國古代瓷器珍品、珍貴書法及繪畫藏品等珍貴物品，台北故宮博物院的鎮館之寶更是非看不可，像是毛公鼎、翠玉白菜、肉形石等。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\20180812014035759.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\1626168857-60ed5e1977ef2.png' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：山尖步道、水圳橋</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>山尖步道是聯絡九份到金瓜石、水湳洞的古道，沿著採金礦的山路而設，途中會看到許多礦業的遺跡，其中水圳橋更是許多人喜歡的景觀，水圳橋是採礦時代為了運水給選煉廠所蓋的橋梁。</p>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：林安泰古厝</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>古色古香的林安泰古厝可說是台北城市裡的秘境，至今已經擁有160幾年歷史，來到林安泰古厝還能近距離欣賞震撼的松山機場飛機起降喔。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\20200422011615_78.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\林安泰古厝正面照.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：猴硐火車站</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>猴硐在1990年畫下煤業發展句點後，就地保留礦業遺址，遊客可參訪具有53年歷史圓拱造型「運煤橋」，還有由整煤廠倉庫改建，內有礦工生活與物件陳列的願景館。
-                                後來因為貓咪聚集而有猴硐貓村之稱，經過網路媒體報導變得很熱門，貓村有許多可愛親人的貓咪，貓奴在這玩一整天都不是問題。
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：西門町</h3>
+                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2021 / 9 /20</p>
+                                <p>台北最潮的地方就是西門町啦，想看看時下年輕人流行什麼來西門町逛逛就對了，西門町還有許多美食，像是天天利美食坊、老山東牛肉麵等，也有老天祿滷味、阿宗麵線、繼光香香雞等，西門紅樓也是非逛不可的歷史建築。
 
 
                                 </p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\20181016  20.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b3\dd771a74-cb92-4967-aeb7-91a9c43284ed.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>

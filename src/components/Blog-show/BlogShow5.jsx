@@ -9,10 +9,10 @@ export default function BlogShow() {
         <div style={{display: 'grid',gridTemplateColumns:'70% 30%'}}>
             <div>
                 <div class="bls" style={{ width:'1000px',height:'350px',margin: '70px',display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
-                    <img src='\blogimg\b1\44879896482_720c553daa_c.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
+                    <img src='\blogimg\b5\池上伯朗大道.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
                 </div>
                 <div style={{marginLeft:'100px', marginTop:"-50px",marginBottom:'60px',width:'900px'}}>
-                    <h1>九份三天兩夜</h1>
+                    <h1>台東三天兩夜</h1>
                 </div>
                 <div >
                     <div class="leftcolumn"style={{backgroundColor:'',overflow: 'auto',height:'1000px'}}>
@@ -20,45 +20,39 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：水湳洞十三層遺址</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：初鹿牧場</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p> 十三層遺址，號稱『台版天空之城』
-                                    建於1933年日治時代，是銅礦與黃金冶煉廠，主要用來處理、精煉從金瓜石和九份送來的礦石。
-                                    建築物擁有三條極長的排氣管道－廢煙道，管道從山坡上延伸2公里，是世界上最長的排氣道。
-                                    這是釋放有毒鍊銅廢氣的地方，時至今日仍存有重金屬殘留。</p>
+                                <p> 這間以牛乳風靡全台的牧場就位在台東卑南，作為全台唯一的坡地牧場，初鹿牧場有大片的綠色坡地和多頭乳牛，園區內也可以騎馬、餵食、滑草，還可以漫步在森林浴、落羽松步道中。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1583291348-1103427651.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\初鹿牧場.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：陰陽海</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：知本森林遊樂區</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>「一半金黃、一半碧藍」，陰陽海成因可是渾然天成
-                                    主因是金瓜石礦山蘊藏大量黃鐵礦，和雨水產生化學作用後，形成含鐵離子黃色酸礦水。
-                                    流經黃金瀑布，最注入海中與海水藍色產生鮮明對比，下雨時黃色會更加深些，難得奇景非常值得一看呢。</p>
+                                <p>位於台東卑南鄉的知本國家森林遊樂區，是近年來深受好評的旅遊景點，由於知本國家森林遊樂區過去經營林業，因此能看到各式各樣熱帶特有的樹種與森林。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1583291315-545461466.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\Zhiben-National-Forest.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站： 祈堂老街</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站： 關山親水公園</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>金瓜石祈堂老街 (又稱：金瓜石老街)，百年歷史，寧靜懷舊鮮少商業化，近來因祈堂老街彩虹階梯翻紅。
-                                    穿梭在祈堂老街美食＆咖啡廳不少，白帶魚米粉湯、阿嬤的廚房、礦工食堂、散散步咖啡旅宿等，一路吃超滿足。</p>
+                                <p>位在卑南溪旁的關山親水公園十分遼闊，騎自行車遊園一圈約需30分鐘左右，其中園區內有著賞鳥屋、人工湖、觀星台以及各種親水設施。夏天是造訪這裡的好時機，園區以天然湧出的伏流為水源，水流不僅乾淨毫無汙染，更是清涼無比。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1621866194-2004049519-g.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\123164.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
@@ -67,41 +61,41 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：穿屋巷</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：小野柳「東部海岸富岡地質公園」</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>依山而建的九份山城最大的特色就是有很多階梯，其中比較特別的就是這穿屋巷。穿屋巷就好像是一個山洞一樣，只是山洞的牆壁是由民宅屋頂、牆壁、樓地板所構成
-                                    ，在九份想要避開壅擠的人潮，利用穿屋巷是一種很便利的方法。</p>
+                                <p>小野柳海岸是由厚層砂岩與薄層泥岩交互沈積，因為地質構造的變動，使得巨大砂頁岩上下倒置，珊瑚礁又覆蓋上去，產生多樣又奇怪的石頭造型，都是大自然日積月累數百年的藝術品。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\750218856_m.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\DSC04973-1024x683.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：九份金礦博物館</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：加路蘭遊憩區</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>在九份停止採集金礦後，為了保留九份地區礦業的技能及文物，由礦工成立的九份金礦博物館裡面收藏許多早期九份礦業所留下來的文物及珍貴的礦石，而且還有淘金的體驗，想要了解以前怎麼採集金子來九份金礦博物館就對了！</p>
+                                <p>加路蘭，它是東河鄉的阿美族部落，阿美族語稱為「kararuan」，意指洗頭髮的地方，因為附近小溪富含黏地礦物質，洗髮後自然潤濕亮麗而得名。
+                                    加路蘭遊憩區原本為空軍建設志航基地時的廢棄土置放場所，經東管處數次以生態工法整建後，新增停車場、觀景台及裝置藝術，將廢棄區域整理成一個富有風情的遊憩區域與休息站。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\5279120_full.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\202006261232093455.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：九份老街</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：三仙台</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>九份老街是全台最有名的觀光老街，許多國際遊客來台必訪，早期因為採金礦發達，後來又因悲情城市爆紅，最後更因為神隱少女傳聞來阿妹茶樓取景，
-                                    廣受日本客喜愛，九份老街不分平假日總擠滿人潮，老街美食最有名的就是阿蘭草仔粿、芋圓、肉丸、花生捲冰淇淋每樣都好吃。</p>
+                                <p>每年跨年的時候迎接的第一道曙光，就在台東的三仙台，因此這裡有不少人會來拍日出拍星星拍銀河，是許多愛好攝影者的朝聖之地。
+                                    三仙台的跨海步橋長度近400公尺，共有八個拱橋連接而成，可以登上對面的三仙島，是非常具有指標性的景點。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\111.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\1c074be2-1ebb-4855-8144-b463eceb26e7.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
@@ -110,43 +104,42 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：山城食堂</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：鹿野神社</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>位在水湳洞的山城食堂原是水湳洞遊客服務中心，現已是山城食堂，菜單以輕食、飲料為主，可以在這邊享用美味的餐點，同時也能欣賞周邊的美景。</p>
+                                <p>台東鹿野的龍田村是日治時期因移民政策而規劃的日本移民村。曾於村裡建造日本神社供日人祭拜，不過在戰後即被打掉而僅剩基座。為了重現過往的歷史風貌，邀請日本專門修建神社的「宮大工」匠師技術指導，與台灣的木工匠師合作將神社重建。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\20180812014035759.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\180407-9381-1-t8l6H.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：山尖步道、水圳橋</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：伯朗大道</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>山尖步道是聯絡九份到金瓜石、水湳洞的古道，沿著採金礦的山路而設，途中會看到許多礦業的遺跡，其中水圳橋更是許多人喜歡的景觀，水圳橋是採礦時代為了運水給選煉廠所蓋的橋梁。</p>
+                                <p>因拍攝伯朗咖啡的廣告而大受歡迎，被稱為「伯朗大道」。而在伯朗大道的中間，有一條蜿蜒曲折的小路，是金城武曾來這兒騎單車拍攝廣告的地方，兩邊一望無際的綠色稻田隨風搖曳，被譽為是一條「翠綠的天堂之路」。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\20200422011615_78.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\pic_A12-00329_6.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：猴硐火車站</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：多良車站</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>猴硐在1990年畫下煤業發展句點後，就地保留礦業遺址，遊客可參訪具有53年歷史圓拱造型「運煤橋」，還有由整煤廠倉庫改建，內有礦工生活與物件陳列的願景館。
-                                後來因為貓咪聚集而有猴硐貓村之稱，經過網路媒體報導變得很熱門，貓村有許多可愛親人的貓咪，貓奴在這玩一整天都不是問題。
+                                <p>喜歡鐵道風景的旅客，一定要來「全台最美車站」—多良車站走走，作為全台最臨近大海的車站，你與海洋之間只有一座柵欄的距離，擁抱整個海岸的遼闊，站在觀景平台上聆聽浪聲、吹著海風，煩惱瞬間煙消雲散！
 
 
                                 </p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\20181016  20.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b5\14729078814_b789c4f2f5_k.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>

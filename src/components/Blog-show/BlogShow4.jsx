@@ -9,10 +9,10 @@ export default function BlogShow() {
         <div style={{display: 'grid',gridTemplateColumns:'70% 30%'}}>
             <div>
                 <div class="bls" style={{ width:'1000px',height:'350px',margin: '70px',display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
-                    <img src='\blogimg\b1\44879896482_720c553daa_c.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
+                    <img src='\blogimg\b4\20150925193840221.jpg' style={{width: '100%',height: '100%',objectFit:'cover'}}></img>
                 </div>
                 <div style={{marginLeft:'100px', marginTop:"-50px",marginBottom:'60px',width:'900px'}}>
-                    <h1>九份三天兩夜</h1>
+                    <h1>小琉球兩天一夜</h1>
                 </div>
                 <div >
                     <div class="leftcolumn"style={{backgroundColor:'',overflow: 'auto',height:'1000px'}}>
@@ -20,45 +20,40 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：水湳洞十三層遺址</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：網美老木</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p> 十三層遺址，號稱『台版天空之城』
-                                    建於1933年日治時代，是銅礦與黃金冶煉廠，主要用來處理、精煉從金瓜石和九份送來的礦石。
-                                    建築物擁有三條極長的排氣管道－廢煙道，管道從山坡上延伸2公里，是世界上最長的排氣道。
-                                    這是釋放有毒鍊銅廢氣的地方，時至今日仍存有重金屬殘留。</p>
+                                <p>在旭日亭與大福漁港間有一個鮮少旅客知道的賞海打卡秘境，只要從大福漁港往旭日亭步行約5-10分鐘就能發現。因為海浪將原本於海上漂流的浮木打上岸後，剛好卡在石槽秘境上，成了一個網美超愛的拍照打卡景點！</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1583291348-1103427651.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b4\51375558894_73c096a559_b.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：陰陽海</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：龍蝦洞</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>「一半金黃、一半碧藍」，陰陽海成因可是渾然天成
-                                    主因是金瓜石礦山蘊藏大量黃鐵礦，和雨水產生化學作用後，形成含鐵離子黃色酸礦水。
-                                    流經黃金瀑布，最注入海中與海水藍色產生鮮明對比，下雨時黃色會更加深些，難得奇景非常值得一看呢。</p>
+                                <p>龍蝦洞是一天然珊瑚礁岩，由於長期受海水浸蝕，分布著許多壺穴小地形與海蝕溝。早期為當地居民捕捉龍蝦的地方，由於龍蝦成長不及捕捉速率，現徒留發達的海蝕地形供遊客回憶當年捕捉龍蝦的情景。雖然這邊已經沒有龍蝦，但可以到這邊看看大自然為這邊留下的許多神奇地貌。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1583291315-545461466.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b4\小琉球環島-18.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站： 祈堂老街</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站： 白燈塔</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>金瓜石祈堂老街 (又稱：金瓜石老街)，百年歷史，寧靜懷舊鮮少商業化，近來因祈堂老街彩虹階梯翻紅。
-                                    穿梭在祈堂老街美食＆咖啡廳不少，白帶魚米粉湯、阿嬤的廚房、礦工食堂、散散步咖啡旅宿等，一路吃超滿足。</p>
+                                <p>背後有一段神秘故事的白燈塔座落於琉球嶼東南方、厚石裙礁的西側山頂處。建造於日據時代，為白色圓形鋼筋混擬土構造，基座至塔頂約10公尺，光度射程可達二十浬之遠，
+                                    指引船隻順利往返，與鵝鑾鼻燈塔共同負責台灣海峽與巴士海峽船隻通行的安全。現在晚上在小琉球某些角度往最高處白燈塔座落的方向望去，能看到白燈塔於晚上發出來的光束，默默佇立在小琉球土地上成為安定海上人心的指標。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\1621866194-2004049519-g.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b4\b_11005716.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
@@ -67,90 +62,45 @@ export default function BlogShow() {
                     
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：穿屋巷</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：花瓶岩</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>依山而建的九份山城最大的特色就是有很多階梯，其中比較特別的就是這穿屋巷。穿屋巷就好像是一個山洞一樣，只是山洞的牆壁是由民宅屋頂、牆壁、樓地板所構成
-                                    ，在九份想要避開壅擠的人潮，利用穿屋巷是一種很便利的方法。</p>
+                                <p>花瓶岩為小琉球最顯眼、最著名的地標，常時可以發現它在各式介紹小琉球的摺頁出現。因為花瓶岩正位於白沙觀光港出入船隻的航道旁，目標十分明顯，且鄰近港邊，相距僅約短短三百公尺，因此常成為觀光客必遊與拍照打卡的IG熱門景點。而且隨著太陽光影移動與四季更迭，花瓶岩也會跟著展現不同風貌，可謂變化萬千。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\750218856_m.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b4\634050437675312500.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：九份金礦博物館</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：鹿粼梅花鹿園區</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>在九份停止採集金礦後，為了保留九份地區礦業的技能及文物，由礦工成立的九份金礦博物館裡面收藏許多早期九份礦業所留下來的文物及珍貴的礦石，而且還有淘金的體驗，想要了解以前怎麼採集金子來九份金礦博物館就對了！</p>
+                                <p>小琉球也有梅花鹿！不只超可愛，還很親人，在這邊你可以餵可愛的梅花鹿！鹿粼梅花鹿園區提供來小琉球的遊客，一個提倡注重生態環境的維護，愛護動物的觀念，是個提倡永續經營地球村的動物生態園區！</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\5279120_full.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b4\f8fc6c2177e4607dec28211b8522ee8e.jpg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
                         <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
                             <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：九份老街</h3>
+                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：與海龜共潛</h3>
                                 <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>九份老街是全台最有名的觀光老街，許多國際遊客來台必訪，早期因為採金礦發達，後來又因悲情城市爆紅，最後更因為神隱少女傳聞來阿妹茶樓取景，
-                                    廣受日本客喜愛，九份老街不分平假日總擠滿人潮，老街美食最有名的就是阿蘭草仔粿、芋圓、肉丸、花生捲冰淇淋每樣都好吃。</p>
+                                <p>來到小琉球必做的一件事！！！深入海中，潛水在藍色的海底，還能近距離接觸到保護動物「綠蠵龜」！
+                                    體驗水中無重力的自由漂浮感，感受日常生活無法體驗的奇妙旅程，進入另一個意向不到的奇幻世界。</p>
                                 
                             </div>
                             <div>
-                            <img src='\blogimg\b1\111.jpg' style={{width:'350px',height:'250px'}}></img>
+                            <img src='\blogimg\b4\10000002222701_Xvwv94ml_4.jpeg' style={{width:'350px',height:'250px'}}></img>
                            
                             
                             </div>
                         </div>
-                        <h2 id='2' style={{boxShadow:'0 2px',paddingBottom:'10px',width:'400px',marginTop:'60px'}}><i class="fa fa-map-o" aria-hidden="true"></i>  第三天</h2>
-                    
-                        <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
-                            <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第一站：山城食堂</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>位在水湳洞的山城食堂原是水湳洞遊客服務中心，現已是山城食堂，菜單以輕食、飲料為主，可以在這邊享用美味的餐點，同時也能欣賞周邊的美景。</p>
-                                
-                            </div>
-                            <div>
-                            <img src='\blogimg\b1\20180812014035759.jpg' style={{width:'350px',height:'250px'}}></img>
-                           
-                            
-                            </div>
-                        </div>
-                        <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
-                            <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第二站：山尖步道、水圳橋</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>山尖步道是聯絡九份到金瓜石、水湳洞的古道，沿著採金礦的山路而設，途中會看到許多礦業的遺跡，其中水圳橋更是許多人喜歡的景觀，水圳橋是採礦時代為了運水給選煉廠所蓋的橋梁。</p>
-                                
-                            </div>
-                            <div>
-                            <img src='\blogimg\b1\20200422011615_78.jpg' style={{width:'350px',height:'250px'}}></img>
-                           
-                            
-                            </div>
-                        </div>
-                        <div class="card"style={{display: 'grid',gridTemplateColumns:'65% 35%'}}>
-                            <div >
-                                <h3><i class="fa fa-map-marker" aria-hidden="true"></i>  第三站：猴硐火車站</h3>
-                                <p><i class="fa fa-calendar" aria-hidden="true"></i>  2022 / 1 /20</p>
-                                <p>猴硐在1990年畫下煤業發展句點後，就地保留礦業遺址，遊客可參訪具有53年歷史圓拱造型「運煤橋」，還有由整煤廠倉庫改建，內有礦工生活與物件陳列的願景館。
-                                後來因為貓咪聚集而有猴硐貓村之稱，經過網路媒體報導變得很熱門，貓村有許多可愛親人的貓咪，貓奴在這玩一整天都不是問題。
-
-
-                                </p>
-                                
-                            </div>
-                            <div>
-                            <img src='\blogimg\b1\20181016  20.jpg' style={{width:'350px',height:'250px'}}></img>
-                           
-                            
-                            </div>
-                        </div>
+                        
                     </div>
                     
                 </div>
@@ -168,7 +118,7 @@ export default function BlogShow() {
                     <ul>
                         <li><a href="#0">第一天</a></li>
                         <li><a href="#1">第二天</a></li>
-                        <li><a href="#2">第三天</a></li>
+                        
                     </ul>
                 </nav>
                 </div>

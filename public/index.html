@@ -33,6 +33,8 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  
 
   <title>React App</title>
   <style>
@@ -55,6 +57,17 @@
       background: rgb(35, 41, 116); 
     } */
     </style>
+    <script type="text/javascript">
+      function showPreview(event){
+      if(event.target.files.length > 0){
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("file-ip-1-preview");
+        preview.src = src;
+        preview.style.display = "block";
+      }
+    }
+    </script>
+   
 </head>
 
 <body>
@@ -95,6 +108,9 @@ $(".custom-option").on("click", function() {
   $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
 });
   </script>
+
+
+  
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <!--

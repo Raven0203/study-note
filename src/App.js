@@ -28,6 +28,11 @@ import About from "./components/About/About";
 import QuestionAnswer from "./components/QA/QuestionAnswer";
 import Blog from "./components/Blog/Blog";
 import BlogShow from "./components/Blog-show/BlogShow";
+import BlogShow2 from "./components/Blog-show/BlogShow2";
+import BlogShow3 from "./components/Blog-show/BlogShow3";
+import BlogShow4 from "./components/Blog-show/BlogShow4";
+import BlogShow5 from "./components/Blog-show/BlogShow5";
+import Blogeditor from "./components/Blogeditor/Blogeditor";
 
 function App() {
   const [user, setUser] = useState({});
@@ -63,8 +68,13 @@ function App() {
             <Route path="/journeyplanhome" element={<JourneyHome />} />
             <Route path="/map" element={<Map />} />
             <Route path="/blogshow" element={<BlogShow />} />
+            <Route path="/blogshow2" element={<BlogShow2 />} />
+            <Route path="/blogshow3" element={<BlogShow3 />} />
+            <Route path="/blogshow4" element={<BlogShow4 />} />
+            <Route path="/blogshow5" element={<BlogShow5 />} />
+            <Route path="/blogeditor" element={<Blogeditor />} />
           </Routes>
-          <Footer />
+          {/* <Footer /> */}
         </BrowserRouter>
 
       </div>
